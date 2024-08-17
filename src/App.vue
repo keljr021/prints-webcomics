@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <nav-bar />
-    <router-view/>
-    <footer-bar />
+    <div class="view">
+      <router-view/>
+      <footer-bar />
+    </div>
   </div>
 </template>
 <script>
@@ -17,7 +19,9 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss">
+$primary: #4E4C67; 
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -26,16 +30,16 @@ export default {
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+.cta, .headline {
+  font-family: "Ink Free";
+  text-align: left;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.cta {
+  font-size: 64px;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.headline {
+  font-size: 58px;
 }
 </style>
