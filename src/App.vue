@@ -43,7 +43,11 @@ $primary: #4E4C67;
   font-size: 58px;
 }
 
+.view {
+  padding-top: 77px;
+}
+
 .container {
-  padding: 100px 50px 50px;
+  padding: 50px;
 }
 </style>
