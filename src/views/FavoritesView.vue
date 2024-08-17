@@ -1,9 +1,9 @@
 <template>
-  <div class="authors container">
+  <div class="favorites container">
     <view-header>
-      <template v-slot:header>Authors</template>
+      <template v-slot:header>Favorite Comics</template>
       <template v-slot:caption>
-        <p>Meet the artists behind your favorite comics here! View their story and the various comics they have worked on.</p>
+        <p>These series below have been saved to this area.</p>
       </template>
     </view-header>
 
@@ -30,7 +30,7 @@
 import ViewHeader from './../components/ViewHeader.vue';
 import ComicItem from './../components/ComicItem.vue';
 export default {
-  name: 'AuthorsView',
+  name: 'FavoritesView',
   components: {
     ViewHeader,
     ComicItem
