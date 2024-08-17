@@ -15,7 +15,7 @@
 
       <template #end>
           <b-navbar-item tag="div">
-            <b-input class="px-4" placeholder="Search" />
+            <b-input class="px-4" placeholder="Search" v-model="searchQuery" @keyup.native.enter="handleSearch" />
             <div class="buttons">
                 <b-button type="is-primary" tag="router-link" to="/create" outlined>Create Account</b-button>
                 <b-button type="is-primary" outlined>Sign In</b-button>
@@ -28,7 +28,17 @@
 <script>
 export default {
   name: 'NavBar',
-  props: {}
+  data() {
+    return {
+      searchQuery: ''
+    };
+  },
+  props: {},
+  methods: {
+    handleSearch() {
+      return this.$router.push({ name: 'search', params: { query: this.searchQuery } });
+    }
+  }
 }
 </script>
 

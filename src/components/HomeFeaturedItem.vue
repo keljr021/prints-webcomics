@@ -37,7 +37,7 @@ export default {
 
 .featured-item-text {
     padding: 20px 0;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .featured-item-text-title {

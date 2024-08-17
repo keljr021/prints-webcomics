@@ -38,7 +38,7 @@ export default {
 
 .comic-item-text {
     padding: 20px 0;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .comic-item-text-title {
@@ -47,6 +47,7 @@ export default {
 
 .comic-item-text-cw {
     font-style: italic;
+    opacity: 0.75;
 }
 </style>
   

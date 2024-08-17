@@ -1,11 +1,11 @@
 <template>
   <div class="recommended container">
-    <div style="text-align:left">
-      <div class="headline">Recommended Comics</div>
-      <div style="padding-bottom:100px">
+    <view-header>
+      <template v-slot:header>Recommended Comics</template>
+      <template v-slot:caption>
         <p>These series below are recommended to you based on your reading history.</p>
-      </div>
-    </div>
+      </template>
+    </view-header>
 
     <div>
       <div class="columns">
@@ -27,10 +27,12 @@
 </template>
 
 <script>
+import ViewHeader from './../components/ViewHeader.vue';
 import ComicItem from './../components/ComicItem.vue';
 export default {
   name: 'RecommendedView',
   components: {
+    ViewHeader,
     ComicItem
   }
 }

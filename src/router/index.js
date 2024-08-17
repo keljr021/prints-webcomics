@@ -6,6 +6,8 @@ import RecommendedView from '../views/RecommendedView.vue'
 import GenresView from '../views/GenresView.vue'
 import AuthorsView from '../views/AuthorsView.vue'
 import PublishView from '../views/PublishView.vue'
+import SearchView from '../views/SearchView.vue'
+
 
 import CreateView from '../views/CreateView.vue'
 
@@ -49,6 +51,11 @@ const routes = [
     path: '/about',
     name: 'about',
     component: AboutView
+  },
+  {
+    path: '/search/:query',
+    name: 'search',
+    component: SearchView
   },
 ]
 
