@@ -6,18 +6,18 @@
         </b-navbar-item>
       </template>
       <template #start>
-        <b-navbar-item :to="{ path: '/' }">Home</b-navbar-item>
-        <b-navbar-item :to="{ name: 'recommended' }">Recommended</b-navbar-item>
-        <b-navbar-item :to="{ name: 'genres' }">Genres</b-navbar-item>
-        <b-navbar-item :to="{ name: 'authors' }">Authors</b-navbar-item>
-        <b-navbar-item :to="{ name: 'publish' }">Publish</b-navbar-item>
+        <b-navbar-item tag="router-link" to="/">Home</b-navbar-item>
+        <b-navbar-item tag="router-link" to="/recommended">Recommended</b-navbar-item>
+        <b-navbar-item tag="router-link" to="/genres">Genres</b-navbar-item>
+        <b-navbar-item tag="router-link" to="/authors">Authors</b-navbar-item>
+        <b-navbar-item tag="router-link" to="/publish">Publish</b-navbar-item>
       </template>
 
       <template #end>
           <b-navbar-item tag="div">
             <b-input class="px-4" placeholder="Search" />
             <div class="buttons">
-                <b-button type="is-primary" outlined>Create Account</b-button>
+                <b-button type="is-primary" tag="router-link" to="/create" outlined>Create Account</b-button>
                 <b-button type="is-primary" outlined>Sign In</b-button>
               </div>
           </b-navbar-item>

@@ -42,4 +42,8 @@ $primary: #4E4C67;
 .headline {
   font-size: 58px;
 }
+
+.container {
+  padding: 100px 50px 50px;
+}
 </style>
