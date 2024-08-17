@@ -1,11 +1,16 @@
 <template>
   <div>
-    Home view
+    Navbar Here
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeView'
+  name: 'NavBar',
+  props: {}
 }
 </script>
+
+<style scoped>
+
+</style>

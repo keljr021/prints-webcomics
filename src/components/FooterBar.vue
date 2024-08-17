@@ -1,11 +1,16 @@
 <template>
   <div>
-    Home view
+    Footer Here
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeView'
+  name: 'FooterBar',
+  props: {}
 }
 </script>
+
+<style scoped>
+
+</style>

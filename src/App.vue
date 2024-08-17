@@ -1,13 +1,22 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
+    <nav-bar />
     <router-view/>
+    <footer-bar />
   </div>
 </template>
-
+<script>
+import NavBar from './components/NavBar.vue';
+import FooterBar from './components/FooterBar.vue';
+export default {
+  name: 'App',
+  props: {},
+  components: {
+    NavBar,
+    FooterBar
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
