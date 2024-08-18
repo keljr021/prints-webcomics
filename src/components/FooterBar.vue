@@ -1,6 +1,6 @@
 <template>
   <div class="footer py-3">
-    <div class="columns py-3">
+    <div class="columns py-5">
       <div class="column is-half">
         <img src="./../assets/prints_logo_white.png" alt="Prints Webcomic and Hosting logo" class="logo">
       </div>
@@ -10,7 +10,7 @@
         <a class="px-4" :to="{ name: 'about' }">About</a>
         <a class="px-4" :to="{ name: 'contact' }">Contact Us</a>
 
-        <div class="footer-text py-3">
+        <div class="footer-text py-5">
           Some descriptor text at the bottom
         </div>
       </div>

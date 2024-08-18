@@ -49,5 +49,6 @@ $primary: #4E4C67;
 
 .container {
   padding: 50px;
+  text-align: left;
 }
 </style>
