@@ -9,7 +9,7 @@
                         {{ item  }}
                     </p>
                 </div>
-                <div class="cta-buttons" v-if="$slots.buttonRoute && $slots.buttonText">
+                <div class="cta-buttons" v-if="buttonRoute && buttonText">
                     <b-button type="is-primary" @click="handleClick">{{ buttonText }}</b-button>
                 </div>
             </div>

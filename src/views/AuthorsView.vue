@@ -9,16 +9,14 @@
 
     <div>
       <div class="columns">
-        <div class="column is-one-quarter"><comic-item /></div>
-        <div class="column is-one-quarter"><comic-item /></div>
-        <div class="column is-one-quarter"><comic-item /></div>
-        <div class="column is-one-quarter"><comic-item /></div>
+        <div class="column is-one-third"><authors-item authorName="Test Author" genre="Action, adventure, slice-of-life"/></div>
+        <div class="column is-one-third"><authors-item authorName="Test Author" genre="Action, adventure, slice-of-life"/></div>
+        <div class="column is-one-third"><authors-item authorName="Test Author" genre="Action, adventure, slice-of-life"/></div>
       </div>
       <div class="columns">
-        <div class="column is-one-quarter"><comic-item /></div>
-        <div class="column is-one-quarter"><comic-item /></div>
-        <div class="column is-one-quarter"><comic-item /></div>
-        <div class="column is-one-quarter"><comic-item /></div>
+        <div class="column is-one-third"><authors-item authorName="Test Author" genre="Action, adventure, slice-of-life"/></div>
+        <div class="column is-one-third"><authors-item authorName="Test Author" genre="Action, adventure, slice-of-life"/></div>
+        <div class="column is-one-third"><authors-item authorName="Test Author" genre="Action, adventure, slice-of-life"/></div>
       </div>
     </div>
   </div>
@@ -28,12 +26,12 @@
 
 <script>
 import ViewHeader from './../components/ViewHeader.vue';
-import ComicItem from './../components/ComicItem.vue';
+import AuthorsItem from './../components/AuthorsItem.vue';
 export default {
   name: 'AuthorsView',
   components: {
     ViewHeader,
-    ComicItem
+    AuthorsItem
   }
 }
 </script>
