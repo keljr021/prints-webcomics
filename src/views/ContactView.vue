@@ -28,13 +28,13 @@
           <div class="py-3">
             <b>Toll-Free Phone</b><br />
             <a href="tel:9195885198">(919) 588-5198</a><br />
-            (910) 488-9985
+            <a href="tel:9104889985">(910) 488-9985</a>
           </div>
 
           <div class="py-3">
             <b>Email</b><br />
-            contact@prints.com<br />
-            services@prints.com
+            <a href="mailto:contact@prints.com">contact@prints.com</a><br />
+            <a href="mailto:services@prints.com">services@prints.com</a>
           </div>
         </div>
       </div>
@@ -60,5 +60,9 @@ export default {
 
 .contact .column {
   padding-right: 50px;
+}
+
+.contact a {
+  color: black;
 }
 </style>

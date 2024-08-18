@@ -1,5 +1,5 @@
 <template>
-    <section class="hero is-medium is-link">
+    <section class="hero hero-img is-medium is-link">
         <div class="columns hero-body">
             <div class="column is-half">&nbsp;</div>
             <div class="column is-half">
@@ -34,10 +34,23 @@ export default {
 }
 </script>
 <style>
-.hero {
+.hero .hero-img {
     padding-left: 0;
     padding-right: 0;
+    min-height: 630px;
 }
+
+.home .hero-img,
+.about .hero-img {
+    background:linear-gradient(0deg, rgba(78, 76, 103, 0.7), rgba(78, 76, 103, 0.7)), url(./../assets/pexels-niezam-16516.jpg);
+    background-size: cover;
+}
+
+.publish .hero-img {
+    background:linear-gradient(0deg, rgba(78, 76, 103, 0.7), rgba(78, 76, 103, 0.7)), url(./../assets/drawing-2228403_1280.jpg);
+    background-size: cover;
+}
+
 
 .cta, .cta-text, .cta-buttons {
     text-align: left;

@@ -46,6 +46,7 @@ export default {
 
 .featured-item-text-cw {
     font-style: italic;
+    opacity: 0.7;
 }
 </style>
   

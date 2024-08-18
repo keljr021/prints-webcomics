@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home">
     <hero-img title="Welcome everyone!" :text="getHeroText" buttonText="Explore Genres" buttonRoute="genre"/>
     <home-featured-list />
     <home-authors />

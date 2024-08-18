@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="publish">
     <hero-img title="Ready to Create?" :text="getHeroText" buttonText="Create an Account Today!" buttonRoute="create" />
     
     <div class="authors container">

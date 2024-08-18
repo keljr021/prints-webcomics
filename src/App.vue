@@ -20,7 +20,7 @@ export default {
 }
 </script>
 <style lang="scss">
-$primary: #4E4C67; 
+$primary: #4e4c67; 
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
