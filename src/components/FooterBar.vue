@@ -5,11 +5,10 @@
         <img src="./../assets/prints_logo_white.png" alt="Prints Webcomic and Hosting logo" class="logo">
       </div>
       <div class="column is-half footer-links">
-        <a class="px-4" :to="{ name: '404' }">Terms and Conditions</a>
-        <a class="px-4" :to="{ name: '404' }">Privacy Policy </a>
-        <a class="px-4" :to="{ name: 'about' }">About</a>
-        <a class="px-4" :to="{ name: 'contact' }">Contact Us</a>
-
+        <RouterLink class="px-4" to="/terms">Terms and Conditions</RouterLink>
+        <RouterLink class="px-4" to="/privacy">Privacy Policy </RouterLink>
+        <RouterLink class="px-4" to="/about">About</RouterLink>
+        <RouterLink class="px-4" to="/contact">Contact Us</RouterLink>
         <div class="footer-text py-5">
           Some descriptor text at the bottom
         </div>

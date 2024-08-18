@@ -43,6 +43,11 @@ $primary: #4E4C67;
   font-size: 58px;
 }
 
+.subtitle {
+  font-family: "Komika Text Tight";
+  font-size: 48px;
+}
+
 .view {
   padding-top: 77px;
 }

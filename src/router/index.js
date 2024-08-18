@@ -8,15 +8,25 @@ import AuthorsView from '../views/AuthorsView.vue'
 import PublishView from '../views/PublishView.vue'
 import SearchView from '../views/SearchView.vue'
 
-
 import CreateView from '../views/CreateView.vue'
+import DashboardView from '../views/DashboardView.vue'
+import HistoryView from '../views/HistoryView.vue'
+import FavoritesView from '../views/FavoritesView.vue'
+import AccountView from '../views/AccountView.vue'
 
 import AboutView from '../views/AboutView.vue'
+import ContactView from '../views/ContactView.vue'
+import NotFoundView from '../views/NotFoundView.vue'
 
 
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '*',
+    name: '404',
+    component: NotFoundView
+  },
   {
     path: '/',
     name: 'home',
@@ -43,14 +53,44 @@ const routes = [
     component: PublishView
   },
   {
-    path: '/create',
-    name: 'create',
-    component: CreateView
+    path: '/create/:id',
+    children: [
+      {
+        path: '',
+        name: 'create',
+        component: CreateView
+      },
+      {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: DashboardView
+      },
+      {
+        path: '/favorites',
+        name: 'favorites',
+        component: FavoritesView
+      },
+      {
+        path: '/history',
+        name: 'history',
+        component: HistoryView
+      },
+      {
+        path: '/account',
+        name: 'account',
+        component: AccountView
+      },
+    ]
   },
   {
     path: '/about',
     name: 'about',
     component: AboutView
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: ContactView
   },
   {
     path: '/search/:query',
