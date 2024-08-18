@@ -1,11 +1,34 @@
 <template>
   <div>
-    <hero-img title="Ready to Create?" :text="getHeroText" buttonText="Create an Account Today!" buttonRoute="create"/>
-</div>
+    <hero-img title="Ready to Create?" :text="getHeroText" buttonText="Create an Account Today!" buttonRoute="create" />
+    
+    <div class="authors container">
+      <view-header>
+        <template v-slot:header>Why Publish With Us?</template>
+      </view-header>
+      <div class="columns">
+        <div class="column is-half">
+          x
+        </div>
+        <div class="column is-half">
+          x
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-half">
+          x
+        </div>
+        <div class="column is-half">
+          x
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 import HeroImg from './../components/HeroImg.vue';
+import ViewHeader from './../components/ViewHeader.vue';
 export default {
   name: 'HomeView',
   computed: {
@@ -17,7 +40,8 @@ export default {
     }
   },
   components: {
-    HeroImg
+    HeroImg,
+    ViewHeader
   }
 }
 </script>
