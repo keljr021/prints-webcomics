@@ -6,8 +6,10 @@
 
     <div>
       <div class="columns">
-        <div class="column is-one-quarter">Submenu</div>
-        <div class="column is-three-fourths">
+        <div class="column is-one-quarter">
+          <genres-sub-menu />
+        </div>
+        <div class="column is-three-fourths fixed-box">
             <div class="columns">
                 <div class="column is-one-third"><comic-item /></div>
                 <div class="column is-one-third"><comic-item /></div>
@@ -28,6 +30,7 @@
 
 <script>
 import ViewHeader from './../components/ViewHeader.vue';
+import GenresSubMenu from './../components/GenresSubMenu.vue';
 import ComicItem from './../components/ComicItem.vue';
 export default {
   name: 'GenresView',
@@ -38,10 +41,16 @@ export default {
   },
   components: {
     ViewHeader,
+    GenresSubMenu,
     ComicItem
   }
 }
 </script>
 
 <style>
+.fixed-box {
+  width: initial;
+  max-height: 600px;
+  overflow: hidden auto;
+}
 </style>
