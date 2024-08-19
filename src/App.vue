@@ -31,15 +31,16 @@ $primary: #4e4c67;
 }
 
 .cta, .headline {
-  font-family: "Ink Free";
   text-align: left;
 }
 
 .cta {
+  font-family: "Caveat Brush", Arial Narrow, sans-serif;
   font-size: 64px;
 }
 
 .headline {
+  font-family: "Caveat", Arial Narrow, sans-serif;
   font-size: 58px;
 }
 

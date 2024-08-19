@@ -57,7 +57,7 @@ export default {
 }
 
 .cta {
-    padding-bottom: 25px; 
+    padding-bottom: 10px; 
 }
 
 .cta-text {
