@@ -12,7 +12,7 @@ import HeroImg from '@/components/HeroImg.vue';
 import HomeAuthors from '@/components/HomeAuthors.vue';
 import HomeFeaturedList from '@/components/HomeFeaturedList.vue';
 export default {
-  name: 'HomeView',
+  name: 'Home',
   computed: {
     getHeroText() {
       return [
