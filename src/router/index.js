@@ -9,6 +9,10 @@ import ViewAuthor from '../views/ViewAuthor.vue'
 import Publish from '../views/Publish.vue'
 import Search from '../views/Search.vue'
 
+import Series from '../views/Series.vue'
+import View from '../views/View.vue'
+
+
 import Create from '../views/Create.vue'
 import Dashboard from '../views/Dashboard.vue'
 import History from '../views/History.vue'
@@ -22,11 +26,6 @@ import NotFound from '../views/NotFound.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '*',
-    name: '404',
-    component: NotFound
-  },
   {
     path: '/',
     name: 'home',
@@ -53,15 +52,40 @@ const routes = [
     component: ViewAuthor
   },
   {
+    path: '/search/:query',
+    name: 'search',
+    component: Search
+  },
+  {
     path: '/publish',
     name: 'publish',
     component: Publish
   },
   {
+    path: '/about',
+    name: 'about',
+    component: About
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: Contact
+  },
+  {
+    path: '/series/:seriesId',
+    name: 'series',
+    component: Series
+  },
+  {
+    path: '/series/:seriesId/:chapterId',
+    name: 'view',
+    component: View
+  },
+  {
     path: '/create/:id',
     children: [
       {
-        path: '',
+        path: '/',
         name: 'create',
         component: Create
       },
@@ -88,19 +112,9 @@ const routes = [
     ]
   },
   {
-    path: '/about',
-    name: 'about',
-    component: About
-  },
-  {
-    path: '/contact',
-    name: 'contact',
-    component: Contact
-  },
-  {
-    path: '/search/:query',
-    name: 'search',
-    component: Search
+    path: '*',
+    name: '404',
+    component: NotFound
   },
 ]
 

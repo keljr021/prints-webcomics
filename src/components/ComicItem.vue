@@ -1,5 +1,5 @@
 <template>
-    <div class="comic-item">
+    <div class="comic-item" @click="viewSeries">
         <div class="comic-item-image">
             <img src="./../assets/cartoon-5190776_1280.jpg" />
         </div>
@@ -16,10 +16,15 @@
 export default {
     name: 'ComicItem',
     props: {
-        
+        id: {
+            type: String,
+            default: '0'
+        }
     },
     methods: {
-
+        viewSeries() {
+            return this.$router.push({ path: '/series/' + this.id });
+        }
     }
 }
 </script>
