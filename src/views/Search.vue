@@ -1,15 +1,21 @@
 <template>
-  <div class="genres container">
+  <div class="recommended container">
     <view-header>
-      <template v-slot:header>Genres</template>
+      <template v-slot:header>Search Results</template>
+      <template v-slot:caption>
+        <p>
+            <span>{{  numResults }}</span>&nbsp;
+            Results for: 
+            <span>{{  $route.params.query }}</span>
+        </p>
+    </template>
+
     </view-header>
 
     <div>
       <div class="columns">
-        <div class="column is-one-quarter">
-          <genres-sub-menu />
-        </div>
-        <div class="column is-three-fourths fixed-box">
+        <div class="column is-one-quarter">Submenu</div>
+        <div class="column is-three-fourths">
             <div class="columns">
                 <div class="column is-one-third"><comic-item /></div>
                 <div class="column is-one-third"><comic-item /></div>
@@ -30,10 +36,9 @@
 
 <script>
 import ViewHeader from './../components/ViewHeader.vue';
-import GenresSubMenu from './../components/GenresSubMenu.vue';
 import ComicItem from './../components/ComicItem.vue';
 export default {
-  name: 'GenresView',
+  name: 'Search',
   data() {
     return {
         numResults: 20
@@ -41,16 +46,10 @@ export default {
   },
   components: {
     ViewHeader,
-    GenresSubMenu,
     ComicItem
   }
 }
 </script>
 
 <style>
-.fixed-box {
-  width: initial;
-  max-height: 600px;
-  overflow: hidden auto;
-}
 </style>

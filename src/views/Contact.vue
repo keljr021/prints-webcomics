@@ -45,7 +45,7 @@
 <script>
 import ViewHeader from './../components/ViewHeader.vue';
 export default {
-  name: 'ContactView',
+  name: 'Contact',
   components: {
     ViewHeader
   }

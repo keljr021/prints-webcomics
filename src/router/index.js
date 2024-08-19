@@ -2,21 +2,21 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
-import RecommendedView from '../views/RecommendedView.vue'
-import GenresView from '../views/GenresView.vue'
-import AuthorsView from '../views/AuthorsView.vue'
-import PublishView from '../views/PublishView.vue'
-import SearchView from '../views/SearchView.vue'
+import Recommended from '../views/Recommended.vue'
+import Genres from '../views/Genres.vue'
+import Authors from '../views/Authors.vue'
+import Publish from '../views/Publish.vue'
+import Search from '../views/Search.vue'
 
-import CreateView from '../views/CreateView.vue'
-import DashboardView from '../views/DashboardView.vue'
-import HistoryView from '../views/HistoryView.vue'
-import FavoritesView from '../views/FavoritesView.vue'
-import AccountView from '../views/AccountView.vue'
+import Create from '../views/Create.vue'
+import Dashboard from '../views/Dashboard.vue'
+import History from '../views/History.vue'
+import Favorites from '../views/Favorites.vue'
+import Account from '../views/Account.vue'
 
-import AboutView from '../views/AboutView.vue'
-import ContactView from '../views/ContactView.vue'
-import NotFoundView from '../views/NotFoundView.vue'
+import About from '../views/About.vue'
+import Contact from '../views/Contact.vue'
+import NotFound from '../views/NotFound.vue'
 
 
 Vue.use(VueRouter)
@@ -25,7 +25,7 @@ const routes = [
   {
     path: '*',
     name: '404',
-    component: NotFoundView
+    component: NotFound
   },
   {
     path: '/',
@@ -35,22 +35,22 @@ const routes = [
   {
     path: '/recommended',
     name: 'recommended',
-    component: RecommendedView
+    component: Recommended
   },
   {
     path: '/genres',
     name: 'genres',
-    component: GenresView
+    component: Genres
   },
   {
     path: '/authors',
     name: 'authors',
-    component: AuthorsView
+    component: Authors
   },
   {
     path: '/publish',
     name: 'publish',
-    component: PublishView
+    component: Publish
   },
   {
     path: '/create/:id',
@@ -58,44 +58,44 @@ const routes = [
       {
         path: '',
         name: 'create',
-        component: CreateView
+        component: Create
       },
       {
         path: '/dashboard',
         name: 'dashboard',
-        component: DashboardView
+        component: Dashboard
       },
       {
         path: '/favorites',
         name: 'favorites',
-        component: FavoritesView
+        component: Favorites
       },
       {
         path: '/history',
         name: 'history',
-        component: HistoryView
+        component: History
       },
       {
         path: '/account',
         name: 'account',
-        component: AccountView
+        component: Account
       },
     ]
   },
   {
     path: '/about',
     name: 'about',
-    component: AboutView
+    component: About
   },
   {
     path: '/contact',
     name: 'contact',
-    component: ContactView
+    component: Contact
   },
   {
     path: '/search/:query',
     name: 'search',
-    component: SearchView
+    component: Search
   },
 ]
 

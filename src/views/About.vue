@@ -46,7 +46,7 @@
 import HeroImg from './../components/HeroImg.vue';
 import AboutItem from './../components/AboutItem.vue';
 export default {
-  name: 'AboutView',
+  name: 'About',
   computed: {
     getHeroText() {
       return [

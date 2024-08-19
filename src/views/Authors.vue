@@ -28,7 +28,7 @@
 import ViewHeader from './../components/ViewHeader.vue';
 import AuthorsItem from './../components/AuthorsItem.vue';
 export default {
-  name: 'AuthorsView',
+  name: 'Authors',
   components: {
     ViewHeader,
     AuthorsItem

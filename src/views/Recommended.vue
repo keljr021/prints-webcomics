@@ -1,9 +1,9 @@
 <template>
-  <div class="favorites container">
+  <div class="recommended container">
     <view-header>
-      <template v-slot:header>Favorite Comics</template>
+      <template v-slot:header>Recommended Comics</template>
       <template v-slot:caption>
-        <p>These series below have been saved to this area.</p>
+        <p>These series below are recommended to you based on your reading history.</p>
       </template>
     </view-header>
 
@@ -30,7 +30,7 @@
 import ViewHeader from './../components/ViewHeader.vue';
 import ComicItem from './../components/ComicItem.vue';
 export default {
-  name: 'FavoritesView',
+  name: 'Recommended',
   components: {
     ViewHeader,
     ComicItem

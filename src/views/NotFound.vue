@@ -18,7 +18,7 @@
 <script>
 import ViewHeader from './../components/ViewHeader.vue';
 export default {
-  name: 'NotFoundView',
+  name: 'NotFound',
   components: {
     ViewHeader
   }

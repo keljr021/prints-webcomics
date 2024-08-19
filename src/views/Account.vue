@@ -1,7 +1,7 @@
 <template>
-  <div class="create container">
+  <div class="account container">
     <view-header>
-      <template v-slot:header>Create a New Account</template>
+      <template v-slot:header>Manage Account</template>
     </view-header>
 
     <div>
@@ -93,9 +93,9 @@
 </template>
 
 <script>
-import ViewHeader from '@/components/ViewHeader.vue';
+import ViewHeader from './../components/ViewHeader.vue';
 export default {
-  name: 'CreateView',
+  name: 'Account',
   components: {
     ViewHeader
   }

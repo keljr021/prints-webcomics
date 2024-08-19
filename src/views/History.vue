@@ -1,7 +1,7 @@
 <template>
-  <div class="dashboard container">
+  <div class="history container">
     <view-header>
-      <template v-slot:header>Dashboard</template>
+      <template v-slot:header>History</template>
     </view-header>
     <div>
       x
@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import ViewHeader from '@/components/ViewHeader.vue';
+import ViewHeader from './../components/ViewHeader.vue';
 export default {
-  name: 'DashboardView',
+  name: 'History',
   components: {
     ViewHeader
   }
