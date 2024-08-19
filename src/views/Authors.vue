@@ -9,14 +9,14 @@
 
     <div>
       <div class="columns">
-        <div class="column is-one-third"><authors-item authorName="Test Author" genre="Action, adventure, slice-of-life"/></div>
-        <div class="column is-one-third"><authors-item authorName="Test Author" genre="Action, adventure, slice-of-life"/></div>
-        <div class="column is-one-third"><authors-item authorName="Test Author" genre="Action, adventure, slice-of-life"/></div>
+        <div class="column is-one-third" @click="viewAuthor()"><authors-item authorName="Test Author" genre="Action, adventure, slice-of-life"/></div>
+        <div class="column is-one-third" @click="viewAuthor()"><authors-item authorName="Test Author" genre="Action, adventure, slice-of-life"/></div>
+        <div class="column is-one-third" @click="viewAuthor()"><authors-item authorName="Test Author" genre="Action, adventure, slice-of-life"/></div>
       </div>
       <div class="columns">
-        <div class="column is-one-third"><authors-item authorName="Test Author" genre="Action, adventure, slice-of-life"/></div>
-        <div class="column is-one-third"><authors-item authorName="Test Author" genre="Action, adventure, slice-of-life"/></div>
-        <div class="column is-one-third"><authors-item authorName="Test Author" genre="Action, adventure, slice-of-life"/></div>
+        <div class="column is-one-third" @click="viewAuthor()"><authors-item authorName="Test Author" genre="Action, adventure, slice-of-life"/></div>
+        <div class="column is-one-third" @click="viewAuthor()"><authors-item authorName="Test Author" genre="Action, adventure, slice-of-life"/></div>
+        <div class="column is-one-third" @click="viewAuthor()"><authors-item authorName="Test Author" genre="Action, adventure, slice-of-life"/></div>
       </div>
     </div>
   </div>
@@ -32,6 +32,11 @@ export default {
   components: {
     ViewHeader,
     AuthorsItem
+  },
+  methods: {
+    viewAuthor() {
+      this.$router.push({ name: 'viewAuthor', params: { id: 0 }});
+    }
   }
 }
 </script>

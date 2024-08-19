@@ -35,7 +35,7 @@ $primary: #4e4c67;
 }
 
 .cta {
-  font-family: "Caveat Brush", Arial Narrow, sans-serif;
+  font-family: "Caveat Brush", Arial, sans-serif;
   font-size: 64px;
 }
 
@@ -45,8 +45,8 @@ $primary: #4e4c67;
 }
 
 .subtitle {
-  font-family: "Komika Text Tight";
-  font-size: 48px;
+  font-family: "Komika Text Tight", Arial Narrow, sans-serif;
+  font-size: 40px !important;
 }
 
 .view {

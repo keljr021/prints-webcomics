@@ -5,6 +5,7 @@ import Home from '../views/Home.vue'
 import Recommended from '../views/Recommended.vue'
 import Genres from '../views/Genres.vue'
 import Authors from '../views/Authors.vue'
+import ViewAuthor from '../views/ViewAuthor.vue'
 import Publish from '../views/Publish.vue'
 import Search from '../views/Search.vue'
 
@@ -17,7 +18,6 @@ import Account from '../views/Account.vue'
 import About from '../views/About.vue'
 import Contact from '../views/Contact.vue'
 import NotFound from '../views/NotFound.vue'
-
 
 Vue.use(VueRouter)
 
@@ -44,8 +44,13 @@ const routes = [
   },
   {
     path: '/authors',
-    name: 'authors',
+    name: 'Authors',
     component: Authors
+  },
+  {
+    path: '/authors/:id',
+    name: 'viewAuthor',
+    component: ViewAuthor
   },
   {
     path: '/publish',
