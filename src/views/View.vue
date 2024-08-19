@@ -6,10 +6,10 @@
     <div class="view-author">
         <div class="container">
             <div class="columns">
-                <div class="column is-three-fourths">
+                <div class="column is-three-fourths view-author-info">
                     x
                 </div>
-                <div class="column is-quarter">
+                <div class="column is-quarter view-author-image">
                     x
                 </div>
             </div>
