@@ -1,6 +1,12 @@
 <template>
   <div class="view">
+    <view-comic-menu />
     <div class="view-comic">
+        <div class="view-comic-header">
+            <div class="view-comic-header-title">Celestial Forests</div>
+            <div class="view-comic-header-chapter">Introduction</div>
+        </div>
+        
         <div class="columns is-align-items-center">
             <div class="example-comic"></div>
         </div>
@@ -52,10 +58,12 @@
 
 <script>
 import CommentItem from '../components/CommentItem.vue';
+import ViewComicMenu from '../components/ViewComicMenu.vue';
 export default {
   name: 'ViewComic',
   components: {
-    CommentItem
+    CommentItem,
+    ViewComicMenu
   }
 }
 </script>
@@ -67,8 +75,35 @@ export default {
     padding-bottom: 40px;
 }
 
+.view-comic-header {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    min-width: 300px;
+    padding: 5px 0;
+    background-color: #4E4C67;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: white;
+    text-align: left;
+}
+
+.view-comic-header-title,
+.view-comic-header-chapter {
+    padding: 5px 30px;
+}
+
+.view-comic-header-title {
+    font-size: 32px;
+    font-weight: 500px;
+}
+
+.view-comic-header-chapter {
+    width: 80%;
+    font-size: 24px;
+}
+
 .view-comic-image {
-    text-align: center;
+    padding-top: 150px;
 }
 
 .example-comic {
