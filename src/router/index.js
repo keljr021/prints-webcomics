@@ -82,34 +82,29 @@ const routes = [
     component: ViewComic
   },
   {
-    path: '/create/:id',
-    children: [
-      {
-        path: '/',
-        name: 'create',
-        component: Create
-      },
-      {
-        path: '/dashboard',
-        name: 'dashboard',
-        component: Dashboard
-      },
-      {
-        path: '/favorites',
-        name: 'favorites',
-        component: Favorites
-      },
-      {
-        path: '/history',
-        name: 'history',
-        component: History
-      },
-      {
-        path: '/account',
-        name: 'account',
-        component: Account
-      },
-    ]
+    path: '/create',
+    name: 'create',
+    component: Create
+  },
+  {
+    path: '/create/dashboard',
+    name: 'dashboard',
+    component: Dashboard
+  },
+  {
+    path: '/favorites',
+    name: 'favorites',
+    component: Favorites
+  },
+  {
+    path: '/history',
+    name: 'history',
+    component: History
+  },
+  {
+    path: '/account',
+    name: 'account',
+    component: Account
   },
   {
     path: '*',
