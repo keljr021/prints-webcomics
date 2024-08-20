@@ -2,19 +2,19 @@
     <div class="menu">
         <div class="menu-list" :class="{ 'active': showMenu }">
             <div class="menu-list-item">
-                <b-button @click="handleLike()" class="is-light" size="is-small" outlined icon-left="fa-thumbs-up">Like</b-button>
+                <b-button @click="handleLike()" class="is-light" size="is-small" type="is-primary" outlined icon-left="fa-thumbs-up">Like</b-button>
             </div>
             <div class="menu-list-item">
-                <b-button @click="handleFavorite()" class="is-light" size="is-small" outlined icon-left="fa-star">Favorite</b-button>
+                <b-button @click="handleFavorite()" class="is-light" size="is-small" type="is-primary" outlined icon-left="fa-star">Favorite</b-button>
             </div>
             <div class="menu-list-item">
-                <b-button @click="handleComments()" class="is-light" size="is-small" outlined icon-left="fa-comment">Comments</b-button>
+                <b-button @click="handleComments()" class="is-light" size="is-small" type="is-primary" outlined icon-left="fa-comment">Comments</b-button>
             </div>
             <div class="menu-list-item">
-                <b-button @click="handleShare()" class="is-light" size="is-small" outlined icon-left="fa-share-from-square">Share</b-button>
+                <b-button @click="handleShare()" class="is-light" size="is-small" type="is-primary" outlined icon-left="fa-share-from-square">Share</b-button>
             </div>
             <div class="menu-list-item">
-                <b-button @click="handleBack()" class="is-light" size="is-small" outlined icon-left="fa-arrow-left">Back</b-button>
+                <b-button @click="handleBack()" class="is-light" size="is-small" type="is-primary" outlined icon-left="fa-arrow-left">Back</b-button>
             </div>
         </div>
         <b-button @click="toggleMenu()" class="is-light" size="is-medium" type="is-primary" outlined icon-right="fa-bars" />
@@ -28,6 +28,9 @@ export default {
     return {
         showMenu: false
     };
+  },
+  props: {
+    seriesId: String
   },
   methods: {
     toggleMenu() {
@@ -50,8 +53,7 @@ export default {
         this.toggleMenu();
     },
     handleBack() {
-        console.log('back button clicked.');
-        this.toggleMenu();
+        this.$router.push({ path: '/series/' + this.seriesId });
     }
   }
 }

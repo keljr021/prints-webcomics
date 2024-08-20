@@ -1,14 +1,18 @@
 <template>
   <div class="view">
-    <view-comic-menu />
+    <view-comic-menu :seriesId="0" />
     <div class="view-comic">
         <div class="view-comic-header">
             <div class="view-comic-header-title">Celestial Forests</div>
             <div class="view-comic-header-chapter">Introduction</div>
         </div>
         
-        <div class="columns is-align-items-center">
-            <div class="example-comic"></div>
+        <div class="columns">
+            <div class="column is-quarter">&nbsp;</div>
+            <div class="column is-half">
+                <div class="example-comic"></div>
+            </div>
+            <div class="column is-quarter">&nbsp;</div>
         </div>
     </div>
     <div class="view-description">
@@ -111,8 +115,8 @@ export default {
     height: 1940px;
     background: #aaa;
 }
-.view-descpription {
-    background: #ccc;
+.view-description {
+    background: #eee;
 }
 
 .view-description-text-caption {
