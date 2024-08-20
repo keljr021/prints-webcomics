@@ -10,7 +10,7 @@ import Publish from '../views/Publish.vue'
 import Search from '../views/Search.vue'
 
 import Series from '../views/Series.vue'
-import View from '../views/View.vue'
+import ViewComic from '../views/ViewComic.vue'
 
 
 import Create from '../views/Create.vue'
@@ -78,8 +78,8 @@ const routes = [
   },
   {
     path: '/series/:seriesId/:chapterId',
-    name: 'view',
-    component: View
+    name: 'viewComic',
+    component: ViewComic
   },
   {
     path: '/create/:id',
