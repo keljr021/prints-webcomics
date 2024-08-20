@@ -43,7 +43,7 @@
            <div class="columns">
             <div class="column">
               <div class="cover-img"></div>
-              <div class="pb-3">
+              <div class="pb-3" style="font-style:italic">
                 Must be at least<br>
                 1200x700 pixels and<br>
                 in JPG or PNG format.
@@ -64,7 +64,7 @@
            <div class="columns">
             <div class="column">
               <div class="thumb-img"></div>
-              <div class="pb-3">
+              <div class="pb-3" style="font-style:italic">
                 Must be at least<br>
                 200x200 pixels and<br>
                 in JPG or PNG format.
