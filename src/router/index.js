@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
+import Home from '../views/Home.vue'
 import Recommended from '../views/Recommended.vue'
 import Genres from '../views/Genres.vue'
 import Authors from '../views/Authors.vue'
@@ -12,9 +12,10 @@ import Search from '../views/Search.vue'
 import Series from '../views/Series.vue'
 import ViewComic from '../views/ViewComic.vue'
 
-
-import Create from '../views/Create.vue'
+import CreateAccount from '../views/CreateAccount.vue'
 import Dashboard from '../views/Dashboard.vue'
+import CreateSeries from '../views/CreateSeries.vue'
+import CreateChapter from '../views/CreateChapter.vue'
 import History from '../views/History.vue'
 import Favorites from '../views/Favorites.vue'
 import Account from '../views/Account.vue'
@@ -38,6 +39,11 @@ const routes = [
   },
   {
     path: '/genres',
+    name: 'genres',
+    component: Genres
+  },
+  {
+    path: '/genres/:genre',
     name: 'genres',
     component: Genres
   },
@@ -82,14 +88,19 @@ const routes = [
     component: ViewComic
   },
   {
-    path: '/create',
-    name: 'create',
-    component: Create
-  },
-  {
     path: '/create/dashboard',
     name: 'dashboard',
     component: Dashboard
+  },
+  {
+    path: '/create/series',
+    name: 'createSeries',
+    component: CreateSeries
+  },
+  {
+    path: '/create/chapter',
+    name: 'createChapter',
+    component: CreateChapter
   },
   {
     path: '/favorites',
@@ -105,6 +116,11 @@ const routes = [
     path: '/account',
     name: 'account',
     component: Account
+  },
+  {
+    path: '/account/new',
+    name: 'createAccount',
+    component: CreateAccount
   },
   {
     path: '*',

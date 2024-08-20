@@ -85,7 +85,7 @@
       </div>
       <div class="columns">
         <div class="column">
-          <b-button type="is-primary" tag="router-link" :to="{ name: 'dashboard' }">Create Account</b-button>
+          <b-button type="is-primary" tag="router-link" :to="{ name: 'dashboard' }">Update Account</b-button>
         </div>
       </div>
     </div>

@@ -95,7 +95,7 @@
 <script>
 import ViewHeader from '@/components/ViewHeader.vue';
 export default {
-  name: 'Create',
+  name: 'CreateAccount',
   components: {
     ViewHeader
   }

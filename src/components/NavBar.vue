@@ -17,7 +17,7 @@
           <b-navbar-item tag="div">
             <b-input class="px-4" placeholder="Search" v-model="searchQuery" @keyup.native.enter="handleSearch" />
             <div class="buttons">
-                <b-button type="is-primary" tag="router-link" to="/create" outlined>Create Account</b-button>
+                <b-button type="is-primary" tag="router-link" to="/account/new" outlined>Create Account</b-button>
                 <b-button type="is-primary" outlined>Sign In</b-button>
               </div>
           </b-navbar-item>
