@@ -7,6 +7,12 @@
       </template>
     </view-header>
 
+    <div class="columns py-4" style="text-align:right">
+      <div class="column">
+        <sort-dropdown />
+      </div>
+    </div>
+
     <div>
       <div class="columns">
         <div class="column is-one-third" @click="viewAuthor()"><authors-item authorName="Test Author" genre="Action, adventure, slice-of-life"/></div>
@@ -27,11 +33,13 @@
 <script>
 import ViewHeader from './../components/ViewHeader.vue';
 import AuthorsItem from './../components/AuthorsItem.vue';
+import SortDropdown from './../components/SortDropdown.vue';
 export default {
   name: 'Authors',
   components: {
     ViewHeader,
-    AuthorsItem
+    AuthorsItem,
+    SortDropdown
   },
   methods: {
     viewAuthor() {

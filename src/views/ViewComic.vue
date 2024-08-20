@@ -44,9 +44,14 @@
                         Comments
                         <b-button type="is-primary" class="pa-2 mx-5" outlined>Add Comment</b-button>
                     </div>
+
                 </div>
-                <div class="column">
-                    x
+                <div class="column is-quarter">
+                    <div class="columns" style="text-align:right">
+                        <div class="column">
+                            <sort-dropdown />
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="view-comments-items">
@@ -63,11 +68,13 @@
 <script>
 import CommentItem from '../components/CommentItem.vue';
 import ViewComicMenu from '../components/ViewComicMenu.vue';
+import SortDropdown from '../components/SortDropdown.vue';
 export default {
   name: 'ViewComic',
   components: {
     CommentItem,
-    ViewComicMenu
+    ViewComicMenu,
+    SortDropdown
   }
 }
 </script>

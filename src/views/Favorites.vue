@@ -7,6 +7,12 @@
       </template>
     </view-header>
 
+    <div class="columns py-4" style="text-align:right">
+      <div class="column">
+        <sort-dropdown />
+      </div>
+    </div>
+
     <div>
       <div class="columns">
         <div class="column is-one-quarter"><comic-item /></div>

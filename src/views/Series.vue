@@ -20,7 +20,16 @@
     </div>
     <div class="series-comics">
         <div class="container">
-            <div class="subtitle py-4">Chapters</div>
+            <div class="subtitle">
+                <div class="py-4">
+                    <span style="float:left">Chapters</span>
+                    <div style="float:right;text-align:right">
+                        <div class="column">
+                            <sort-dropdown chapter />
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="px-10">
                 <comic-chapter :seriesId="0" />
                 <comic-chapter :seriesId="0" />
@@ -33,6 +42,7 @@
 
 <script>
 import ComicChapter from './../components/ComicChapter.vue';
+import SortDropdown from './../components/SortDropdown.vue';
 export default {
   name: 'Series',
   computed: {
@@ -41,7 +51,8 @@ export default {
     }
   },
   components: {
-    ComicChapter
+    ComicChapter,
+    SortDropdown
   }
 }
 </script>

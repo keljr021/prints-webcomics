@@ -1,6 +1,6 @@
 <template>
   <div class="publish">
-    <hero-img title="Ready to Create?" :text="getHeroText" buttonText="Create an Account Today!" buttonRoute="create" />
+    <hero-img title="Ready to Create?" :text="getHeroText" buttonText="Create an Account Today!" buttonRoute="createAccount" />
     
     <div class="container">
       <view-header>

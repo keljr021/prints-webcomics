@@ -25,12 +25,16 @@
         </div>
       </div>
     </div>
+
     <div class="dashboard-menu py-5 my-5">
       <div class="columns">
         <div class="column is-one-quarter dashboard-menu-side">
           <dashboard-sub-menu />
         </div>
         <div class="column is-three-fourths dashboard-menu-list">
+          <div class="pb-5" style="text-align:right;">
+            <sort-dropdown />
+          </div>
           <div class="columns">
                 <div class="column is-one-third"><comic-item /></div>
                 <div class="column is-one-third"><comic-item /></div>
@@ -51,12 +55,14 @@
 import ViewHeader from '@/components/ViewHeader.vue';
 import DashboardSubMenu from '@/components/DashboardSubMenu.vue';
 import ComicItem from '@/components/ComicItem.vue';
+import SortDropdown from '@/components/SortDropdown.vue';
 export default {
   name: 'Dashboard',
   components: {
     ViewHeader,
     DashboardSubMenu,
-    ComicItem
+    ComicItem,
+    SortDropdown
   }
 }
 </script>

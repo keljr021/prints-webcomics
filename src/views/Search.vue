@@ -1,5 +1,5 @@
 <template>
-  <div class="recommended container">
+  <div class="search container">
     <view-header>
       <template v-slot:header>Search Results</template>
       <template v-slot:caption>
@@ -8,25 +8,18 @@
             Results for: 
             <span>{{  $route.params.query }}</span>
         </p>
-    </template>
-
+      </template>
     </view-header>
 
-    <div>
-      <div class="columns">
-        <div class="column is-one-quarter">Submenu</div>
-        <div class="column is-three-fourths">
-            <div class="columns">
-                <div class="column is-one-third"><comic-item /></div>
-                <div class="column is-one-third"><comic-item /></div>
-                <div class="column is-one-third"><comic-item /></div>
-            </div>
-            <div class="columns">
-                <div class="column is-one-third"><comic-item /></div>
-                <div class="column is-one-third"><comic-item /></div>
-                <div class="column is-one-third"><comic-item /></div>
-            </div>
-        </div>
+    <div class="columns">
+      <div class="column is-one-quarter">
+        <search-sub-menu totalAuthors="6" totalComics="14" />
+      </div>
+      <div class="column is-three-fourths fixed-box">
+        <search-item />
+        <search-item />
+        <search-item />
+        <search-item />
       </div>
     </div>
   </div>
@@ -36,7 +29,8 @@
 
 <script>
 import ViewHeader from './../components/ViewHeader.vue';
-import ComicItem from './../components/ComicItem.vue';
+import SearchSubMenu from './../components/SearchSubMenu.vue';
+import SearchItem from './../components/SearchItem.vue';
 export default {
   name: 'Search',
   data() {
@@ -46,7 +40,8 @@ export default {
   },
   components: {
     ViewHeader,
-    ComicItem
+    SearchSubMenu,
+    SearchItem
   }
 }
 </script>
