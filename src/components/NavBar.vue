@@ -48,7 +48,8 @@ export default {
   data() {
     return {
       searchQuery: '',
-      showLoginForm: false
+      showLoginForm: false,
+      accountValue: ''
     };
   },
   props: {},

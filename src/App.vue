@@ -5,17 +5,20 @@
       <router-view/>
       <footer-bar />
     </div>
+    <overlay-modal />
   </div>
 </template>
 <script>
 import NavBar from './components/NavBar.vue';
 import FooterBar from './components/FooterBar.vue';
+import OverlayModal from './components/OverlayModal.vue';
 export default {
   name: 'App',
   props: {},
   components: {
     NavBar,
-    FooterBar
+    FooterBar,
+    OverlayModal
   }
 }
 </script>
@@ -60,5 +63,29 @@ $primary: #4e4c67;
 .container {
   padding: 50px;
   text-align: left;
+}
+
+.nested-enter-active, .nested-leave-active {
+	transition: all 0.5s ease-in-out;
+}
+
+.nested-leave-active {
+  transition-delay: 0.2s;
+}
+
+.nested-enter-from,
+.nested-leave-to {
+  transform: translateY(-30px);
+  opacity: 0;
+}
+
+/* we can also transition nested elements using nested selectors */
+.nested-enter-active .inner,
+.nested-leave-active .inner { 
+  transition: all 0.1s ease-in-out;
+}
+/* delay enter of nested element */
+.nested-enter-active .inner {
+	transition-delay: 0.4s;
 }
 </style>
