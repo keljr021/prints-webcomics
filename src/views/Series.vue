@@ -10,6 +10,9 @@
                     <p>Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.</p>
                 </div>
                 <div class="series-info-tw">Trigger Warnings: x</div>
+                <div class="series-info-edit" v-if="isAuthor">
+                    <b-button type="is-primary" class="pa-2" icon-left="fa-pen" outlined>Edit</b-button>
+                </div>
             </div>
             <div class="column is-quarter px-4">
                 <div class="series-info-image">
@@ -21,8 +24,13 @@
     <div class="series-comics">
         <div class="container">
             <div class="subtitle">
-                <div class="py-4">
-                    <span style="float:left">Chapters</span>
+                <div>
+                    <div style="float:left;padding:10px 0">Chapters</div>
+                    
+                    <div style="float:left;padding: 15px" v-if="isAuthor">
+                        <b-button type="is-primary" class="pa-3" icon-left="fa-plus" outlined>Add New Chapter</b-button>
+                    </div>
+
                     <div style="float:right;text-align:right">
                         <div class="column">
                             <sort-dropdown chapter />
@@ -30,10 +38,10 @@
                     </div>
                 </div>
             </div>
-            <div class="px-10">
-                <comic-chapter :seriesId="0" />
-                <comic-chapter :seriesId="0" />
-                <comic-chapter :seriesId="0" />
+            <div class="py-4 px-10">
+                <comic-chapter :seriesId="0" :isAuthor="isAuthor" />
+                <comic-chapter :seriesId="0" :isAuthor="isAuthor" />
+                <comic-chapter :seriesId="0" :isAuthor="isAuthor" />
             </div>
         </div>
     </div>
@@ -45,6 +53,12 @@ import ComicChapter from './../components/ComicChapter.vue';
 import SortDropdown from './../components/SortDropdown.vue';
 export default {
   name: 'Series',
+  props: {
+    isAuthor: {
+        type: Boolean,
+        default: false
+    }
+  },
   computed: {
     getId() {
         return this.$params.seriesId;

@@ -1,14 +1,21 @@
 <template>
-    <div class="comic-chapter" @click="viewChapter">
+    <div class="comic-chapter" :class="{ 'no-hover': isAuthor }" @click="viewChapter">
         <div class="columns">
             <div class="column is-quarter">
                 <img class="comic-chapter-image" src="./../assets/cartoon-5190776_1280.jpg" />
             </div>
-            <div class="column is-three-quarters comic-chapter-text">
-                <div class="comic-chapter-text-title">Introduction</div>
-                <div class="comic-chapter-text-publish">Published 08/08/2024</div>
-                <div class="comic-chapter-text-likes">12 Likes, 34 Views</div>
-                <div class="comic-chapter-text-tw">Trigger Warnings: x</div>
+            <div class="column is-three-quarters comic-chapter-text" style="float:left">
+                <div style="float:left">
+                    <div class="comic-chapter-text-title">Introduction</div>
+                    <div class="comic-chapter-text-publish">Published 08/08/2024</div>
+                    <div class="comic-chapter-text-likes">12 Likes, 34 Views</div>
+                    <div class="comic-chapter-text-tw">Trigger Warnings: x</div>
+                </div>
+                <div style="text-align:right;float:right" v-if="isAuthor">
+                    <b-button size="is-small" type="is-primary" class="px-4 mr-3" icon-left="fa-magnifying-glass" outlined>View</b-button>
+                    <b-button size="is-small" type="is-primary" class="px-4 mr-3" icon-left="fa-pen" outlined>Edit</b-button>
+                    <b-button size="is-small" type="is-primary" class="px-4" icon-left="fa-trash" outlined>Delete</b-button>
+                </div>
             </div>
         </div>
     </div>
@@ -25,11 +32,16 @@ export default {
         id: {
             type: String,
             default: '0'
+        },
+        isAuthor: {
+            type: Boolean,
+            default: false
         }
     },
     methods: {
         viewChapter() {
-            return this.$router.push({ path: '/series/' + this.seriesId + '/' + this.id });
+            if (!this.isAuthor)
+                return this.$router.push({ path: '/series/' + this.seriesId + '/' + this.id });
         }
     }
 }
@@ -46,6 +58,10 @@ export default {
 
 .comic-chapter:hover {
     background-color: #ccc;
+}
+
+.comic-chapter.no-hover {
+    background-color: initial;
 }
 
 .comic-chapter-image {

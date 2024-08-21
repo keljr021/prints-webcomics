@@ -30,6 +30,10 @@ $primary: #4e4c67;
   color: #2c3e50;
 }
 
+.button {
+  border-radius: 15px;
+}
+
 .cta, .headline {
   text-align: left;
 }

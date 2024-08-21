@@ -6,12 +6,12 @@ import 'buefy/dist/buefy.css'
 import router from './router'
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBars, faEye, faThumbsUp, faStar, faComment, faShareFromSquare, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faEye, faThumbsUp, faStar, faComment, faShareFromSquare, faArrowLeft, faPen, faPlus, faTrash, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 Vue.config.productionTip = false
 
-library.add(faBars, faEye, faThumbsUp, faStar, faComment, faShareFromSquare, faArrowLeft);
+library.add(faBars, faEye, faThumbsUp, faStar, faComment, faShareFromSquare, faArrowLeft, faPen, faPlus, faTrash, faMagnifyingGlass);
 
 Vue.component('vue-fontawesome', FontAwesomeIcon);
 
