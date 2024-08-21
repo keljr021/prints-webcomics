@@ -4,7 +4,11 @@
         <div class="authors-carousel">
             <b-carousel>
                 <b-carousel-item v-for="(carousel, i) in carousels" :key="i">
-                    <home-authors-item :image="imgSrc(carousel.image)" :text="carousel.text" />
+                    <home-authors-item :text="carousel.text">
+                        <template v-slot:image>
+                            <img :src="imgSrc(carousel.image)" />
+                        </template>
+                    </home-authors-item>
                 </b-carousel-item>
             </b-carousel>
         </div>
@@ -63,7 +67,7 @@ export default {
     },
     methods: {
         imgSrc(input) {
-            return new URL(`./../assets/${input}`, import.meta.url).href;
+            return new URL('@/assets/' + input, import.meta.url).href;
         }
     },
     components: {

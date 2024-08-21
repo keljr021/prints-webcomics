@@ -2,7 +2,7 @@
     <div class="home-authors-item" @click="clickAuthorItem">
         <div class="columns">
             <div class="column home-authors-item-img is-quarter">
-                <img :src="image" />
+                <slot name="image"></slot>
             </div>
             <div class="column home-authors-item-text is-three-quarters">
                 <div class="home-authors-item-text-title py-4">{{ text.name }}</div>
