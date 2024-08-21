@@ -2,12 +2,12 @@
     <div class="login">
         <div class="columns">
             <div class="column is-full px-5">
-              <b-field label="Username" class="pb-3">
-                <b-input v-model="username"></b-input>
+              <b-field class="pb-3">
+                <b-input placeholder="Username" v-model="username"></b-input>
               </b-field>
     
-              <b-field label="Password" class="py-3">
-                <b-input v-model="password"></b-input>
+              <b-field class="py-3">
+                <b-input placeholder="Password" v-model="password"></b-input>
               </b-field>
 
               <div class="buttons">
