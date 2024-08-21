@@ -1,8 +1,8 @@
 <template>
   <Transition name="nested" :duration="400">
-    <div class="overlay-modal outer" v-if="showModal">
-      <div class="overlay-modal-bg" @click="toggleModal()">
-        <div class="overlay-modal-card inner">
+    <div class="overlay-modal outer" :class="{ 'active' : showModal }">
+      <div class="overlay-modal-bg">
+        <div class="overlay-modal-card inner" :style="{ 'width': width }">
           <div class="overlay-modal-card-header">
             <div class="overlay-modal-card-header-text">
               <slot name="header"></slot>
@@ -22,6 +22,7 @@
           </div>
           <div class="overlay-modal-card-footer">
             <b-button type="is-inverted" @click="toggleModal()">Cancel</b-button>
+            <b-button type="is-inverted" @click="toggleModal()">{{ submitText || 'Submit' }}</b-button>
             <slot name="footer"></slot>
           </div>
         </div>
@@ -33,20 +34,15 @@
 <script>
 export default {
   name: 'OverlayModal',
-  data() {
-    return {
-      showModal: true
-    };
-  },
   props: {
-    modalType: {
-      type: String,
-      defualt: ''
-    }
+    showModal: Boolean,
+    submitText: String,
+    width: String
   },
   methods: {
     toggleModal() {
-      this.showModal = false;
+      console.log('toggled triggered from OverlayModal...');
+      this.$emit('toggle');
     }
   }
 }
@@ -60,7 +56,13 @@ export default {
   width: 100vw;
   height: 100vh;
   z-index: 99;
+  display: none;
 }
+
+.overlay-modal.active {
+  display: initial;
+}
+
 .overlay-modal-bg {
   width: 100%;
   height: 100%;
@@ -68,14 +70,13 @@ export default {
 }
 
 .overlay-modal-card {
-  position: absolute;
-  left: calc(50% - 200px);
-  top: calc(50% - 300px);
+  position: relative;
+  left: 25%;
+  top: 25%;
   min-width: 400px;
   background: white;
   border-radius: 4px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  /* padding: 10px; */
   text-align: left;
 }
 

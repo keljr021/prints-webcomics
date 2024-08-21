@@ -13,7 +13,7 @@
                     <div class="comment-footer">
                         <div class="comment-footer-date">08/08/2024</div>
                         <div class="comment-footer-reply">
-                            <b-button size="is-small" type="is-text">Reply</b-button>
+                            <b-button size="is-small" type="is-text" @click="$emit('toggle')">Reply</b-button>
                         </div>
                     </div>
                 </div>

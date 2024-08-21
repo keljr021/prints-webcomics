@@ -5,20 +5,17 @@
       <router-view/>
       <footer-bar />
     </div>
-    <overlay-modal />
   </div>
 </template>
 <script>
 import NavBar from './components/NavBar.vue';
 import FooterBar from './components/FooterBar.vue';
-import OverlayModal from './components/OverlayModal.vue';
 export default {
   name: 'App',
   props: {},
   components: {
     NavBar,
-    FooterBar,
-    OverlayModal
+    FooterBar
   }
 }
 </script>

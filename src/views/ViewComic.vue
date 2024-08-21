@@ -42,7 +42,7 @@
                 <div class="column is-three-quarters">
                     <div class="view-comments-header-text">
                         Comments
-                        <b-button type="is-primary" class="pa-2 mx-5" outlined>Add Comment</b-button>
+                        <b-button type="is-primary" class="pa-2 mx-5" @click="toggleCommentModal()" outlined>Add Comment</b-button>
                     </div>
 
                 </div>
@@ -55,12 +55,13 @@
                 </div>
             </div>
             <div class="view-comments-items">
-               <comment-item /> 
-               <comment-item reply /> 
-               <comment-item reply /> 
-               <comment-item /> 
+               <comment-item @toggle="toggleCommentModal()"/> 
+               <comment-item @toggle="toggleCommentModal()" reply /> 
+               <comment-item @toggle="toggleCommentModal()" reply /> 
+               <comment-item @toggle="toggleCommentModal()" /> 
             </div>
         </div>
+        <add-comment :showModal="showCommentModal" @toggle="toggleCommentModal()" />
     </div>
   </div>
 </template>
@@ -69,12 +70,25 @@
 import CommentItem from '../components/CommentItem.vue';
 import ViewComicMenu from '../components/ViewComicMenu.vue';
 import SortDropdown from '../components/SortDropdown.vue';
+import AddComment from './../components/modals/AddComment.vue';
 export default {
   name: 'ViewComic',
+  data() {
+    return {
+        showCommentModal: false
+    };
+  },
+  methods: {
+    toggleCommentModal() {
+        this.showCommentModal = !this.showCommentModal;
+        console.log('set comment modal to: ', this.showCommentModal);
+    }
+  },
   components: {
     CommentItem,
     ViewComicMenu,
-    SortDropdown
+    SortDropdown,
+    AddComment
   }
 }
 </script>

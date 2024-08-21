@@ -30,7 +30,7 @@ export default {
     };
   },
   props: {
-    seriesId: String
+    seriesId: Number
   },
   methods: {
     toggleMenu() {
