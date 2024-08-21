@@ -16,10 +16,19 @@
       <template #end>
           <b-navbar-item tag="div">
             <b-input class="px-4" placeholder="Search" v-model="searchQuery" @keyup.native.enter="handleSearch" />
-            <div class="buttons">
-                <b-button type="is-primary" tag="router-link" to="/account/new" outlined>Create Account</b-button>
-                <b-button type="is-primary" outlined>Sign In</b-button>
-              </div>
+            <div class="buttons" style="display:none">
+              <b-button type="is-primary" tag="router-link" to="/account/new" outlined>Create Account</b-button>
+              <b-button type="is-primary" outlined>Sign In</b-button>
+            </div>
+            <b-field size="is-medium">
+              <b-select v-model="accountValue" @input="handleSelectClick" placeholder="My account" class="account">
+                  <option value="dashboard">Dashboard</option>
+                  <option value="favorites">Favorites</option>
+                  <option value="history">History</option>
+                  <option value="account">Account</option>
+                  <option value="/">Logout</option>
+              </b-select>
+            </b-field>
           </b-navbar-item>
       </template>
   </b-navbar>
@@ -37,6 +46,12 @@ export default {
   methods: {
     handleSearch() {
       return this.$router.push({ name: 'search', params: { query: this.searchQuery } });
+    },
+    handleSelectClick() {
+      if (this.accountValue === '/')
+        return this.$router.push({ path: '/' });
+      
+        return this.$router.push({ name: this.accountValue });
     }
   }
 }
@@ -60,5 +75,13 @@ export default {
 
 .logo {
   max-height: 45px;
+}
+
+.account {
+    width: 200px;
+}
+
+.account option {
+  padding: 5px 0;
 }
 </style>
