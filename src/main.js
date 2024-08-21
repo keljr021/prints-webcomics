@@ -5,6 +5,8 @@ import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 import router from './router'
 
+import { createPinia } from "pinia";
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBars, faEye, faThumbsUp, faStar, faComment, faShareFromSquare, faArrowLeft, faPen, faPlus, faTrash, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -14,6 +16,8 @@ Vue.config.productionTip = false
 library.add(faBars, faEye, faThumbsUp, faStar, faComment, faShareFromSquare, faArrowLeft, faPen, faPlus, faTrash, faMagnifyingGlass);
 
 Vue.component('vue-fontawesome', FontAwesomeIcon);
+
+Vue.use(createPinia);
 
 Vue.use(Buefy, {
   defaultIconComponent: 'vue-fontawesome',
