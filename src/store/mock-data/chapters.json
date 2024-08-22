@@ -1,0 +1,11 @@
+{
+    "data": {
+        "chapters": [
+            {
+                "id": 1,
+                "accountId": 1,
+                "accountType": "viewer"
+            }
+        ]
+    }
+}

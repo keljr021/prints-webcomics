@@ -1,0 +1,68 @@
+{
+    "data": {
+        "accounts": [
+            {
+                "id": 1,
+                "email": "testviewer@test.com",
+                "username": "viewer",
+                "password": "test123",
+                "name": "Test Viewer",
+                "age": 30,
+                "genres": [
+                    "action", "fantasy", "slice-of-life"
+                ],
+                "type": "viewer",
+                "avatar": "test.png",
+                "favoriteComicIds": [
+                    1, 2, 3
+                ]
+            },
+            {
+                "id": 2,
+                "email": "testauthor@test.com",
+                "username": "author",
+                "password": "test123",
+                "name": "Test Author",
+                "age": 40,
+                "genres": [
+                    "action", "fantasy", "slice-of-life"
+                ],
+                "type": "author",
+                "avatar": "test.png",
+                "favoriteComicIds": []
+            },
+            {
+                "id": 3,
+                "email": "janedoe@test.com",
+                "username": "jdoe",
+                "password": "test123",
+                "name": "Jane Doe",
+                "age": 20,
+                "genres": [
+                    "horror", "romance"
+                ],
+                "type": "viewer",
+                "avatar": "test.png",
+                "favoriteComicIds": [
+                    4, 5
+                ]
+            },
+            {
+                "id": 4,
+                "email": "john.brown@test.com",
+                "username": "author",
+                "password": "test123",
+                "name": "Johnathon Brown",
+                "age": 45,
+                "genres": [
+                    "action", "horror"
+                ],
+                "type": "author",
+                "avatar": "test.png",
+                "favoriteComicIds": [
+                    2
+                ]
+            }
+        ]
+    }
+}

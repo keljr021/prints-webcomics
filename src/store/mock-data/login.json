@@ -1,0 +1,21 @@
+{
+    "data": {
+        "login": [
+            {
+                "id": 1,
+                "accountId": 1,
+                "accountType": "viewer"
+            },
+            {
+                "id": 2,
+                "accountId": 2,
+                "accountType": "author"
+            },
+            {
+                "id": 2,
+                "accountId": 3,
+                "accountType": "viewer"
+            }
+        ]
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "data": {
+        "authors": [
+            {
+                "id": 1,
+                "accountId": 1,
+                "genres": [
+                    
+                ],
+                "description": ""
+            }
+        ]
+    }
+}

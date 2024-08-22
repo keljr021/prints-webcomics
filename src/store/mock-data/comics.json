@@ -1,0 +1,18 @@
+{
+    "data": {
+        "comics": [
+            {
+                "id": 1,
+                "authorId": 1,
+                "title": "",
+                "genres": [
+                    
+                ],
+                "cover": "",
+                "synopsis": "",
+                "triggerWarning": "",
+                "createdDate": ""
+            }
+        ]
+    }
+}
