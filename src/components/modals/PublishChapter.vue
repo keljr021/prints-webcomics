@@ -1,13 +1,12 @@
 <template>
-    <overlay-modal :showModal="showModal" @toggle="toggleModal()" @submit="toggleModal()" submitText="Submit" width="700px">
+    <overlay-modal :showModal="showModal" @toggle="toggleModal()" @submit="submitModal()" submitText="OK" width="700px">
         <template v-slot:header>
-            Add Comment
+            Chapter Published
         </template>
         <template v-slot:content>
             <div class="columns">
                 <div class="column is-full">
-                    <p class="py-3">All comments must follow <router-link :to="{ name: '404'}">Community Guidelines</router-link></p>
-                    <b-input maxlength="200" type="textarea"></b-input>
+                    <p>Your new account has been activated. We have sent you an email with your information.</p>
                 </div>
             </div>
         </template>
@@ -17,14 +16,16 @@
 <script>
 import OverlayModal from '@/components/OverlayModal.vue';
 export default {
-    name: 'AddComment',
+    name: 'PublishedChapter',
     props: {
         showModal: Boolean
     },
     methods: {
         toggleModal() {
-            console.log('toggled triggered from AddComment...');
             this.$emit('toggle');
+        },
+        submitModal() {
+            this.$emit('submit');
         }
     },
     components: { 

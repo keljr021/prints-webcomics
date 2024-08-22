@@ -85,19 +85,41 @@
       <div class="columns">
         <div class="column create-buttons">
           <b-button type="is-inverted" outlined>Save Draft</b-button>
-          <b-button type="is-primary">Publish Series</b-button>
+          <b-button type="is-primary" @click="toggleConfirmSeries()">Publish Series</b-button>
         </div>
       </div>
+      <confirm-new-series :showModal="showConfirmNewSeries" @toggle="toggleConfirmSeries()" @submit="submitConfirmSeries();togglePublishSeries()" />
+      <publish-series :showModal="showPublishSeries" @toggle="togglePublishSeries()" @submit="togglePublishSeries()" />
+
     </div>
   </div>
 </template>
 
 <script>
 import ViewHeader from '@/components/ViewHeader.vue';
+import ConfirmNewSeries from '@/components/modals/ConfirmNewSeries.vue';
 export default {
   name: 'CreateSeries',
+  data() {
+    return {
+      showConfirmNewSeries: false,
+      showPublishSeries: false
+    }
+  },
+  methods: {
+    toggleConfirmSeries() {
+      this.showConfirmNewSeries = !this.showConfirmNewSeries;
+    },
+    submitConfirmSeries() {
+      this.showConfirmNewSeries = !this.showConfirmNewSeries;
+    },
+    togglePublishSeries() {
+      this.showPublishSeries = !this.showPublishSeries;
+    },
+  },
   components: {
-    ViewHeader
+    ViewHeader,
+    ConfirmNewSeries
   }
 }
 </script>

@@ -71,19 +71,42 @@
         <div class="column create-buttons">
           <b-button type="is-inverted" outlined>Save Draft</b-button>
           <b-button type="is-inverted" outlined>Preview Chapter</b-button>
-          <b-button type="is-primary">Publish Chapter</b-button>
+          <b-button type="is-primary" @click="toggleConfirmChapter()">Publish Chapter</b-button>
         </div>
       </div>
+      <confirm-new-chapter :showModal="showConfirmNewChapter" @toggle="toggleConfirmChapter()" @submit="submitConfirmChapter();togglePublishSeries()" />
+      <publish-chapter :showModal="showPublishChapter" @toggle="togglePublishSeries()" @submit="togglePublishSeries()" />
     </div>
   </div>
 </template>
 
 <script>
 import ViewHeader from '@/components/ViewHeader.vue';
+import ConfirmNewChapter from '@/components/modals/ConfirmNewChapter.vue';
+import PublishChapter from '@/components/modals/PublishChapter.vue';
 export default {
   name: 'CreateSeries',
+  data() {
+    return {
+      showConfirmNewChapter: false,
+      showPublishChapter: false
+    }
+  },
+  methods: {
+    toggleConfirmChapter() {
+      this.showConfirmNewChapter = !this.showConfirmNewChapter;
+    },
+    submitConfirmChapter() {
+      this.showConfirmNewChapter = !this.showConfirmNewChapter;
+    },
+    togglePublishSeries() {
+      this.showPublishChapter = !this.showPublishChapter;
+    }
+  },
   components: {
-    ViewHeader
+    ViewHeader,
+    ConfirmNewChapter,
+    PublishChapter
   }
 }
 </script>

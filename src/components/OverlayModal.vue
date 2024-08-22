@@ -22,7 +22,7 @@
           </div>
           <div class="overlay-modal-card-footer">
             <b-button type="is-inverted" @click="toggleModal()">Cancel</b-button>
-            <b-button type="is-inverted" @click="toggleModal()">{{ submitText || 'Submit' }}</b-button>
+            <b-button type="is-inverted" @click="submitModal()">{{ submitText || 'Submit' }}</b-button>
             <slot name="footer"></slot>
           </div>
         </div>
@@ -41,8 +41,10 @@ export default {
   },
   methods: {
     toggleModal() {
-      console.log('toggled triggered from OverlayModal...');
       this.$emit('toggle');
+    },
+    submitModal() {
+      this.$emit('submit');
     }
   }
 }

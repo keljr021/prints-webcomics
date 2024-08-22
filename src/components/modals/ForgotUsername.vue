@@ -1,13 +1,14 @@
 <template>
-    <overlay-modal :showModal="showModal" @toggle="toggleModal()" @submit="toggleModal()" submitText="Submit" width="700px">
+    <overlay-modal :showModal="showModal" @toggle="toggleModal()" @submit="submitModal()" submitText="Submit" width="700px">
         <template v-slot:header>
-            Add Comment
+            Forgot Username or Password
         </template>
         <template v-slot:content>
             <div class="columns">
                 <div class="column is-full">
-                    <p class="py-3">All comments must follow <router-link :to="{ name: '404'}">Community Guidelines</router-link></p>
-                    <b-input maxlength="200" type="textarea"></b-input>
+                    <b-field class="pb-3" label="Enter your email">
+                        <b-input placeholder="Email" v-model="email"></b-input>
+                    </b-field>
                 </div>
             </div>
         </template>
@@ -17,14 +18,21 @@
 <script>
 import OverlayModal from '@/components/OverlayModal.vue';
 export default {
-    name: 'AddComment',
+    name: 'ForgotUsername',
+    data() {
+        return {
+            email: '',
+        }
+    },
     props: {
         showModal: Boolean
     },
     methods: {
         toggleModal() {
-            console.log('toggled triggered from AddComment...');
             this.$emit('toggle');
+        },
+        submitModal() {
+            this.$emit('submit');
         }
     },
     components: { 

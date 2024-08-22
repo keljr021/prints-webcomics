@@ -11,7 +11,7 @@
               </b-field>
 
               <div class="buttons">
-                  <b-button type="is-text" class="forgot-username">Forgot Username/Password</b-button>
+                  <b-button @click="toggleForgotModal()" type="is-text" class="forgot-username">Forgot Username/Password</b-button>
               </div>
   
               <div class="buttons">
@@ -20,12 +20,37 @@
               </div>
             </div>
         </div>
+        <forgot-username :showModal="showForgotModal" @toggle="toggleForgotModal()" @submit="toggleForgotModal();toggleConfirmForgotModal()"/>
+        <confirm-forgot-username :showModal="showConfirmForgotModal" @toggle="toggleConfirmForgotModal()" @submit="toggleConfirmForgotModal()" />
     </div>
 </template>
 
 <script>
+import ForgotUsername from './modals/ForgotUsername.vue'
+import ConfirmForgotUsername from './modals/ConfirmForgotUsername.vue'
+
 export default {
-    name: 'LoginForm'
+    name: 'LoginForm',
+    data() {
+      return {
+        showForgotModal: false,
+        showConfirmForgotModal: false,
+        username: '',
+        password: ''
+      }
+    },
+    methods: {
+      toggleForgotModal() {
+        this.showForgotModal = !this.showForgotModal;
+      },
+      toggleConfirmForgotModal() {
+        this.showConfirmForgotModal = !this.showConfirmForgotModal;
+      }
+    },
+    components: {
+      ForgotUsername,
+      ConfirmForgotUsername
+    }
 }
 </script>
 

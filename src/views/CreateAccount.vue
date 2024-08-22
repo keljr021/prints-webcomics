@@ -85,19 +85,36 @@
       </div>
       <div class="columns">
         <div class="column">
-          <b-button type="is-primary" tag="router-link" :to="{ name: 'dashboard' }">Create Account</b-button>
+          <b-button type="is-primary" @click="openConfirmModal()">Create Account</b-button>
         </div>
       </div>
     </div>
+    <confirm-new-account :showModal="showConfirmAccount" @toggle="handleSubmit()" @submit="handleSubmit()" />
   </div>
 </template>
 
 <script>
 import ViewHeader from '@/components/ViewHeader.vue';
+import ConfirmNewAccount from '@/components/modals/ConfirmNewAccount.vue';
 export default {
   name: 'CreateAccount',
+  data() {
+    return {
+      showConfirmAccount: false
+    };
+  },
+  methods: {
+    openConfirmModal() {
+      this.showConfirmAccount = true;
+    },
+    handleSubmit() {
+      this.showConfirmAccount = !this.showConfirmAccount;
+      this.$router.push({ name: 'dashboard' });
+    }
+  },
   components: {
-    ViewHeader
+    ViewHeader,
+    ConfirmNewAccount
   }
 }
 </script>
