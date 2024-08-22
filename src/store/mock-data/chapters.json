@@ -3,8 +3,14 @@
         "chapters": [
             {
                 "id": 1,
-                "accountId": 1,
-                "accountType": "viewer"
+                "comicId": 1,
+                "likes": 0,
+                "views": 0,
+                "image": "test.png",
+                "files": [
+
+                ],
+                "createdDate": ""
             }
         ]
     }

@@ -11,6 +11,8 @@
                 "cover": "",
                 "synopsis": "",
                 "triggerWarning": "",
+                "isFeatured": false,
+                "isRecommended": false,
                 "createdDate": ""
             }
         ]

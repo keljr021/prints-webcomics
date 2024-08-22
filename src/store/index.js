@@ -40,6 +40,7 @@ const authorStore = defineStore('author', {
         author: {
             id: 0,
             genres: [],
+            isFeatured: false,
             description: ''
         }
     }),
@@ -83,6 +84,8 @@ const comicStore = defineStore('comic', {
             cover: '',
             synopsis: '',
             triggerWarning: '',
+            isFeatured: false,
+            isRecommended: false,
             createdDate: ''
         }
     }),
