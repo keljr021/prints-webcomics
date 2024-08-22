@@ -12,6 +12,10 @@
                 </div>
             </div>
         </template>
+        <template v-slot:footer>
+            <b-button type="is-inverted" @click="toggleModal()">Cancel</b-button>
+            <b-button type="is-inverted" @click="submitModal()">Submit</b-button>
+        </template>
     </overlay-modal>
 </template>
   

@@ -21,9 +21,8 @@
             </div>
           </div>
           <div class="overlay-modal-card-footer">
-            <b-button type="is-inverted" @click="toggleModal()">Cancel</b-button>
-            <b-button type="is-inverted" @click="submitModal()">{{ submitText || 'Submit' }}</b-button>
-            <slot name="footer"></slot>
+            <slot v-if="$slots.footer" name="footer"></slot>
+            <b-button v-else type="is-inverted" @click="toggleModal()">OK</b-button>
           </div>
         </div>
       </div>
@@ -69,13 +68,16 @@ export default {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 
 .overlay-modal-card {
-  position: relative;
-  left: 25%;
-  top: 25%;
-  min-width: 400px;
+  flex: 1;
+  max-width: 95%;
+  max-height: 95%;
   background: white;
   border-radius: 4px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -90,7 +92,7 @@ export default {
 }
 
 .button.close {
-  margin: 0;
+  margin: 0 20px;
   padding: 10px;
 }
 
@@ -109,7 +111,8 @@ export default {
 
 .overlay-modal-card-content {
   padding: 25px;
-  height: 90%;
+  max-height: 90%;
+  overflow: hidden auto;
 }
 
 .overlay-modal-card-footer{

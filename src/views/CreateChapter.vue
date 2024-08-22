@@ -74,7 +74,7 @@
           <b-button type="is-primary" @click="toggleConfirmChapter()">Publish Chapter</b-button>
         </div>
       </div>
-      <confirm-new-chapter :showModal="showConfirmNewChapter" @toggle="toggleConfirmChapter()" @submit="submitConfirmChapter();togglePublishSeries()" />
+      <confirm-new-chapter :showModal="showConfirmNewChapter" @toggle="toggleConfirmChapter()" @submit="submitConfirmChapter()" />
       <publish-chapter :showModal="showPublishChapter" @toggle="togglePublishSeries()" @submit="togglePublishSeries()" />
     </div>
   </div>
@@ -96,11 +96,12 @@ export default {
     toggleConfirmChapter() {
       this.showConfirmNewChapter = !this.showConfirmNewChapter;
     },
-    submitConfirmChapter() {
-      this.showConfirmNewChapter = !this.showConfirmNewChapter;
-    },
     togglePublishSeries() {
       this.showPublishChapter = !this.showPublishChapter;
+    },
+    async submitConfirmChapter() {
+      await this.toggleConfirmChapter();
+      await this.togglePublishSeries();
     }
   },
   components: {

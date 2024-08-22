@@ -15,13 +15,13 @@
               </div>
   
               <div class="buttons">
-                <b-button @click="$emit('toggle-login')">Cancel</b-button>
-                <b-button type="is-primary" tag="router-link" :to="{ name: 'dashboard' }" outlined>Submit</b-button>
+                <b-button @click="handleCancel()">Cancel</b-button>
+                <b-button @click="handleSubmit()" type="is-primary" outlined>Submit</b-button>
               </div>
             </div>
         </div>
-        <forgot-username :showModal="showForgotModal" @toggle="toggleForgotModal()" @submit="toggleForgotModal();toggleConfirmForgotModal()"/>
-        <confirm-forgot-username :showModal="showConfirmForgotModal" @toggle="toggleConfirmForgotModal()" @submit="toggleConfirmForgotModal()" />
+        <forgot-username :showModal="showForgotModal" @toggle="toggleForgotModal()" @submit="submitForgotModal()"/>
+        <confirm-forgot-username :showModal="showConfirmForgotModal" @toggle="toggleConfirmForgotModal()" @submit="submitConfirmForgotModal()" />
     </div>
 </template>
 
@@ -40,12 +40,29 @@ export default {
       }
     },
     methods: {
+      handleCancel() {
+        this.$emit('toggle-login');
+      },
+      handleSubmit() {
+        if (this.$route.name !== 'dashboard')
+          this.$router.push({ name: 'dashboard' });
+        
+        this.$emit('toggle-login');
+      },
       toggleForgotModal() {
         this.showForgotModal = !this.showForgotModal;
       },
       toggleConfirmForgotModal() {
         this.showConfirmForgotModal = !this.showConfirmForgotModal;
-      }
+      },
+      async submitForgotModal() {
+        await this.toggleForgotModal();
+        await this.toggleConfirmForgotModal();
+      },
+      async submitConfirmForgotModal() {
+        await this.toggleConfirmForgotModal();
+        await this.handleCancel();
+      },
     },
     components: {
       ForgotUsername,

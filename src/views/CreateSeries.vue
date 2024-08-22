@@ -88,7 +88,7 @@
           <b-button type="is-primary" @click="toggleConfirmSeries()">Publish Series</b-button>
         </div>
       </div>
-      <confirm-new-series :showModal="showConfirmNewSeries" @toggle="toggleConfirmSeries()" @submit="submitConfirmSeries();togglePublishSeries()" />
+      <confirm-new-series :showModal="showConfirmNewSeries" @toggle="toggleConfirmSeries()" @submit="submitConfirmSeries()" />
       <publish-series :showModal="showPublishSeries" @toggle="togglePublishSeries()" @submit="togglePublishSeries()" />
 
     </div>
@@ -98,28 +98,38 @@
 <script>
 import ViewHeader from '@/components/ViewHeader.vue';
 import ConfirmNewSeries from '@/components/modals/ConfirmNewSeries.vue';
+import PublishSeries from '@/components/modals/PublishSeries.vue';
 export default {
   name: 'CreateSeries',
   data() {
     return {
       showConfirmNewSeries: false,
-      showPublishSeries: false
+      showPublishSeries: false,
+      seriesName: '',
+      synopsis: '',
+      warnings: '',
+      file: {},
     }
   },
   methods: {
     toggleConfirmSeries() {
       this.showConfirmNewSeries = !this.showConfirmNewSeries;
     },
-    submitConfirmSeries() {
-      this.showConfirmNewSeries = !this.showConfirmNewSeries;
-    },
     togglePublishSeries() {
       this.showPublishSeries = !this.showPublishSeries;
+    },
+    async submitConfirmSeries() {
+      await this.toggleConfirmSeries();
+      await this.togglePublishSeries();
+    },
+    submitPublishSeries() {
+      this.togglePublishSeries();
     },
   },
   components: {
     ViewHeader,
-    ConfirmNewSeries
+    ConfirmNewSeries,
+    PublishSeries
   }
 }
 </script>
