@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-field size="is-medium">
-            <b-select class="sort">
+            <b-select class="sort" placeholder="Sort by...">
                 <option v-for="option in getItems" :value="option.value" :key="option.key" :selected="option.selected">{{ option.text }}</option>
             </b-select>
         </b-field>
