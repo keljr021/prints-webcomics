@@ -26,9 +26,10 @@
 </template>
 
 <script>
+import { accountsStore } from "@/store/accounts";
+import { loginStore } from "@/store/login";
 import ForgotUsername from './modals/ForgotUsername.vue'
 import ConfirmForgotUsername from './modals/ConfirmForgotUsername.vue'
-
 export default {
     name: 'LoginForm',
     data() {
@@ -38,6 +39,10 @@ export default {
         username: '',
         password: ''
       }
+    },
+    created() {
+      accountsStore.fetchAccounts();
+      loginStore.fetchLoginData();
     },
     methods: {
       handleCancel() {

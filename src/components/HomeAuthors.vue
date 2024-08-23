@@ -6,7 +6,7 @@
                 <b-carousel-item v-for="(carousel, i) in carousels" :key="i">
                     <home-authors-item :text="carousel.text">
                         <template v-slot:image>
-                            <img :src="imgSrc(carousel.image)" />
+                            <img src="@/assets/cartoon-5190776_1280.jpg" />
                         </template>
                     </home-authors-item>
                 </b-carousel-item>

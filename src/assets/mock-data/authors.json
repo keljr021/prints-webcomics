@@ -1,0 +1,57 @@
+{
+    "data": {
+        "authors": [
+            {
+                "id": 1,
+                "accountId": 3,
+                "genres": [
+                    "action", "drama", "horror"
+                ],
+                "isFeatured": false,
+                "descfiption": ""
+            },
+            {
+                "id": 2,
+                "accountId": 4,
+                "genres": [
+                    "comedy", "slice-of-life"
+                ]
+            },
+            {
+                "id": 3,
+                "accountId": 5,
+                "genres": [
+                    "adventure", "fantasy"
+                ]
+            },
+            {
+                "id": 4,
+                "accountId": 6,
+                "genres": [
+                    "action", "comedy"
+                ]
+            },
+            {
+                "id": 5,
+                "accountId": 7,
+                "genres": [
+                    "fantasy", "slice-of-life"
+                ]
+            },
+            {
+                "id": 5,
+                "accountId": 8,
+                "genres": [
+                    "fantasy", "drama", "slice-of-life"
+                ]
+            },
+            {
+                "id": 6,
+                "accountId": 2,
+                "genres": [
+                    "action", "comedy"
+                ]
+            },
+        ]
+    }
+}

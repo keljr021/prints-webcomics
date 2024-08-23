@@ -1,0 +1,135 @@
+{
+    "data": {
+        "accounts": [
+            {
+                "id": 1,
+                "email": "testviewer@test.com",
+                "username": "viewer",
+                "password": "test123",
+                "name": "Test Viewer",
+                "age": 30,
+                "genres": [
+                    "action", "fantasy", "slice-of-life"
+                ],
+                "type": "viewer",
+                "avatar": "test.png",
+                "favoriteComicIds": [
+                    1, 2, 3
+                ]
+            },
+            {
+                "id": 2,
+                "email": "testauthor@test.com",
+                "username": "author",
+                "password": "test123",
+                "name": "Test Author",
+                "age": 40,
+                "genres": [
+                    "action", "fantasy", "slice-of-life"
+                ],
+                "type": "author",
+                "avatar": "test.png",
+                "favoriteComicIds": []
+            },
+
+            {
+                "id": 3,
+                "email": "feather@feathercomics.org",
+                "username": "fcomics",
+                "password": "test123",
+                "name": "Feather Comics",
+                "age": 40,
+                "genres": [
+                    "action", "drama", "horror"
+                ],
+                "type": "author",
+                "avatar": "painter-161318_1280.png",
+                "favoriteComicIds": []
+            },
+            {
+                "id": 4,
+                "email": "mfoxx@test.com",
+                "username": "mfoxx",
+                "password": "test123",
+                "name": "Marcus Foxx",
+                "age": 23,
+                "genres": [
+                    "comedy", "slice-of-life"
+                ],
+                "type": "author",
+                "avatar": "portrait-3157821_1280.jpg",
+                "favoriteComicIds": []
+            },
+            {
+                "id": 5,
+                "email": "jsykes@test.com",
+                "username": "jsykes33",
+                "password": "test123",
+                "name": "Jennifer Sykes",
+                "age": 19,
+                "genres": [
+                    "adventure", "fantasy"
+                ],
+                "type": "author",
+                "avatar": "artist-1708777_1280.jpg",
+                "favoriteComicIds": []
+            },
+            {
+                "id": 6,
+                "email": "glennj@test.com",
+                "username": "glennj",
+                "password": "test123",
+                "name": "Justin Glenn",
+                "age": 33,
+                "genres": [
+                    "action", "comedy"
+                ],
+                "type": "author",
+                "avatar": "man-8741800_1280.png",
+                "favoriteComicIds": []
+            },
+            {
+                "id": 7,
+                "email": "kingk@test.com",
+                "username": "kingk",
+                "password": "test123",
+                "name": "Kyra King",
+                "age": 26,
+                "genres": [
+                    "fantasy", "slice-of-life"
+                ],
+                "type": "author",
+                "avatar": "pexels-moose-photos-170195-556069.png",
+                "favoriteComicIds": []
+            },
+            {
+                "id": 8,
+                "email": "steph@test.com",
+                "username": "steph",
+                "password": "test123",
+                "name": "Stephanie Liu",
+                "age": 31,
+                "genres": [
+                    "fantasy", "drama", "slice-of-life"
+                ],
+                "type": "author",
+                "avatar": "graffiti-7970174_1280.png",
+                "favoriteComicIds": []
+            },
+            {
+                "id": 8,
+                "email": "clee@test.com",
+                "username": "clee",
+                "password": "test123",
+                "name": "Chris Lee",
+                "age": 31,
+                "genres": [
+                    "action", "comedy"
+                ],
+                "type": "author",
+                "avatar": "college-student-3500990_1280.png",
+                "favoriteComicIds": []
+            }
+        ]
+    }
+}

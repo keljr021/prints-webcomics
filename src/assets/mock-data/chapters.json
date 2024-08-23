@@ -1,0 +1,46 @@
+{
+    "data": {
+        "chapters": [
+            {
+                "id": 1,
+                "comicId": 1,
+                "name": "Introduction",
+                "likes": 12,
+                "views": 34,
+                "image": "forest-8765686_1280.jpg",
+                "files": [],
+                "createdDate": "08/08/2024"
+            },
+            {
+                "id": 2,
+                "comicId": 1,
+                "name": "Traverse",
+                "likes": 25,
+                "views": 50,
+                "image": "forest-8765686_1280.jpg",
+                "files": [],
+                "createdDate": "08/08/2024"
+            },
+            {
+                "id": 3,
+                "comicId": 1,
+                "name": "The Rainbow Tree",
+                "likes": 22,
+                "views": 44,
+                "image": "tree-3363518_1280.png",
+                "files": [],
+                "createdDate": "08/08/2024"
+            },
+            {
+                "id": 4,
+                "comicId": 1,
+                "name": "The Water Spirit",
+                "likes": 26,
+                "views": 80,
+                "image": "fantasy-4122305_1280.png",
+                "files": [],
+                "createdDate": "08/08/2024"
+            }
+        ]
+    }
+}

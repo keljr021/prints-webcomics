@@ -1,0 +1,42 @@
+{
+    "data": {
+        "comments": [
+            {
+                "id": 1,
+                "accountId": 8,
+                "comicId": 1,
+                "chapterId": 1,
+                "comment": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.",
+                "createdDate": "08/08/2024",
+                "replyId": 0
+            },
+            {
+                "id": 2,
+                "accountId": 8,
+                "comicId": 1,
+                "chapterId": 1,
+                "comment": "Lorem ipsum odor amet, consectetuer adipiscing elit.",
+                "createdDate": "08/08/2024",
+                "replyId": 1
+            },
+            {
+                "id": 3,
+                "accountId": 8,
+                "comicId": 1,
+                "chapterId": 1,
+                "comment": "Lorem ipsum odor amet, consectetuer adipiscing elit.",
+                "createdDate": "08/08/2024",
+                "replyId": 1
+            },
+            {
+                "id": 4,
+                "accountId": 8,
+                "comicId": 1,
+                "chapterId": 1,
+                "comment": "Lorem ipsum odor amet, consectetuer adipiscing elit.",
+                "createdDate": "08/08/2024",
+                "replyId": 0
+            }
+        ]
+    }
+}

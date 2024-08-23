@@ -1,0 +1,118 @@
+{
+    "data": {
+        "comics": [
+            {
+                "id": 1,
+                "authorId": 5,
+                "title": "Celestial Forests",
+                "genres": [
+                    "fantasy"
+                ],
+                "cover": "cartoon-5190776_1280.jpg",
+                "synopsis": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.",
+                "triggerWarning": "",
+                "isFeatured": true,
+                "isRecommended": true,
+                "createdDate": "08/22/2024"
+            },
+            {
+                "id": 2,
+                "authorId": 1,
+                "title": "Detective C",
+                "genres": [
+                    "action", "drama"
+                ],
+                "cover": "detective-7107182_1280.png",
+                "synopsis": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.",
+                "triggerWarning": "Mild language",
+                "isFeatured": false,
+                "isRecommended": true,
+                "createdDate": "08/22/2024"
+            },
+            {
+                "id": 3,
+                "authorId": 2,
+                "title": "Ghraham the Cat",
+                "genres": [
+                    "comedy", "slice of life"
+                ],
+                "cover": "cat-2856531_1280.jpg",
+                "synopsis": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.",
+                "triggerWarning": "",
+                "isFeatured": false,
+                "isRecommended": true,
+                "createdDate": "08/22/2024"
+            },
+            {
+                "id": 4,
+                "authorId": 2,
+                "title": "Meadows",
+                "genres": [
+                    "slice of life"
+                ],
+                "cover": "cartoon-5190954_1280.jpg",
+                "synopsis": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.",
+                "triggerWarning": "",
+                "isFeatured": false,
+                "isRecommended": true,
+                "createdDate": "08/22/2024"
+            },
+            {
+                "id": 5,
+                "authorId": 5,
+                "title": "Multiverse Tavern",
+                "genres": [
+                    "drama","slice of life"
+                ],
+                "cover": "woman-8464672_1280.jpg",
+                "synopsis": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.",
+                "triggerWarning": "Mild language",
+                "isFeatured": false,
+                "isRecommended": true,
+                "createdDate": "08/22/2024"
+            },
+            {
+                "id": 6,
+                "authorId": 6,
+                "title": "Space Race 32X",
+                "genres": [
+                    "action","comedy"
+                ],
+                "cover": "graffiti-1080932_1280.jpg",
+                "synopsis": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.",
+                "triggerWarning": "Blood, mild language",
+                "isFeatured": false,
+                "isRecommended": true,
+                "createdDate": "08/22/2024"
+            },
+            {
+                "id": 7,
+                "authorId": 3,
+                "title": "Star Adventure",
+                "genres": [
+                    "adventure","comedy"
+                ],
+                "cover": "cartoon-5190776_1280.jpg",
+                "synopsis": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.",
+                "triggerWarning": "",
+                "isFeatured": false,
+                "isRecommended": true,
+                "createdDate": "08/22/2024"
+            },
+            {
+                "id": 8,
+                "authorId": 1,
+                "title": "The Haunted Inn",
+                "genres": [
+                    "drama","horror"
+                ],
+                "cover": "night-4028339_1280.jpg",
+                "synopsis": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.",
+                "triggerWarning": "Blood, gore",
+                "isFeatured": false,
+                "isRecommended": true,
+                "createdDate": "08/22/2024"
+            }
+        ]
+    }
+}
