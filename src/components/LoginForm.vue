@@ -7,7 +7,7 @@
               </b-field>
     
               <b-field class="py-3">
-                <b-input placeholder="Password" v-model="password"></b-input>
+                <b-input type="password" placeholder="Password" v-model="password"></b-input>
               </b-field>
 
               <div class="buttons">
@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import { accountsStore } from "@/store/accounts";
 import { loginStore } from "@/store/login";
 import ForgotUsername from './modals/ForgotUsername.vue'
 import ConfirmForgotUsername from './modals/ConfirmForgotUsername.vue'
@@ -37,22 +36,21 @@ export default {
         showForgotModal: false,
         showConfirmForgotModal: false,
         username: '',
-        password: ''
+        password: '',
       }
-    },
-    created() {
-      accountsStore.fetchAccounts();
-      loginStore.fetchLoginData();
     },
     methods: {
       handleCancel() {
         this.$emit('toggle-login');
       },
-      handleSubmit() {
-        if (this.$route.name !== 'dashboard')
-          this.$router.push({ name: 'dashboard' });
-        
-        this.$emit('toggle-login');
+      async handleSubmit() {
+        let isLoggedIn = await loginStore.loginUser(this.username, this.password);
+        if (isLoggedIn) {
+          if (this.$route.name !== 'dashboard')
+            this.$router.push({ name: 'dashboard' });
+          
+          this.$emit('toggle-login');
+        }
       },
       toggleForgotModal() {
         this.showForgotModal = !this.showForgotModal;

@@ -1,7 +1,10 @@
 import pinia from './index';
-import { defineStore } from 'pinia';
+import { defineStore,storeToRefs } from 'pinia';
 
 import loginData from '../assets/mock-data/login.json'
+
+import { accountsStore } from "@/store/accounts";
+
 
 const useLoginStore = defineStore('login', {
     state: () => ({
@@ -17,21 +20,25 @@ const useLoginStore = defineStore('login', {
     actions: {
         fetchLoginData() {
             console.log('login data: ', loginData);
-            this.userData = loginData;
+            this.userData = loginData.data.login;
         },
         loginUser(username, password) {
             let isValidated = false;
-            let foundUser = {};
+            let foundAccount = {};
 
-            this.loginData.forEach(user => {
-                if (user.username === username && user.password === password) {
-                    foundUser = user;
-                    isValidated = true;
+            const { accountsList } = storeToRefs(accountsStore);
+
+            accountsList.forEach(account => {
+                if (account.username === username) {
+                    if (account.password === password) {
+                        foundAccount = account;
+                        isValidated = true;
+                    }
                 }
             });
 
             if (isValidated) {
-                this.userAccount = foundUser; 
+                this.userAccount = foundAccount; 
                 this.userLoggedIn = true;
             }
 

@@ -8,11 +8,18 @@
   </div>
 </template>
 <script>
+import { accountsStore } from "@/store/accounts";
+import { loginStore } from "@/store/login";
+
 import NavBar from './components/NavBar.vue';
 import FooterBar from './components/FooterBar.vue';
 export default {
   name: 'App',
   props: {},
+  created() {
+    accountsStore.fetchAccounts();
+    loginStore.fetchLoginData();
+  },
   components: {
     NavBar,
     FooterBar

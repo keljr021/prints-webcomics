@@ -13,7 +13,7 @@ const useAccountsStore = defineStore('accounts', {
     actions: {
         fetchAccounts() {            
             console.log('account data: ', accountsData);
-            this.accountsList = accountsData;
+            this.accountsList = accountsData.data.accounts;
         },
         getAccount(id) {
             console.log('attempting to find id: ', id);
