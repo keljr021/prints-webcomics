@@ -42,6 +42,13 @@ const useComicsStore = defineStore('comics', {
             return foundAuthor;
 
         },
+        getAllComicsByAuthor(authorId) {
+            let output = [];
+
+            output = this.allComics.filter(comic => comic.authorId === authorId);
+
+            return output;
+        },
         getFeaturedComics() {
             let featuredList = [];
 

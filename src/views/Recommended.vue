@@ -46,16 +46,23 @@ export default {
       let output = [];
       let numberOfRows = Math.ceil(this.comics.length / 4);
 
-      for (let r = 1; r <= numberOfRows; r++) {
+      let itemIdx = 0;
+
+      for (let r = 1; r < numberOfRows; r++) {
         let rowOfComics = [];
+        let columnLimit = r * 4;
 
-        for (let c = r*1; c <= 4; c++) {
-          rowOfComics.push(this.comics[c-1]);
+        console.log('- row ', r);
+
+        if (r < numberOfRows) {
+          for (let c = itemIdx; c < columnLimit; c++) {
+            rowOfComics.push(this.comics[itemIdx]);
+            console.log(' --col ', c , ' item: ', itemIdx, this.comics[itemIdx]);
+            itemIdx++;
+          }
+          output.push(rowOfComics);
         }
-        output.push(rowOfComics);
       }
-
-      console.log('formatted list: ', output);
 
       this.formattedList = output;
     }
