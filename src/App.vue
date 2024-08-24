@@ -9,6 +9,8 @@
 </template>
 <script>
 import { accountsStore } from "@/store/accounts";
+import { authorsStore } from "@/store/authors";
+import { comicsStore } from "@/store/comics";
 
 import NavBar from './components/NavBar.vue';
 import FooterBar from './components/FooterBar.vue';
@@ -17,6 +19,8 @@ export default {
   props: {},
   created() {
     accountsStore.fetchAccounts();
+    authorsStore.fetchAuthors();
+    comicsStore.fetchAllComics();
   },
   components: {
     NavBar,

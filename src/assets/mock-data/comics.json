@@ -11,7 +11,7 @@
                 "cover": "cartoon-5190776_1280.jpg",
                 "synopsis": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.",
                 "triggerWarning": "",
-                "isFeatured": true,
+                "isFeatured": false,
                 "isRecommended": true,
                 "createdDate": "08/22/2024"
             },
@@ -39,7 +39,7 @@
                 "cover": "cat-2856531_1280.jpg",
                 "synopsis": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.",
                 "triggerWarning": "",
-                "isFeatured": false,
+                "isFeatured": true,
                 "isRecommended": true,
                 "createdDate": "08/22/2024"
             },
@@ -53,7 +53,7 @@
                 "cover": "cartoon-5190954_1280.jpg",
                 "synopsis": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.",
                 "triggerWarning": "",
-                "isFeatured": false,
+                "isFeatured": true,
                 "isRecommended": true,
                 "createdDate": "08/22/2024"
             },
@@ -81,7 +81,7 @@
                 "cover": "graffiti-1080932_1280.jpg",
                 "synopsis": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.",
                 "triggerWarning": "Blood, mild language",
-                "isFeatured": false,
+                "isFeatured": true,
                 "isRecommended": true,
                 "createdDate": "08/22/2024"
             },
@@ -95,7 +95,7 @@
                 "cover": "cartoon-5190776_1280.jpg",
                 "synopsis": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.",
                 "triggerWarning": "",
-                "isFeatured": false,
+                "isFeatured": true,
                 "isRecommended": true,
                 "createdDate": "08/22/2024"
             },

@@ -2,20 +2,24 @@
     <div class="home-authors-item" @click="clickAuthorItem">
         <div class="columns">
             <div class="column home-authors-item-img is-quarter">
-                <slot name="image"></slot>
+                <img :src="require( `@/assets/accounts/${author.avatar}`)" />
             </div>
             <div class="column home-authors-item-text is-three-quarters">
-                <div class="home-authors-item-text-title py-4">{{ text.name }}</div>
+                <div class="home-authors-item-text-title py-4">{{ author.name }}</div>
                 <div class="home-authors-item-text-description">
-                    {{ text.description }} 
+                    {{ author.description }} 
                 </div>
-                <div class="home-authors-item-text-genres py-4">
+                <div class="home-authors-item-text-genres py-4" style="text-transform:capitalize">
                     <b>Genres: </b>
-                    {{ text.genres }}
+                    <template v-for="(genre, i) in author.genres">
+                        {{  genre + (i < author.genres.length - 1 ? ', ' : '') }}
+                    </template>
                 </div>
                 <div class="home-authors-item-text-series py-4">
                     <b>Comic Series: </b>
-                    {{ text.comics }}
+                    <template v-for="(comic, i) in author.comics">
+                        {{  comic.title + (i < author.comics.length - 1 ? ', ' : '') }}
+                    </template>
                 </div>
             </div>
         </div>
@@ -26,12 +30,11 @@
 export default {
     name: 'HomeAuthorsItem',
     props: {
-        image: String,
-        text: Object
+        author: Object
     },
     methods: {
         clickAuthorItem() {
-            this.$router.push({ name: 'authors' });
+            this.$router.push({ path: '/authors/' + this.author.id });
         }
     }
 }
@@ -44,9 +47,9 @@ export default {
     cursor: pointer;
 }
 
-.home-authors-item-img {
-    width: 100%;
-    object-fit: contain;
+.home-authors-item-img img {
+    height: 400px;
+    object-fit: cover;
 }
 
 .home-authors-item-text {

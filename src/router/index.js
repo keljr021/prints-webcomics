@@ -53,7 +53,7 @@ const routes = [
     component: Authors
   },
   {
-    path: '/authors/:id',
+    path: '/authors/:authorId',
     name: 'viewAuthor',
     component: ViewAuthor
   },

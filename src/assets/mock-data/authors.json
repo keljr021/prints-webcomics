@@ -13,6 +13,7 @@
             {
                 "id": 2,
                 "accountId": 4,
+                "isFeatured": true,
                 "genres": [
                     "comedy", "slice-of-life"
                 ]
@@ -20,6 +21,7 @@
             {
                 "id": 3,
                 "accountId": 5,
+                "isFeatured": true,
                 "genres": [
                     "adventure", "fantasy"
                 ]
@@ -27,6 +29,7 @@
             {
                 "id": 4,
                 "accountId": 6,
+                "isFeatured": false,
                 "genres": [
                     "action", "comedy"
                 ]
@@ -34,6 +37,7 @@
             {
                 "id": 5,
                 "accountId": 7,
+                "isFeatured": true,
                 "genres": [
                     "fantasy", "slice-of-life"
                 ]
@@ -41,6 +45,7 @@
             {
                 "id": 5,
                 "accountId": 8,
+                "isFeatured": true,
                 "genres": [
                     "fantasy", "drama", "slice-of-life"
                 ]
@@ -48,10 +53,11 @@
             {
                 "id": 6,
                 "accountId": 2,
+                "isFeatured": false,
                 "genres": [
                     "action", "comedy"
                 ]
-            },
+            }
         ]
     }
 }

@@ -3,12 +3,8 @@
         <div class="headline py-3">Featured Authors</div>
         <div class="authors-carousel">
             <b-carousel>
-                <b-carousel-item v-for="(carousel, i) in carousels" :key="i">
-                    <home-authors-item :text="carousel.text">
-                        <template v-slot:image>
-                            <img src="@/assets/cartoon-5190776_1280.jpg" />
-                        </template>
-                    </home-authors-item>
+                <b-carousel-item v-for="(author, i) in featuredAuthorsList" :key="i">
+                    <home-authors-item :author="author" />
                 </b-carousel-item>
             </b-carousel>
         </div>
@@ -16,59 +12,26 @@
 </template>
   
 <script>
+import { authorsStore } from "@/store/authors";
+
 import HomeAuthorsItem from './HomeAuthorsItem.vue';
 export default {
     name: 'HomeAuthors',
     data(){
         return {
-            carousels: [
-                { 
-                    image: "cartoon-5190776_1280.jpg", 
-                    text: {
-                        name: 'Stephanie Liu',
-                        description: 'Lorem ipsum odor amet, consectetuer adipiscing elit. Lectus eget imperdiet maecenas massa maximus.',
-                        genres: 'Adventure, Drama, Fantasy, Slice of Life',
-                        comics: 'Multiverse Tavern, Star Adventure'
-
-                    }
-                },
-                { 
-                    image: "cartoon-5190776_1280.jpg", 
-                    text: {
-                        name: 'Stephanie Liu',
-                        description: 'Lorem ipsum odor amet, consectetuer adipiscing elit. Lectus eget imperdiet maecenas massa maximus.',
-                        genres: 'Adventure, Drama, Fantasy, Slice of Life',
-                        comics: 'Multiverse Tavern, Star Adventure'
-
-                    }
-                },
-                { 
-                    image: "cartoon-5190776_1280.jpg", 
-                    text: {
-                        name: 'Stephanie Liu',
-                        description: 'Lorem ipsum odor amet, consectetuer adipiscing elit. Lectus eget imperdiet maecenas massa maximus.',
-                        genres: 'Adventure, Drama, Fantasy, Slice of Life',
-                        comics: 'Multiverse Tavern, Star Adventure'
-
-                    }
-                },
-                { 
-                    image: "cartoon-5190776_1280.jpg", 
-                    text: {
-                        name: 'Stephanie Liu',
-                        description: 'Lorem ipsum odor amet, consectetuer adipiscing elit. Lectus eget imperdiet maecenas massa maximus.',
-                        genres: 'Adventure, Drama, Fantasy, Slice of Life',
-                        comics: 'Multiverse Tavern, Star Adventure'
-
-                    }
-                }
-            ]
+            featuredAuthorsList: []
         }
     },
     methods: {
-        imgSrc(input) {
-            return new URL('@/assets/' + input, import.meta.url).href;
+        async getFeaturedAuthors() {
+            let output = [];
+            output = await authorsStore.getFeaturedAuthors();
+
+            this.featuredAuthorsList = output;
         }
+    },
+    async mounted() {
+        await this.getFeaturedAuthors();
     },
     components: {
         HomeAuthorsItem

@@ -1,13 +1,13 @@
 <template>
-    <div class="featured-item">
+    <div class="featured-item" @click="handleClickFeature()">
         <div class="featured-item-image">
-            <img src="./../assets/cartoon-5190776_1280.jpg" />
+            <img :src="require( `@/assets/comics/${comic.cover}`)" />
         </div>
         <div class="featured-item-text">
-            <div class="featured-item-text-title">Comic Title</div>
-            <div class="featured-item-text-genre">Genre</div>
-            <div class="featured-item-text-author">Author Name</div>
-            <div class="featured-item-text-cw">Trigger/Content Warning</div>
+            <div class="featured-item-text-title">{{ comic.title }}</div>
+            <div class="featured-item-text-genre">{{ comic.genre }}</div>
+            <div class="featured-item-text-author">{{ comic.author.name }}</div>
+            <div class="featured-item-text-cw" v-if="comic.triggerWarning !== ''">{{ 'TW: ' + comic.triggerWarning }}</div>
         </div>
     </div>
 </template>
@@ -16,10 +16,12 @@
 export default {
     name: 'HomeFeaturedItem',
     props: {
-        
+        comic: Object
     },
     methods: {
-
+        handleClickFeature() {
+            this.$router.push({ name: 'series', params: { seriesId: this.comic.id } });
+        }
     }
 }
 </script>
@@ -30,7 +32,9 @@ export default {
 }
 
 .featured-item-image img {
-    height: 300px;
+    width: 250px;
+    height: 350px;
+    object-fit: cover;
     border-radius: 15px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
