@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { loginStore } from "@/store/login";
+import { accountsStore } from "@/store/accounts";
 import ForgotUsername from './modals/ForgotUsername.vue'
 import ConfirmForgotUsername from './modals/ConfirmForgotUsername.vue'
 export default {
@@ -41,15 +41,15 @@ export default {
     },
     methods: {
       handleCancel() {
-        this.$emit('toggle-login');
+        this.$emit('toggle-form');
       },
       async handleSubmit() {
-        let isLoggedIn = await loginStore.loginUser(this.username, this.password);
+        let isLoggedIn = await accountsStore.login(this.username, this.password);
         if (isLoggedIn) {
           if (this.$route.name !== 'dashboard')
             this.$router.push({ name: 'dashboard' });
           
-          this.$emit('toggle-login');
+          this.$emit('login');
         }
       },
       toggleForgotModal() {

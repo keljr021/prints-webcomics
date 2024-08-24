@@ -19,22 +19,24 @@
               <b-input style="float:left" class="px-4" placeholder="Search" v-model="searchQuery" @keyup.native.enter="handleSearch" />
               <b-field>
                 <!-- Logged out user-->
-                <div>
+                <div v-if="!userIsLoggedIn">
                   <b-button type="is-primary" tag="router-link" to="/account/new" outlined>Create Account</b-button>
                   <b-button @click="toggleLogin" type="is-primary" outlined>Sign In</b-button>
                 </div>
                 <!-- Logged in user -->
-                <b-select v-model="accountValue" @input="handleSelectClick" placeholder="My account" class="account" style="display:none">
-                    <option value="dashboard">Dashboard</option>
-                    <option value="favorites">Favorites</option>
-                    <option value="history">History</option>
-                    <option value="account">Account</option>
-                    <option value="/">Logout</option>
-                </b-select>
+                <div v-else>
+                  <b-select :placeholder="user.name" v-model="accountValue" @input="handleSelectClick" class="account">
+                      <option value="dashboard">Dashboard</option>
+                      <option value="favorites">Favorites</option>
+                      <option value="history">History</option>
+                      <option value="account">Account</option>
+                      <option value="/">Logout</option>
+                  </b-select>
+                </div>
               </b-field>
             </b-navbar-item>
             <div v-if="showLoginForm">
-              <login-form @toggle-login="toggleLogin" />
+              <login-form @toggle-form="toggleLogin" @login="userLoggedIn" />
             </div>
         </template>
     </b-navbar>
@@ -42,6 +44,7 @@
 </template>
 
 <script>
+import { accountsStore } from "@/store/accounts";
 import LoginForm from './LoginForm.vue'
 export default {
   name: 'NavBar',
@@ -49,7 +52,9 @@ export default {
     return {
       searchQuery: '',
       showLoginForm: false,
-      accountValue: ''
+      accountValue: null,
+      userIsLoggedIn: false,
+      user: {}
     };
   },
   props: {},
@@ -57,14 +62,31 @@ export default {
     handleSearch() {
       return this.$router.push({ name: 'search', params: { query: this.searchQuery } });
     },
-    handleSelectClick() {
-      if (this.accountValue === '/')
+    async handleSelectClick() {
+      if (this.accountValue === '/') {
+        await this.userLoggedOut();
         return this.$router.push({ path: '/' });
+      }
       
         return this.$router.push({ name: this.accountValue });
     },
     toggleLogin() {
       this.showLoginForm = !this.showLoginForm
+    },
+    userLoggedIn() {
+      this.toggleLogin();
+      this.userIsLoggedIn = true;
+      this.user = accountsStore.user;
+      
+    },
+    userLoggedOut() {
+      this.userIsLoggedIn = false;
+    },
+  },
+  mounted() {
+    if (accountsStore.userLoggedIn) {
+      this.userIsLoggedIn = true;
+      this.user = accountsStore.user;
     }
   },
   components: {
