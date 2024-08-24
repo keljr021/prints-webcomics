@@ -2,14 +2,13 @@
     <div class="comic-chapter" :class="{ 'no-hover': isAuthor }" @click="viewChapter">
         <div class="columns">
             <div class="column is-quarter">
-                <img class="comic-chapter-image" src="./../assets/cartoon-5190776_1280.jpg" />
+                <img class="comic-chapter-image" :src="require( `@/assets/chapters/${chapter.image}`)" />
             </div>
             <div class="column is-three-quarters comic-chapter-text" style="float:left">
                 <div style="float:left">
-                    <div class="comic-chapter-text-title">Introduction</div>
-                    <div class="comic-chapter-text-publish">Published 08/08/2024</div>
-                    <div class="comic-chapter-text-likes">12 Likes, 34 Views</div>
-                    <div class="comic-chapter-text-tw">Trigger Warnings: x</div>
+                    <div class="comic-chapter-text-title">{{ chapter.name }}</div>
+                    <div class="comic-chapter-text-publish">Published {{ chapter.createdDate }}</div>
+                    <div class="comic-chapter-text-likes">{{ chapter.likes }} likes, {{ chapter.views }} Views</div>
                 </div>
                 <div style="text-align:right;float:right" v-if="isAuthor">
                     <b-button size="is-small" type="is-primary" class="px-4 mr-3" icon-left="fa-magnifying-glass" outlined>View</b-button>
@@ -25,14 +24,7 @@
 export default {
     name: 'ComicItem',
     props: {
-        seriesId: {
-            type: String,
-            default: '0'
-        },
-        id: {
-            type: String,
-            default: '0'
-        },
+        chapter: Object,
         isAuthor: {
             type: Boolean,
             default: false
@@ -41,7 +33,7 @@ export default {
     methods: {
         viewChapter() {
             if (!this.isAuthor)
-                return this.$router.push({ path: '/series/' + this.seriesId + '/' + this.id });
+                return this.$router.push({ path: '/series/' + this.seriesId + '/' + this.chapter.id });
         }
     }
 }

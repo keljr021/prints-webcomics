@@ -3,20 +3,24 @@
     <div class="series-info container">
         <div class="columns">
             <div class="column is-three-quarters series-info px-4">
-                <div class="series-info-name headline">Celestial Forests</div>
-                <div class="series-info-genre">Fantasy</div>
-                <div class="series-info-author">Stephanie Liu</div>
-                <div class="series-info-text">
-                    <p>Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.</p>
+                <div class="series-info-name headline">{{ comic.title }}</div>
+                <div class="series-info-genre" style="text-transform:capitalize;">
+                    <template v-for="(genre, i) in comic.genres">
+                        {{  genre + (i < comic.genres.length - 1 ? ', ' : '') }}
+                    </template>
                 </div>
-                <div class="series-info-tw">Trigger Warnings: x</div>
+                <div class="series-info-author">{{ comic.author.name }}</div>
+                <div class="series-info-text">
+                    <p>{{ comic.synopsis }}</p>
+                </div>
+                <div class="series-info-tw" v-if="comic.triggerWarning !== ''">Trigger Warnings: {{ comic.triggerWarning }}</div>
                 <div class="series-info-edit" v-if="isAuthor">
                     <b-button type="is-primary" class="pa-2" icon-left="fa-pen" outlined>Edit</b-button>
                 </div>
             </div>
             <div class="column is-quarter px-4">
                 <div class="series-info-image">
-                    <img src="./../assets/cartoon-5190776_1280.jpg" />
+                    <img :src="require( `@/assets/comics/${comic.cover}`)" />
                 </div>
             </div>
         </div>
@@ -38,10 +42,8 @@
                     </div>
                 </div>
             </div>
-            <div class="py-4 px-10">
-                <comic-chapter :seriesId="0" :isAuthor="isAuthor" />
-                <comic-chapter :seriesId="0" :isAuthor="isAuthor" />
-                <comic-chapter :seriesId="0" :isAuthor="isAuthor" />
+            <div class="py-4 px-10" v-for="chapter in chapters" :key="chapter.key">
+                <comic-chapter :chapter="chapter" :isAuthor="isAuthor" />
             </div>
         </div>
     </div>
@@ -49,20 +51,31 @@
 </template>
 
 <script>
+import { comicsStore } from "@/store/comics";
+import { chaptersStore } from "@/store/chapters";
+
 import ComicChapter from './../components/ComicChapter.vue';
 import SortDropdown from './../components/SortDropdown.vue';
 export default {
   name: 'Series',
+  data() {
+    return {
+        comic: {},
+        chapters: []
+    };
+  },
   props: {
     isAuthor: {
         type: Boolean,
         default: false
     }
   },
-  computed: {
-    getId() {
-        return this.$params.seriesId;
-    }
+  async mounted() {
+    console.log('found id: ', this.$route.params.seriesId );
+    this.comic = await comicsStore.getComic(this.$route.params.seriesId);
+
+    await chaptersStore.fetchAllChapters();
+    this.chapters = await chaptersStore.fetchChaptersByComic(this.$route.params.seriesId);
   },
   components: {
     ComicChapter,

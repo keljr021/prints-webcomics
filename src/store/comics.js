@@ -4,6 +4,8 @@ import { defineStore } from 'pinia';
 import comicsData from '../assets/mock-data/comics.json'
 
 import { accountsStore } from "@/store/accounts";
+import { chaptersStore } from "@/store/chapters";
+
 
 const useComicsStore = defineStore('comics', {
     state: () => ({
@@ -20,15 +22,18 @@ const useComicsStore = defineStore('comics', {
         getComic(id) {
             console.log('attempting to find id: ', id);
 
-            let foundTarget = null;
+            let foundComic = null;
             this.allComics.forEach(comic => {
-                if (comic.id === id)
-                    foundTarget = comic;
+                let comicId = (comic.id).toString();
+                if (comicId === id) foundComic = comic;
             });
 
-            console.log('Found comic: ', foundTarget)
+            foundComic.author = this.getComicAuthor(foundComic.authorId);
+            foundComic.chapters = chaptersStore.fetchChaptersByComic(foundComic.id);
 
-            return foundTarget;
+            console.log('Found comic: ', foundComic);
+
+            return foundComic;
         },
         getComicAuthor(id) {
             let authorsLists = accountsStore.accountsList;
