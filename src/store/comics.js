@@ -62,7 +62,20 @@ const useComicsStore = defineStore('comics', {
             });
 
             return newReleaseList;
-        }
+        },
+        getRecommendedComics() {
+            let featuredList = [];
+
+            this.allComics.forEach(comic => {
+                if (comic.isRecommended) {
+                    let author = this.getComicAuthor(comic.authorId);
+                    let comicItem = Object.assign(comic, { author: author });
+                    featuredList.push(comicItem); 
+                }
+            });
+
+            return featuredList;
+        },
     }
 });
 

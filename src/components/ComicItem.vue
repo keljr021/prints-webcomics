@@ -1,13 +1,13 @@
 <template>
     <div class="comic-item" @click="viewSeries">
-        <div class="comic-item-image">
-            <img src="./../assets/cartoon-5190776_1280.jpg" />
+        <div class="featured-item-image">
+            <img :src="require( `@/assets/comics/${comic.cover}`)" />
         </div>
-        <div class="comic-item-text">
-            <div class="comic-item-text-title">Comic Title</div>
-            <div class="comic-item-text-genre">Genre</div>
-            <div class="comic-item-text-author">Author Name</div>
-            <div class="comic-item-text-cw">Trigger/Content Warning</div>
+        <div class="featured-item-text">
+            <div class="featured-item-text-title">{{ comic.title }}</div>
+            <div class="featured-item-text-genre">{{ comic.genre }}</div>
+            <div class="featured-item-text-author">{{ comic.author.name }}</div>
+            <div class="featured-item-text-cw" v-if="comic.triggerWarning !== ''">{{ 'TW: ' + comic.triggerWarning }}</div>
         </div>
     </div>
 </template>
@@ -16,14 +16,11 @@
 export default {
     name: 'ComicItem',
     props: {
-        id: {
-            type: String,
-            default: '0'
-        }
+        comic: Object
     },
     methods: {
         viewSeries() {
-            return this.$router.push({ path: '/series/' + this.id });
+            return this.$router.push({ path: '/series/' + this.comic.id });
         }
     }
 }
