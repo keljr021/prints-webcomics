@@ -33,7 +33,7 @@ export default {
     methods: {
         viewChapter() {
             if (!this.isAuthor)
-                return this.$router.push({ path: '/series/' + this.seriesId + '/' + this.chapter.id });
+                return this.$router.push({ path: '/series/' + this.chapter.comicId + '/' + this.chapter.id });
         }
     }
 }
