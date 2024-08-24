@@ -1,17 +1,17 @@
 <template>
-    <div class="comment" :class="{'reply': reply }">
+    <div class="comment" :class="{'reply': comment.replyId > 0 }">
         <div class="columns">
             <div class="column">
                 <div class="comment-image">
-                    <img src="./../assets/artist-1708777_1280.jpg" />
+                    <img :src="require( `@/assets/accounts/${comment.account.avatar }`)" />
                 </div>
                 <div class="comment-text">
-                    <div class="comment-text-name">Test Viewer</div>
+                    <div class="comment-text-name">{{ comment.account.name }}</div>
                     <div class="comment-text-response">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+                        {{ comment.comment }}
                     </div>
                     <div class="comment-footer">
-                        <div class="comment-footer-date">08/08/2024</div>
+                        <div class="comment-footer-date">{{ comment.createdDate }}</div>
                         <div class="comment-footer-reply">
                             <b-button size="is-small" type="is-text" @click="$emit('toggle')">Reply</b-button>
                         </div>
@@ -26,7 +26,7 @@
 export default {
   name: 'CommentItem',
   props: {
-    reply: Boolean
+    comment: Object
   }
 }
 </script>
@@ -51,7 +51,6 @@ export default {
 
 .comment-text {
     padding: 20px 0 10px;
-    float: left;
 }
 
 .comment-text-name {

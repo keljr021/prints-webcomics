@@ -3,8 +3,8 @@
     <view-comic-menu :seriesId="0" />
     <div class="view-comic">
         <div class="view-comic-header">
-            <div class="view-comic-header-title">Celestial Forests</div>
-            <div class="view-comic-header-chapter">Introduction</div>
+            <div class="view-comic-header-title">{{ comic.title }}</div>
+            <div class="view-comic-header-chapter">{{ chapter.name }}</div>
         </div>
         
         <div class="columns">
@@ -20,17 +20,17 @@
             <div class="columns">
                 <div class="column is-three-quarters view-description-text">
                     <div class="view-description-text-caption">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>{{ chapter.description }}</p>
                     </div>
-                    <div class="view-description-text-stats">34 Views, 12 Likes</div>
-                    <div class="view-description-text-date">Last Updated 08/08/2024</div>
+                    <div class="view-description-text-stats">{{ chapter.views }} Views, {{ chapter.likes }} Likes</div>
+                    <div class="view-description-text-date">Last Updated {{ chapter.createdDate }}</div>
                 </div>
                 <div class="column is-quarter view-description-author">
                     <div class="view-description-author-image">
-                        <img src="./../assets/artist-1708777_1280.jpg" />
+                        <img :src="require( `@/assets/accounts/${ comic.author.avatar }`)" />
                     </div>
                     <div class="view-description-author-name">
-                        Author Name
+                        {{ comic.author.name }}
                     </div>
                 </div>
             </div>
@@ -54,11 +54,8 @@
                     </div>
                 </div>
             </div>
-            <div class="view-comments-items">
-               <comment-item @toggle="toggleCommentModal()"/> 
-               <comment-item @toggle="toggleCommentModal()" reply /> 
-               <comment-item @toggle="toggleCommentModal()" reply /> 
-               <comment-item @toggle="toggleCommentModal()" /> 
+            <div class="view-comments-items" v-for="comment in comments" :key="comment.key">
+               <comment-item :comment="comment" @toggle="toggleCommentModal()"/> 
             </div>
         </div>
         <add-comment :showModal="showCommentModal" @toggle="toggleCommentModal()" />
@@ -67,6 +64,10 @@
 </template>
 
 <script>
+import { comicsStore } from "@/store/comics";
+import { chaptersStore } from "@/store/chapters";
+import { commentsStore } from "@/store/comments";
+
 import CommentItem from '../components/CommentItem.vue';
 import ViewComicMenu from '../components/ViewComicMenu.vue';
 import SortDropdown from '../components/SortDropdown.vue';
@@ -75,7 +76,10 @@ export default {
   name: 'ViewComic',
   data() {
     return {
-        showCommentModal: false
+        showCommentModal: false,
+        comic: {},
+        chapter: {},
+        comments: []
     };
   },
   methods: {
@@ -83,6 +87,20 @@ export default {
         this.showCommentModal = !this.showCommentModal;
         console.log('set comment modal to: ', this.showCommentModal);
     }
+  },
+  async mounted() {
+    let chapterId = this.$route.params.chapterId;
+    console.log('params found: ', this.$route.params);
+    if (chapterId !== '') {
+        await chaptersStore.fetchAllChapters();
+
+        this.comic = comicsStore.getComic(chapterId);
+        this.chapter = chaptersStore.getChapter(chapterId);
+
+        await commentsStore.fetchAllComments();
+        this.comments = commentsStore.getCommentsForComic(this.comic.id);
+    }
+
   },
   components: {
     CommentItem,

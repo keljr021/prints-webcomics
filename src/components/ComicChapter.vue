@@ -31,7 +31,7 @@ export default {
         }
     },
     methods: {
-        viewChapter() {
+        async viewChapter() {
             if (!this.isAuthor)
                 return this.$router.push({ path: '/series/' + this.chapter.comicId + '/' + this.chapter.id });
         }

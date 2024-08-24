@@ -26,8 +26,22 @@ const useChaptersStore = defineStore('chapters', {
             });
 
             return foundChapters;
-        }
+        },
+        getChapter(id) {
+            let targetId = id.toString();
+            let foundChapter = null;
 
+            console.log('attempting to get chapter using id of: ', id);
+            this.chaptersList.forEach(chapter => {
+                let chapterId = (chapter.id).toString();
+                if (chapterId === targetId) {
+                    console.log(' --target found: ', chapter);
+                    foundChapter = chapter;
+                }
+            });
+
+            return foundChapter;
+        }
     }
 });
 

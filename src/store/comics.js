@@ -16,7 +16,7 @@ const useComicsStore = defineStore('comics', {
     },
     actions: {
         fetchAllComics() {            
-            console.log('account data: ', comicsData);
+            console.log('comics data: ', comicsData);
             this.comicsList = comicsData.data.comics;
         },
         getComic(id) {
@@ -80,7 +80,7 @@ const useComicsStore = defineStore('comics', {
             });
 
             return featuredList;
-        },
+        }
     }
 });
 
