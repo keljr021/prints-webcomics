@@ -15,12 +15,7 @@
           </div>
           <b-field class="pb-3">
            <div class="columns">
-            <div class="column is-half">
-              <b-checkbox>Basic</b-checkbox>
-            </div>
-            <div class="column is-half">
-              <b-checkbox>Basic</b-checkbox>
-            </div>
+            <checkbox-group :items="genreList" />
            </div>
           </b-field>
           <b-field label="Synopsis" class="py-3">
@@ -48,12 +43,9 @@
                 1200x700 pixels and<br>
                 in JPG or PNG format.
               </div>
-              <b-upload v-model="file" class="file-label">
+              <b-upload v-model="coverFile" class="file-label">
                 <span class="file-cta">
                     <span class="file-label">Upload Cover</span>
-                </span>
-                <span class="file-name" v-if="file">
-                    {{ file.name }}
                 </span>
               </b-upload>
             </div>
@@ -69,12 +61,9 @@
                 200x200 pixels and<br>
                 in JPG or PNG format.
               </div>
-              <b-upload v-model="file" class="file-label">
+              <b-upload v-model="thumbFile" class="file-label">
                 <span class="file-cta">
                     <span class="file-label">Upload Thumbnail</span>
-                </span>
-                <span class="file-name" v-if="file">
-                    {{ file.name }}
                 </span>
               </b-upload>
             </div>
@@ -97,6 +86,7 @@
 
 <script>
 import ViewHeader from '@/components/ViewHeader.vue';
+import CheckboxGroup from '@/components/CheckboxGroup.vue'
 import ConfirmNewSeries from '@/components/modals/ConfirmNewSeries.vue';
 import PublishSeries from '@/components/modals/PublishSeries.vue';
 export default {
@@ -108,7 +98,18 @@ export default {
       seriesName: '',
       synopsis: '',
       warnings: '',
-      file: {},
+      coverFile: {},
+      thumbFile: {},
+      genreList: [
+        'action',
+        'adventure',
+        'comedy',
+        'drama',
+        'fantasy',
+        'horror',
+        'romance',
+        'slice-of-life'
+      ]
     }
   },
   methods: {
@@ -124,10 +125,11 @@ export default {
     },
     submitPublishSeries() {
       this.togglePublishSeries();
-    },
+    }
   },
   components: {
     ViewHeader,
+    CheckboxGroup,
     ConfirmNewSeries,
     PublishSeries
   }
