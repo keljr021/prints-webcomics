@@ -42,9 +42,20 @@
                     </div>
                 </div>
             </div>
-            <div class="py-4 px-10" v-for="chapter in chapters" :key="chapter.key">
-                <comic-chapter :chapter="chapter" :isAuthor="isAuthor" />
-            </div>
+            <div v-if="chapters.length > 0">
+                <div class="py-4 px-10" v-for="chapter in chapters" :key="chapter.key">
+                    <comic-chapter :chapter="chapter" :isAuthor="isAuthor" />
+                </div>
+            </div>        
+            <div v-else>
+                <div style="clear:both">
+                    <div class="columns">
+                        <div class="column is-full-width">
+                            No chapters published yet.
+                        </div>
+                    </div>
+                </div>
+            </div>        
         </div>
     </div>
   </div>

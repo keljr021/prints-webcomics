@@ -26,8 +26,11 @@
                     <div class="view-description-text-date">Last Updated {{ chapter.createdDate }}</div>
                 </div>
                 <div class="column is-quarter view-description-author">
-                    <div class="view-description-author-image">
+                    <div class="view-description-author-image" v-if="comic.author.avatar && comic.author.avatar != 'test.png'">
                         <img :src="require( `@/assets/accounts/${ comic.author.avatar }`)" />
+                    </div>
+                    <div class="view-description-author-image" v-else>
+                        <img :src="require( `@/assets/accounts/user-6380868_1280.png`)" />
                     </div>
                     <div class="view-description-author-name">
                         {{ comic.author.name }}
@@ -54,8 +57,15 @@
                     </div>
                 </div>
             </div>
-            <div class="view-comments-items" v-for="comment in comments" :key="comment.key">
-               <comment-item :comment="comment" @toggle="toggleCommentModal()"/> 
+
+            <div v-if="comments.length > 0">
+                <div class="view-comments-items" v-for="comment in comments" :key="comment.key">
+                   <comment-item :comment="comment" @toggle="toggleCommentModal()"/> 
+                </div>
+            </div>
+
+            <div v-else>
+                <p>No comments.</p>
             </div>
         </div>
         <add-comment :showModal="showCommentModal" @toggle="toggleCommentModal()" />

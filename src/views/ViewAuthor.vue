@@ -16,10 +16,13 @@
     <div class="view-author-comics">
         <div class="container">
             <div class="subtitle py-4">Comics</div>
-            <div class="columns">
+            <div class="columns" v-if="comics.length > 0">
                 <div  v-for="comic in comics" :key="comic.key" class="column is-quarter">
                     <comic-item :author="author" :comic="comic" />
                 </div>
+            </div>
+            <div class="columns" v-else>
+              No comics by this author.
             </div>
         </div>
     </div>
@@ -42,7 +45,7 @@ export default {
   },
   async created() {
     this.author = await authorsStore.getAuthor(this.$route.params.authorId);
-    this.comics = await comicsStore.getAllComicsByAuthor(this.author.id);
+    this.comics = await comicsStore.getAllComicsByAuthor(this.$route.params.authorId);
   },
   components: {
     ComicItem

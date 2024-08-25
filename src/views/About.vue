@@ -17,24 +17,24 @@
         <div class="subtitle">Our Founders</div>
         <div class="columns">
           <div class="column is-third">
-            <about-item />
+            <about-item imageSrc="joe-ciciarelli-BVNmFNShq6U-unsplash.jpg" name="Keisha Carr" occupation="Founder"/>
           </div>
           <div class="column is-third">
-            <about-item />
+            <about-item imageSrc="man-5866475_1280.jpg" name="Thomas Christensen" occupation="Co-Founder"/>
           </div>
           <div class="column is-third">
-            <about-item />
+            <about-item imageSrc="man-8308722_1280.jpg" name="Bruce Morris" occupation="Co-Founder"/>
           </div>
         </div>
         <div class="columns">
           <div class="column is-third">
-            <about-item />
+            <about-item imageSrc="pexels-olly-3762940.jpg" name="Alice Webb" occupation="Web Developer" />
           </div>
           <div class="column is-third">
-            <about-item />
+            <about-item imageSrc="pexels-piebat-1059039.jpg" name="Drew Jacobs" occupation="Designer" />
           </div>
           <div class="column is-third">
-            <about-item />
+            <about-item imageSrc="graffiti-7970174_1280.jpg" name="Stephanie Liu" occupation="Marketing" />
           </div>
           </div>
       </div>

@@ -1,7 +1,7 @@
 <template>
     <div class="about-item">
         <div class="about-item-image">
-            <img :src="getImage" />
+            <img :src="require( `@/assets/about/${imageSrc}`)" />
         </div>
         <div class="about-item-text">
             <div class="about-item-text-name">{{ name }}</div>
@@ -14,9 +14,9 @@
 export default {
     name: 'AboutItem',
     props: {
-        src: {
+        imageSrc: {
             type: String,
-            default: './../assets/cartoon-5190776_1280.jpg'
+            default: 'cartoon-5190776_1280.jpg'
         },
         name: {
             type: String,
@@ -25,11 +25,6 @@ export default {
         occupation: {
             type: String,
             default: 'Test Occupation'
-        }
-    },
-    methods: {
-        getImage() {
-            return this.src;
         }
     }
 }
@@ -42,7 +37,9 @@ export default {
 }
 
 .about-item-image img {
-    height: 430px;
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 

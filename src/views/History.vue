@@ -7,23 +7,28 @@
       </template>
     </view-header>
     <div>
-      <div class="columns">
-        <div class="column">
-          <search-item />
-          <search-item />
-          <search-item />
-          <search-item />
-        </div>
+      <div v-for="(comic, i) in comics" :key="i">
+        <search-item :comic="comic"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { comicsStore } from "@/store/comics";
+
 import ViewHeader from './../components/ViewHeader.vue';
 import SearchItem from './../components/SearchItem.vue';
 export default {
   name: 'History',
+  data() {
+    return {
+      comics: []
+    }
+  },
+  created() {
+    this.comics = comicsStore.comicsList;
+  },
   components: {
     ViewHeader,
     SearchItem

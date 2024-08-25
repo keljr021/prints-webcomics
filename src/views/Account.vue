@@ -32,33 +32,18 @@
           </b-field>
         </div>
         <div class="column is-half px-5">
-          <b-field label="Checkboxes" class="pb-3">
-           <div class="columns">
-            <div class="column is-half">
-              <b-checkbox>Basic</b-checkbox>
-            </div>
-            <div class="column is-half">
-              <b-checkbox>Basic</b-checkbox>
-            </div>
-           </div>
-          </b-field>
-          <b-field label="Checkboxes" class="py-3">
-            <div class="columns">
-              <div class="column is-half">
-                <b-radio v-model="radio" native-value="Basic">Basic</b-radio>
-              </div>
-              <div class="column is-half">
-                <b-radio v-model="radio" native-value="Basic">Basic</b-radio>
-              </div>
-            </div>
-          </b-field>
-          <b-field class="pb-3">
-            <div class="columns">
-              <div class="column is-half">
-                <b-radio v-model="radio" native-value="Basic">Basic</b-radio>
-              </div>
-            </div>
-          </b-field>
+          <div class="pb-3" style="font-weight:bold">
+            Series Genre<br>Select up to three (3) choices
+          </div>
+          <div class="columns">
+            <checkbox-group :items="genreList" />
+          </div>
+          <div class="pb-3" style="font-weight:bold">
+            Do you plan to create and publish webcomics?
+          </div>
+          <div class="columns">
+            <radio-group :items="['yes', 'no', 'unsure']" />
+          </div>
           <b-field label="Avatar Image" class="py-3">
            <div class="columns">
             <div class="column">
@@ -93,11 +78,59 @@
 </template>
 
 <script>
+import { accountsStore } from '@/store/accounts';
+
 import ViewHeader from './../components/ViewHeader.vue';
+import CheckboxGroup from '@/components/CheckboxGroup.vue'
+import RadioGroup from '@/components/RadioGroup.vue'
+
 export default {
   name: 'Account',
+  data() {
+    return {
+      account: {},
+      email: null,
+      username: null,
+      password: null,
+      confirm: null,
+      fullname: null,
+      age: null,
+      genres: [],
+      isPublishing: '',
+      file: null,
+      description: '',
+      genreList: [
+        'action',
+        'adventure',
+        'comedy',
+        'drama',
+        'fantasy',
+        'horror',
+        'romance',
+        'slice-of-life'
+      ]
+    };
+  },
+  methods: {
+    setUserInfo() {
+      if (this.account) {
+        for (let key in this.account) {
+          if (Object.hasOwn(this.account, key)) {
+            this[key] = this.account[key];
+            console.log(key, ' is set to: ', this.account[key]);
+          }
+        }
+      }
+    }
+  },
+  async created() {
+    this.account = accountsStore.userLoggedIn;
+    await this.setUserInfo();
+  },
   components: {
-    ViewHeader
+    ViewHeader,
+    CheckboxGroup,
+    RadioGroup
   }
 }
 </script>

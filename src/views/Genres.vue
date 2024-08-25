@@ -15,7 +15,7 @@
         <div class="column is-one-quarter">
           <genres-sub-menu :genre="selectedGenre"/>
         </div>
-        <div class="column is-three-fourths fixed-box">
+        <div v-if="formattedList.length > 0" class="column is-three-fourths fixed-box">
           <template v-for="(list, l) in formattedList">
             <div class="columns" :key="l">
               <div v-for="(item, i) in list" class="column is-one-third" :key="i">
@@ -23,6 +23,9 @@
               </div>
             </div>
           </template>
+        </div>
+        <div v-else class="column is-three-fourths fixed-box">
+          No comics in this genre.
         </div>
       </div>
     </div>

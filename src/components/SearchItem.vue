@@ -1,16 +1,14 @@
 <template>
-    <div class="search-item">
+    <div class="search-item" @click="handleClick()">
         <div class="columns">
             <div class="column">
                 <div class="search-item-image">
-                    <img src="./../assets/artist-1708777_1280.jpg" />
+                    <img :src="require( `@/assets/comics/${comic.cover}`)" />
                 </div>
                 <div class="search-item-text">
-                    <div class="search-item-text-name">Test Viewer</div>
-                    <div class="search-item-text-date">Published 08/08/2024</div>
+                    <div class="search-item-text-name">{{ comic.title }}</div>
+                    <div class="search-item-text-date">Published {{ comic.createdDate }}</div>
                     <div class="search-item-text-type">Comic</div>
-                    <div class="search-item-text-info">12 Likes, 34 Views</div>
-
                 </div>
             </div>
         </div>
@@ -19,7 +17,15 @@
   
 <script>
 export default {
-    name: 'SearchItem'
+    name: 'SearchItem',
+    props: {
+        comic: Object
+    },
+    methods: {
+        handleClick() {
+            return this.$router.push({ path: '/series/' + this.comic.id });
+        }
+    }
 }
 </script>
 <style scoped>
@@ -40,7 +46,9 @@ export default {
 }
 
 .search-item-image img {
+    width: 90px;
     height: 90px;
+    object-fit: cover;
 }
 
 .search-item-text {

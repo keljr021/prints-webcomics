@@ -35,16 +35,13 @@
           <div class="pb-5" style="text-align:right;">
             <sort-dropdown />
           </div>
-          <div class="columns">
-                <div class="column is-one-third"><comic-item /></div>
-                <div class="column is-one-third"><comic-item /></div>
-                <div class="column is-one-third"><comic-item /></div>
+          <template v-for="list in formattedList">
+            <div class="columns py-5" :key="list.key">
+              <div v-for="item in list" class="column is-third" :key="item.key">
+                <comic-item :comic="item" />
+              </div>
             </div>
-            <div class="columns">
-                <div class="column is-one-third"><comic-item /></div>
-                <div class="column is-one-third"><comic-item /></div>
-                <div class="column is-one-third"><comic-item /></div>
-            </div>
+          </template>
         </div>
       </div>
     </div>
@@ -52,12 +49,54 @@
 </template>
 
 <script>
+import { comicsStore } from "@/store/comics";
+
 import ViewHeader from '@/components/ViewHeader.vue';
 import DashboardSubMenu from '@/components/DashboardSubMenu.vue';
 import ComicItem from '@/components/ComicItem.vue';
 import SortDropdown from '@/components/SortDropdown.vue';
 export default {
   name: 'Dashboard',
+  data() {
+    return {
+      favioriteComicsList: [],
+      formattedList: []
+    };
+  },
+  methods: {
+    setFormattedList() {
+      let output = [];
+      let numberOfRows = Math.ceil(this.favioriteComicsList.length / 4);
+
+      let itemIdx = 0;
+
+      for (let r = 1; r < numberOfRows; r++) {
+        let rowOfComics = [];
+        let columnLimit = r * 3;
+
+        if (r < numberOfRows) {
+          for (let c = itemIdx; c < columnLimit; c++) {
+            rowOfComics.push(this.favioriteComicsList[itemIdx]);
+            itemIdx++;
+          }
+          output.push(rowOfComics);
+        }
+      }
+
+      console.log('formatted list: ', output);
+
+
+      this.formattedList = output;
+    }
+  },
+  async created() {
+    this.favioriteComicsList = comicsStore.getRecommendedComics();
+
+    console.log('comics list: ', this.favioriteComicsList);
+
+    if (this.favioriteComicsList.length > 0)
+      await this.setFormattedList();
+  },
   components: {
     ViewHeader,
     DashboardSubMenu,
