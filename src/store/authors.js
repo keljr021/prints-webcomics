@@ -7,7 +7,7 @@ import { accountsStore } from "@/store/accounts";
 import { comicsStore } from '@/store/comics';
 
 
-const useAccountsStore = defineStore('authors', {
+const useAuthorsStore = defineStore('authors', {
     state: () => ({
         authorsList: [],
         selectedAuthor: {}
@@ -28,17 +28,20 @@ const useAccountsStore = defineStore('authors', {
             this.authorsList = list;
         },
         getAuthor(id) {
-            let foundTarget = null;
+            console.log('getAuthor by id: ', id);
+            let targetId = id.toString();
+            let foundAuthor = null;
             let foundAccountData
             this.authorsList.forEach(author => {
-                if (author.id === id)
-                    foundTarget = foundAccountData
+                let authorAccountId = (author.accountId).toString();
+                if (authorAccountId === targetId)
+                    foundAuthor = author;
             });
             
-            foundAccountData = this.getAuthorAccountData(foundTarget.accountId);
-            foundTarget = Object.assign(foundTarget, foundAccountData);
+            foundAccountData = this.getAuthorAccountData(foundAuthor.accountId);
+            foundAuthor = Object.assign(foundAuthor, foundAccountData);
             
-            return foundTarget;
+            return foundAuthor;
         },
         getAuthorAccountData(id) {
             let accountList = accountsStore.accountsList;
@@ -69,4 +72,4 @@ const useAccountsStore = defineStore('authors', {
     }
 });
 
-export const authorsStore = useAccountsStore(pinia);
+export const authorsStore = useAuthorsStore(pinia);

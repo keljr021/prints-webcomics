@@ -8,7 +8,7 @@
                     "action", "drama", "horror"
                 ],
                 "isFeatured": false,
-                "descfiption": ""
+                "description": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim."
             },
             {
                 "id": 2,
@@ -16,7 +16,8 @@
                 "isFeatured": true,
                 "genres": [
                     "comedy", "slice-of-life"
-                ]
+                ],
+                "description": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim."
             },
             {
                 "id": 3,
@@ -24,7 +25,8 @@
                 "isFeatured": true,
                 "genres": [
                     "adventure", "fantasy"
-                ]
+                ],
+                "description": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim."
             },
             {
                 "id": 4,
@@ -32,7 +34,8 @@
                 "isFeatured": false,
                 "genres": [
                     "action", "comedy"
-                ]
+                ],
+                "description": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim."
             },
             {
                 "id": 5,
@@ -40,7 +43,8 @@
                 "isFeatured": true,
                 "genres": [
                     "fantasy", "slice-of-life"
-                ]
+                ],
+                "description": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim."
             },
             {
                 "id": 5,
@@ -48,7 +52,8 @@
                 "isFeatured": true,
                 "genres": [
                     "fantasy", "drama", "slice-of-life"
-                ]
+                ],
+                "description": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim."
             },
             {
                 "id": 6,
@@ -56,7 +61,8 @@
                 "isFeatured": false,
                 "genres": [
                     "action", "comedy"
-                ]
+                ],
+                "description": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim."
             }
         ]
     }

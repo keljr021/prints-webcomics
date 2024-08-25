@@ -8,7 +8,7 @@
             <div class="column is-three-quarters px-4">
                 <div class="view-author-info-name headline">{{ author.account.name }}</div>
                 <div class="view-author-info-text body py-4">
-                    <p>{{ author.account.description }}</p>
+                    <p>{{ author.description }}</p>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
             <div class="subtitle py-4">Comics</div>
             <div class="columns" v-for="comic in comics" :key="comic.key">
                 <div class="column is-quarter">
-                    <comic-item :comic="comic" />
+                    <comic-item :author="author" :comic="comic" />
                 </div>
             </div>
         </div>
@@ -42,9 +42,10 @@ export default {
         comics: []
     };
   },
-  async mounted() {
+  async created() {
     this.author = await authorsStore.getAuthor(this.$route.params.authorId);
     this.comics = await comicsStore.getAllComicsByAuthor(this.author.id);
+    console.log('comics found: ', this.comics);
   },
   components: {
     ComicItem
