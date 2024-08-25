@@ -43,8 +43,8 @@ const routes = [
     component: Genres
   },
   {
-    path: '/genres/:genre',
-    name: 'genres',
+    path: '/genres/:genreId',
+    name: 'viewGenre',
     component: Genres
   },
   {

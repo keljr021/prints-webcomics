@@ -1,8 +1,8 @@
 <template>
     <div class="sub">
         <template v-for="item in subMenu">
-            <div class="sub-link py-3" :key="item.key">
-                <RouterLink :to="'/genres/' + item.query" :class="($route.params.query === item.query) ? 'active' : ''">{{ item.name }}</RouterLink>
+            <div class="py-3" :key="item.key">
+                <RouterLink :to="'/genres/' + item.query" :class="{ 'sub-link': true, 'active': genre === item.query }">{{ item.name }}</RouterLink>
             </div>
         </template>
     </div>
@@ -22,8 +22,14 @@ export default {
                 { name: 'Fantasy', query: 'fantasy' },
                 { name: 'Horror', query: 'horror' },
                 { name: 'Romance', query: 'romance' },
-                { name: 'Slice of Life', query: 'slice' },
+                { name: 'Slice of Life', query: 'slice-of-life' },
             ]
+        }
+    },
+    props: {
+        genre: {
+            type: String,
+            default: null
         }
     }
 }

@@ -5,12 +5,12 @@
         </div>
         <div class="featured-item-text">
             <div class="featured-item-text-title">{{ comic.title }}</div>
-            <div class="featured-item-text-genre" style="text-transform:capitalize">
-                <template v-for="(genre, i) in author.account.genres">
-                    {{  genre + (i < author.genres.length - 1 ? ', ' : '') }}
+            <div v-if="comic.author.genres" class="featured-item-text-genre" style="text-transform:capitalize">
+                <template v-for="(genre, i) in comic.genres">
+                    {{  genre + (i < comic.genres.length - 1 ? ', ' : '') }}
                 </template>
             </div>
-            <div class="featured-item-text-author">{{ author.name }}</div>
+            <div class="featured-item-text-author">{{ comic.author.name }}</div>
             <div class="featured-item-text-cw" v-if="comic.triggerWarning !== ''">{{ 'TW: ' + comic.triggerWarning }}</div>
         </div>
     </div>
@@ -20,8 +20,7 @@
 export default {
     name: 'ComicItem',
     props: {
-        comic: Object,
-        author: Object
+        comic: Object
     },
     methods: {
         viewSeries() {

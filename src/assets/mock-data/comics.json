@@ -34,7 +34,7 @@
                 "authorId": 2,
                 "title": "Ghraham the Cat",
                 "genres": [
-                    "comedy", "slice of life"
+                    "comedy", "slice-of-life"
                 ],
                 "cover": "cat-2856531_1280.jpg",
                 "synopsis": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.",
@@ -48,7 +48,7 @@
                 "authorId": 2,
                 "title": "Meadows",
                 "genres": [
-                    "slice of life"
+                    "slice-of-life"
                 ],
                 "cover": "cartoon-5190954_1280.jpg",
                 "synopsis": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.",
@@ -62,7 +62,7 @@
                 "authorId": 5,
                 "title": "Multiverse Tavern",
                 "genres": [
-                    "drama","slice of life"
+                    "drama","slice-of-life"
                 ],
                 "cover": "woman-8464672_1280.jpg",
                 "synopsis": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.",

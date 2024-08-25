@@ -17,7 +17,13 @@ const useComicsStore = defineStore('comics', {
     actions: {
         fetchAllComics() {            
             console.log('comics data: ', comicsData);
-            this.comicsList = comicsData.data.comics;
+            let comicArray = []
+            comicsData.data.comics.forEach(comic => {
+                let author = this.getComicAuthor(comic.authorId);
+                let comicItem = Object.assign(comic, { author: author });
+                comicArray.push(comicItem);    
+            });
+            this.comicsList = comicArray;
         },
         getComic(id) {
             console.log('attempting to find id: ', id);
