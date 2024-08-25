@@ -111,6 +111,9 @@ export default {
 }
 
 .series-info-image img {
+    width: 250px;
+    height: 350px;
+    object-fit: cover;
     border-radius: 15px;
 }
 </style>

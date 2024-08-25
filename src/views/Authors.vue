@@ -69,7 +69,7 @@ export default {
       this.formattedAuthors = output;
     }
   },
-  async mounted() {
+  async created() {
     this.authors = await authorsStore.authorsList;
     await this.setFormatAuthorsList();
   }

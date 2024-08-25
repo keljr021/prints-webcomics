@@ -16,36 +16,33 @@
     <div class="view-author-comics">
         <div class="container">
             <div class="subtitle py-4">Comics</div>
-            <div class="columns" v-for="comic in comics" :key="comic.key">
-                <div class="column is-quarter">
+            <div class="columns">
+                <div  v-for="comic in comics" :key="comic.key" class="column is-quarter">
                     <comic-item :author="author" :comic="comic" />
                 </div>
             </div>
         </div>
     </div>
   </div>
-
-
 </template>
 
 <script>
 import { authorsStore } from "@/store/authors";
 import { comicsStore } from "@/store/comics";
 
-
-import ComicItem from '../components/ComicItem.vue';
+import ComicItem from '@/components/ComicItem.vue';
 export default {
   name: 'ViewAuthor',
   data() {
     return {
         author: {},
+        account: {},
         comics: []
     };
   },
   async created() {
     this.author = await authorsStore.getAuthor(this.$route.params.authorId);
     this.comics = await comicsStore.getAllComicsByAuthor(this.author.id);
-    console.log('comics found: ', this.comics);
   },
   components: {
     ComicItem

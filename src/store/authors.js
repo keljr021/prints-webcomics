@@ -28,19 +28,15 @@ const useAuthorsStore = defineStore('authors', {
             this.authorsList = list;
         },
         getAuthor(id) {
-            console.log('getAuthor by id: ', id);
             let targetId = id.toString();
             let foundAuthor = null;
-            let foundAccountData
             this.authorsList.forEach(author => {
-                let authorAccountId = (author.accountId).toString();
-                if (authorAccountId === targetId)
+                let authorId = (author.id).toString();
+                if (authorId === targetId)
                     foundAuthor = author;
             });
-            
-            foundAccountData = this.getAuthorAccountData(foundAuthor.accountId);
-            foundAuthor = Object.assign(foundAuthor, foundAccountData);
-            
+        
+            foundAuthor.account = this.getAuthorAccountData(foundAuthor.accountId);
             return foundAuthor;
         },
         getAuthorAccountData(id) {
