@@ -3,7 +3,7 @@
         <div class="headline py-3">{{ header || 'Featured List'}}</div>
         <div class="featured-lists py-6">
             <div class="columns">
-                <div class="column is-one-quarter" v-for="comic in comicList" :key="comic.key">
+                <div class="column is-3" v-for="comic in comicList" :key="comic.key">
                     <home-featured-item :comic="comic" />
                 </div>
             </div>

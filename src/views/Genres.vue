@@ -12,17 +12,15 @@
 
     <div>
       <div class="columns">
-        <div class="column is-one-quarter">
+        <div class="column is-3">
           <genres-sub-menu :genre="selectedGenre"/>
         </div>
-        <div v-if="formattedList.length > 0" class="column is-three-fourths fixed-box">
-          <template v-for="(list, l) in formattedList">
-            <div class="columns" :key="l">
-              <div v-for="(item, i) in list" class="column is-one-third" :key="i">
-                <comic-item :comic="item" />
-              </div>
+        <div v-if="comics.length > 0" class="column is-9">
+          <div class="columns is-multiline">
+            <div v-for="(item, i) in comics" class="column is-4" :key="i">
+              <comic-item :comic="item" />
             </div>
-          </template>
+          </div>
         </div>
         <div v-else class="column is-three-fourths fixed-box">
           No comics in this genre.
@@ -46,38 +44,11 @@ export default {
   data() {
     return {
       comics: [],
-      formattedList: [],
       selectedGenre: ''
     };
   },
   methods: {
-    setFormattedList() {
-      console.log( 'setting formatted list...');
-      let output = [];
-      let numberOfRows = Math.ceil(this.comics.length / 3);
-
-      let itemIdx = 0;
-
-      for (let r = 1; r <= numberOfRows; r++) {
-        let rowOfComics = [];
-        let columnLimit = r * 3;
-
-        for (let c = itemIdx; c < columnLimit; c++) {
-          let comic = this.comics[itemIdx];
-          rowOfComics.push(comic);
-          itemIdx++;
-        }
-        output.push(rowOfComics);
-      }
-
-      console.log('formatted list: ', output);
-
-
-      this.formattedList = output;
-    },
     updatedListWithGenre() {
-      console.log( 'setting formatted list with genre...');
-
       let updatedList = [];
 
       for (let i = 0; i < this.comics.length; i++) {
@@ -86,26 +57,16 @@ export default {
           updatedList.push(comic);
       }
 
-      this.comics = updatedList;
-
-      console.log('updated list: ', updatedList);
-      
-      if (updatedList.length > 0)
-        this.setFormattedList();      
+      this.comics = updatedList;  
     },
   },
   async created() {
       this.comics = comicsStore.comicsList;
       this.selectedGenre = this.$route.params.genreId;
 
-      console.log('params: ', this.selectedGenre);
-
       if (this.comics.length > 0) {
         if (this.selectedGenre) await this.updatedListWithGenre();
-        else await this.setFormattedList();
       }
-
-      
   },
   components: {
     ViewHeader,

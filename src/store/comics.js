@@ -16,42 +16,40 @@ const useComicsStore = defineStore('comics', {
     },
     actions: {
         fetchAllComics() {            
-            console.log('comics data: ', comicsData);
             let comicArray = []
             comicsData.data.comics.forEach(comic => {
                 let author = this.getComicAuthor(comic.authorId);
-                let comicItem = Object.assign(comic, { author: author });
+                let chapters = chaptersStore.fetchChaptersByComic(comic.id);
+                let comicItem = Object.assign(comic, { author: author, chapters: chapters });
                 comicArray.push(comicItem);    
             });
+            console.log('fetchAllComics: ', comicArray);
             this.comicsList = comicArray;
         },
-        getComic(id) {
-            console.log('attempting to find id: ', id);
+        getComic(inputComicId) {
+            console.log('attempting to find id: ', inputComicId);
 
             let foundComic = null;
             this.allComics.forEach(comic => {
                 let comicId = (comic.id).toString();
-                if (comicId === id) foundComic = comic;
+                if (comicId === inputComicId) foundComic = comic;
             });
-
-            foundComic.author = this.getComicAuthor(foundComic.authorId);
-            foundComic.chapters = chaptersStore.fetchChaptersByComic(foundComic.id);
 
             console.log('Found comic: ', foundComic);
 
             return foundComic;
         },
-        getComicAuthor(id) {
+        getComicAuthor(inputAuthorId) {
             let authorsLists = accountsStore.accountsList;
-            let foundAuthor = authorsLists.find(author => author.id === id);
+            let foundAuthor = authorsLists.find(author => author.id.toString() === inputAuthorId.toString());
 
             return foundAuthor;
 
         },
-        getAllComicsByAuthor(authorId) {
+        getAllComicsByAuthor(inputAuthorId) {
             let output = [];
 
-            output = this.allComics.filter(comic => comic.authorId === authorId);
+            output = this.allComics.filter(comic => comic.authorId === inputAuthorId);
 
             return output;
         },
