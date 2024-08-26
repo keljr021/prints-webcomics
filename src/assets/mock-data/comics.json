@@ -3,7 +3,7 @@
         "comics": [
             {
                 "id": 1,
-                "authorId": 5,
+                "authorId": 3,
                 "title": "Celestial Forests",
                 "genres": [
                     "fantasy"
@@ -11,7 +11,7 @@
                 "cover": "cartoon-5190776_1280.jpg",
                 "synopsis": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.",
                 "triggerWarning": "",
-                "isFeatured": false,
+                "isFeatured": true,
                 "isRecommended": true,
                 "createdDate": "08/22/2024"
             },

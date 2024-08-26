@@ -44,12 +44,12 @@ const useAuthorsStore = defineStore('authors', {
             let foundAccount = accountList.find(account => account.id === id);
             return foundAccount;
         },
-        getAuthorComics(id) {
+        getAuthorComics(authorId) {
             let comicsList = comicsStore.comicsList;
             let foundComics = [];
 
             comicsList.forEach(comic => {
-                if (comic.authorId === id) 
+                if (comic.authorId.toString() === authorId.toString()) 
                     foundComics.push(comic);
             });
             
@@ -59,9 +59,8 @@ const useAuthorsStore = defineStore('authors', {
             let output = [];
             let featuredAuthors = this.authorsList.filter(authors => authors.isFeatured);
             featuredAuthors.forEach(author => {
-                let accountInfo = this.getAuthorAccountData(author.accountId);
                 let comicsList = this.getAuthorComics(author.id);
-                output.push({ author, comics: comicsList, ...accountInfo  });
+                output.push({ author, comics: comicsList  });
             });
             return output;
         }

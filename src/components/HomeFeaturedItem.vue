@@ -6,7 +6,7 @@
         <div class="featured-item-text">
             <div class="featured-item-text-title">{{ comic.title }}</div>
             <div class="featured-item-text-genre">{{ comic.genre }}</div>
-            <div class="featured-item-text-author">{{ comic.author.name }}</div>
+            <div class="featured-item-text-author">{{ comic.author.account.name }}</div>
             <div class="featured-item-text-cw" v-if="comic.triggerWarning !== ''">{{ 'TW: ' + comic.triggerWarning }}</div>
         </div>
     </div>
@@ -20,7 +20,7 @@ export default {
     },
     methods: {
         handleClickFeature() {
-            this.$router.push({ name: 'series', params: { seriesId: this.comic.id } });
+            this.$router.push({ path: '/authors/' + this.author.id });
         }
     }
 }
