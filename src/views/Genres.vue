@@ -11,25 +11,23 @@
     </div>
 
     <div>
-      <div class="columns">
-        <div class="column is-3">
+      <div class="columns is-multiline">
+        <div class="column is-mobile is-full-mobile is-3-desktop">
           <genres-sub-menu :genre="selectedGenre"/>
         </div>
-        <div v-if="comics.length > 0" class="column is-9">
-          <div class="columns is-multiline">
-            <div v-for="(item, i) in comics" class="column is-4" :key="i">
+        <div v-if="comics.length > 0" class="column is-full-mobile is-9-desktop">
+          <div class="columns is-mobile is-multiline">
+            <div v-for="(item, i) in comics" class="column is-half-mobile is-4-desktop" :key="i">
               <comic-item :comic="item" />
             </div>
           </div>
         </div>
-        <div v-else class="column is-three-fourths fixed-box">
+        <div v-else class="column is-mobile is-full">
           No comics in this genre.
         </div>
       </div>
     </div>
   </div>
-
-
 </template>
 
 <script>
@@ -76,11 +74,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.fixed-box {
-  width: initial;
-  max-height: 600px;
-  overflow: hidden auto;
-}
-</style>

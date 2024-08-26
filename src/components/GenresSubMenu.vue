@@ -1,16 +1,28 @@
 <template>
     <div class="sub">
-        <template v-for="item in subMenu">
-            <div class="py-3" :key="item.key">
-                <RouterLink :to="'/genres/' + item.query" :class="{ 'sub-link': true, 'active': genre === item.query }">{{ item.name }}</RouterLink>
-            </div>
-        </template>
+        <div v-if="!isMobile">
+            <template v-for="item in subMenu">
+                <div class="py-3" :key="item.key">
+                    <RouterLink :to="'/genres/' + item.query" :class="{ 'sub-link': true, 'active': genre === item.query }">{{ item.name }}</RouterLink>
+                </div>
+            </template>
+        </div>
+        <div v-else>
+            <b-field size="is-medium">
+            <b-select class="sort" placeholder="Genre">
+                <option v-for="genreItem in subMenu" :value="genreItem.query" :key="genreItem.key" :selected="genre === genreItem.query">{{ genreItem.name }}</option>
+            </b-select>
+        </b-field>
+        </div>
     </div>
 </template>
   
 <script>
+import VueBreakpointMixin from 'vue-breakpoint-mixin';
+
 export default {
     name: 'GenresSubMenu',
+    mixins: [ VueBreakpointMixin ],
     data() {
         return {
             subMenu: [
@@ -51,6 +63,12 @@ export default {
 
 .sub-link:hover {
     text-decoration: underline;
+}
+
+@media all and (max-width: 768px) {
+    .sub {
+        border-right: none !important;
+    }
 }
 </style>
   
