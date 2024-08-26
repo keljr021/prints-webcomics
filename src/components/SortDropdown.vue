@@ -78,4 +78,10 @@ export default {
 .sort select {
     width: 300px;
 }
+
+@media all and (max-width: 768px) {
+    .sort select {
+        width: 85vw !important;
+    }
+}
 </style>

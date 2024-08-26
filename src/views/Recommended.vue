@@ -7,16 +7,16 @@
       </template>
     </view-header>
 
-    <div class="py-5" style="text-align:right">
-      <div class="columns">
-        <div class="column">
+    <div class="py-5 recommended-sort">
+      <div class="columns is-mobile">
+        <div class="column is-full-width">
           <sort-dropdown />
         </div>
       </div>
     </div>
 
-    <div class="columns is-multiline">
-      <div class="column is-3" v-for="item in comics" :key="item.key">
+    <div class="columns is-mobile is-multiline">
+      <div class="column is-half-mobile is-third-desktop" v-for="item in comics" :key="item.key">
         <comic-item :comic="item" />
       </div>
     </div>
@@ -53,5 +53,13 @@ export default {
 </script>
 
 <style>
+.recommended-sort {
+  text-align: right;
+}
 
+@media all and (max-width: 768px) {
+  .recommended-sort {
+    text-align: center;
+  }
+}
 </style>

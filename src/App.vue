@@ -99,4 +99,10 @@ $primary: #4e4c67;
 .nested-enter-active .inner {
 	transition-delay: 0.4s;
 }
+
+@media all and (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+}
 </style>

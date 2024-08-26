@@ -29,5 +29,19 @@ export default {
 .view-header-caption {
     padding-top: 50px;
 }
+
+@media all and (max-width: 768px) {
+  .view-header {
+    padding-bottom: 20px;
+  }
+
+  .headline {
+    line-height: 100%;
+  }
+
+  .view-header-caption {
+    padding-top: 20px;
+  }
+}
 </style>
   

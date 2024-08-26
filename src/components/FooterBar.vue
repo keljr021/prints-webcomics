@@ -1,6 +1,6 @@
 <template>
   <div class="footer py-3">
-    <div class="columns is-multiline py-5">
+    <div class="columns is-mobile is-multiline py-5">
       <div class="column is-full-mobile is-half-desktop">
         <img src="./../assets/prints_logo_white.png" alt="Prints Webcomic and Hosting logo" class="logo">
       </div>

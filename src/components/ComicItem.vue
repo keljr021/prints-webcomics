@@ -55,5 +55,16 @@ export default {
     font-style: italic;
     opacity: 0.75;
 }
+
+@media all and (max-width: 768px) {
+    .comic-item-text {
+        font-size: 85% !important;
+    }
+
+    .comic-item-image img {
+        width: 125px;
+        height: 180px;
+    }
+}
 </style>
   
