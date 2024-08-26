@@ -13,14 +13,10 @@
       </div>
     </div>
 
-    <div>
-      <template v-for="list in formattedAuthors">
-        <div class="columns is-justify-content-space-between" :key="list.key">
-          <div v-for="item in list" class="column is-one-third" :key="item.key">
-            <authors-item :author="item" />
-          </div>
-        </div>
-      </template>
+    <div class="columns is-multiline">
+      <div v-for="item in authors" class="column is-4" :key="item.key">
+        <authors-item :author="item" />
+      </div>
     </div>
   </div>
 
@@ -38,7 +34,6 @@ export default {
   data() {
     return {
       authors: [],
-      formattedAuthors: [],
     };
   },
   components: {
@@ -46,32 +41,8 @@ export default {
     AuthorsItem,
     SortDropdown
   },
-  methods: {
-    setFormatAuthorsList() {
-      let output = [];
-      let numberOfRows = Math.ceil(this.authors.length / 3);
-      let itemIdx = 0;
-
-      for (let r = 1; r < numberOfRows; r++) {
-        let rowOfAuthors = [];
-        let columnLimit = r * 3;
-
-        for (let c = itemIdx; c < columnLimit; c++) {
-          rowOfAuthors.push(this.authors[itemIdx]);
-          itemIdx++;
-        }
-
-        output.push(rowOfAuthors);        
-      }
-
-      console.log(output);
-
-      this.formattedAuthors = output;
-    }
-  },
   async created() {
     this.authors = await authorsStore.authorsList;
-    await this.setFormatAuthorsList();
   }
 }
 </script>

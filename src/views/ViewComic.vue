@@ -18,14 +18,14 @@
     <div class="view-description">
         <div class="container">
             <div class="columns">
-                <div class="column is-three-quarters view-description-text">
+                <div class="column is-9 view-description-text">
                     <div class="view-description-text-caption">
                         <p>{{ chapter.description }}</p>
                     </div>
                     <div class="view-description-text-stats">{{ chapter.views }} Views, {{ chapter.likes }} Likes</div>
                     <div class="view-description-text-date">Last Updated {{ chapter.createdDate }}</div>
                 </div>
-                <div class="column is-quarter view-description-author">
+                <div class="column is-3 view-description-author">
                     <div class="view-description-author-image" v-if="comic.author.avatar && comic.author.avatar != 'test.png'">
                         <img :src="require( `@/assets/accounts/${ comic.author.avatar }`)" />
                     </div>
@@ -42,14 +42,14 @@
     <div class="view-comments">
         <div class="container">
             <div class="view-comments-header columns">
-                <div class="column is-three-quarters">
+                <div class="column is-9">
                     <div class="view-comments-header-text">
                         Comments
                         <b-button type="is-primary" class="pa-2 mx-5" @click="toggleCommentModal()" outlined>Add Comment</b-button>
                     </div>
 
                 </div>
-                <div class="column is-quarter">
+                <div class="column is-3">
                     <div class="columns" style="text-align:right">
                         <div class="column">
                             <sort-dropdown />

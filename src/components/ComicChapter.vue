@@ -1,10 +1,10 @@
 <template>
     <div class="comic-chapter" :class="{ 'no-hover': isAuthor }" @click="viewChapter">
-        <div class="columns">
-            <div class="column is-quarter">
+        <div class="columns is-multiline">
+            <div class="column is-3">
                 <img class="comic-chapter-image" :src="require( `@/assets/chapters/${chapter.image}`)" />
             </div>
-            <div class="column is-three-quarters comic-chapter-text" style="float:left">
+            <div class="column is-9 comic-chapter-text" style="float:left">
                 <div style="float:left">
                     <div class="comic-chapter-text-title">{{ chapter.name }}</div>
                     <div class="comic-chapter-text-publish">Published {{ chapter.createdDate }}</div>

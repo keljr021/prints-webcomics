@@ -10,7 +10,7 @@
                     {{  genre + (i < comic.genres.length - 1 ? ', ' : '') }}
                 </template>
             </div>
-            <div class="featured-item-text-author">{{ comic.author.name }}</div>
+            <div class="featured-item-text-author">{{ comic.author.account.name }}</div>
             <div class="featured-item-text-cw" v-if="comic.triggerWarning !== ''">{{ 'TW: ' + comic.triggerWarning }}</div>
         </div>
     </div>

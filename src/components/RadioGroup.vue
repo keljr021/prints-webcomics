@@ -1,8 +1,8 @@
 <template>
-  <div class="py-5 fixed-grid has-2-cols">
-    <div class="grid">
+  <div class="py-5">
+    <div class="columns fixed-column is-multiline">
         <template v-for="(item, i) in items">
-            <div class="cell px-4" :key="i">
+            <div class="column is-6 px-4" :key="i">
                 <b-radio v-model="selected" style="text-transform:capitalize">{{ item }}</b-radio>
             </div>
         </template>

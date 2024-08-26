@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 
 import comicsData from '../assets/mock-data/comics.json'
 
-import { accountsStore } from "@/store/accounts";
+import { authorsStore } from "@/store/authors";
 import { chaptersStore } from "@/store/chapters";
 
 
@@ -40,7 +40,7 @@ const useComicsStore = defineStore('comics', {
             return foundComic;
         },
         getComicAuthor(inputAuthorId) {
-            let authorsLists = accountsStore.accountsList;
+            let authorsLists = authorsStore.authorsList;
             let foundAuthor = authorsLists.find(author => author.id.toString() === inputAuthorId.toString());
 
             return foundAuthor;
@@ -49,7 +49,7 @@ const useComicsStore = defineStore('comics', {
         getAllComicsByAuthor(inputAuthorId) {
             let output = [];
 
-            output = this.allComics.filter(comic => comic.authorId === inputAuthorId);
+            output = this.allComics.filter(comic => comic.authorId.toString() === inputAuthorId.toString());
 
             return output;
         },
@@ -58,9 +58,7 @@ const useComicsStore = defineStore('comics', {
 
             this.allComics.forEach(comic => {
                 if (comic.isFeatured) {
-                    let author = this.getComicAuthor(comic.authorId);
-                    let comicItem = Object.assign(comic, { author: author });
-                    featuredList.push(comicItem); 
+                    featuredList.push(comic); 
                 }
             });
 
@@ -71,9 +69,7 @@ const useComicsStore = defineStore('comics', {
 
             this.allComics.forEach(comic => {
                 if (newReleaseList.length < 4) {
-                    let author = this.getComicAuthor(comic.authorId);
-                    let comicItem = Object.assign(comic, { author: author });
-                    newReleaseList.push(comicItem); 
+                    newReleaseList.push(comic); 
                 }
             });
 

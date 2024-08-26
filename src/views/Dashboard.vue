@@ -5,19 +5,19 @@
     </view-header>
     <div class="dashboard-quick">
       <div class="columns">
-        <div class="column is-third">
+        <div class="column is-4">
           <div class="dashboard-quick-item">
             <div class="dashboard-quick-item-icon"><b-icon size="is-large" icon="fa-eye"></b-icon></div>
             <div class="dashboard-quick-item-text">34 Total Views</div>
           </div>
         </div>
-        <div class="column is-third">
+        <div class="column is-4">
           <div class="dashboard-quick-item">
             <div class="dashboard-quick-item-icon"><b-icon size="is-large" icon="fa-thumbs-up"></b-icon></div>
             <div class="dashboard-quick-item-text">12 Total Likes</div>
           </div>
         </div>
-        <div class="column is-third">
+        <div class="column is-4">
           <div class="dashboard-quick-item">
             <div class="dashboard-quick-item-icon"><b-icon size="is-large" icon="fa-comment"></b-icon></div>
             <div class="dashboard-quick-item-text">4 Total Comments</div>
@@ -28,20 +28,18 @@
 
     <div class="dashboard-menu py-5 my-5">
       <div class="columns">
-        <div class="column is-one-quarter dashboard-menu-side">
+        <div class="column is-3 dashboard-menu-side">
           <dashboard-sub-menu />
         </div>
-        <div class="column is-three-fourths dashboard-menu-list">
+        <div class="column is-9 dashboard-menu-list">
           <div class="pb-5" style="text-align:right;">
             <sort-dropdown />
           </div>
-          <template v-for="list in formattedList">
-            <div class="columns py-5" :key="list.key">
-              <div v-for="item in list" class="column is-third" :key="item.key">
-                <comic-item :comic="item" />
-              </div>
+          <div class="columns is-multiline">
+            <div class="column is-4" v-for="item in favioriteComicsList" :key="item.key">
+              <comic-item :comic="item" />
             </div>
-          </template>
+          </div>
         </div>
       </div>
     </div>
@@ -60,42 +58,10 @@ export default {
   data() {
     return {
       favioriteComicsList: [],
-      formattedList: []
     };
-  },
-  methods: {
-    setFormattedList() {
-      let output = [];
-      let numberOfRows = Math.ceil(this.favioriteComicsList.length / 4);
-
-      let itemIdx = 0;
-
-      for (let r = 1; r < numberOfRows; r++) {
-        let rowOfComics = [];
-        let columnLimit = r * 3;
-
-        if (r < numberOfRows) {
-          for (let c = itemIdx; c < columnLimit; c++) {
-            rowOfComics.push(this.favioriteComicsList[itemIdx]);
-            itemIdx++;
-          }
-          output.push(rowOfComics);
-        }
-      }
-
-      console.log('formatted list: ', output);
-
-
-      this.formattedList = output;
-    }
   },
   async created() {
     this.favioriteComicsList = comicsStore.getRecommendedComics();
-
-    console.log('comics list: ', this.favioriteComicsList);
-
-    if (this.favioriteComicsList.length > 0)
-      await this.setFormattedList();
   },
   components: {
     ViewHeader,

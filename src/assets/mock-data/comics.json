@@ -17,7 +17,7 @@
             },
             {
                 "id": 2,
-                "authorId": 1,
+                "authorId": 6,
                 "title": "Detective C",
                 "genres": [
                     "action", "drama"
@@ -87,20 +87,6 @@
             },
             {
                 "id": 7,
-                "authorId": 3,
-                "title": "Star Adventure",
-                "genres": [
-                    "adventure","comedy"
-                ],
-                "cover": "cartoon-5190776_1280.jpg",
-                "synopsis": "Lorem ipsum odor amet, consectetuer adipiscing elit. Aliquet blandit fames finibus finibus magna ad tempor! Nunc diam commodo porta scelerisque maximus nec fusce enim.",
-                "triggerWarning": "",
-                "isFeatured": true,
-                "isRecommended": true,
-                "createdDate": "08/22/2024"
-            },
-            {
-                "id": 8,
                 "authorId": 1,
                 "title": "The Haunted Inn",
                 "genres": [

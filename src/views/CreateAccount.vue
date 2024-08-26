@@ -5,8 +5,8 @@
     </view-header>
 
     <div>
-      <div class="columns">
-        <div class="column is-half px-5">
+      <div class="columns fixed-column is-multiline">
+        <div class="column is-6 px-5">
           <b-field label="Email" class="pb-3">
             <b-input v-model="email"></b-input>
           </b-field>
@@ -31,34 +31,15 @@
             <b-input v-model="age"></b-input>
           </b-field>
         </div>
-        <div class="column is-half px-5">
-          <b-field label="Checkboxes" class="pb-3">
-           <div class="columns">
-            <div class="column is-half">
-              <b-checkbox>Basic</b-checkbox>
-            </div>
-            <div class="column is-half">
-              <b-checkbox>Basic</b-checkbox>
-            </div>
-           </div>
-          </b-field>
-          <b-field label="Checkboxes" class="py-3">
-            <div class="columns">
-              <div class="column is-half">
-                <b-radio v-model="radio" native-value="Basic">Basic</b-radio>
-              </div>
-              <div class="column is-half">
-                <b-radio v-model="radio" native-value="Basic">Basic</b-radio>
-              </div>
-            </div>
-          </b-field>
-          <b-field class="pb-3">
-            <div class="columns">
-              <div class="column is-half">
-                <b-radio v-model="radio" native-value="Basic">Basic</b-radio>
-              </div>
-            </div>
-          </b-field>
+        <div class="column is-6 px-5">
+          <div class="pb-3">
+            <b>What Genre(s) are you interested in?<br>Select up to three (3) choices</b>
+            <checkbox-group :items="genreList" />
+          </div>
+          <div class="pb-3">
+            <b>Do you plan to create and publish webcomics?</b>
+            <radio-group :items="['yes', 'no', 'unsure']" />
+          </div>
           <b-field label="Avatar Image" class="py-3">
            <div class="columns">
             <div class="column">
@@ -95,12 +76,24 @@
 
 <script>
 import ViewHeader from '@/components/ViewHeader.vue';
+import CheckboxGroup from '@/components/CheckboxGroup.vue';
+import RadioGroup from '@/components/RadioGroup.vue';
 import ConfirmNewAccount from '@/components/modals/ConfirmNewAccount.vue';
 export default {
   name: 'CreateAccount',
   data() {
     return {
-      showConfirmAccount: false
+      showConfirmAccount: false,
+      genreList: [
+        'action',
+        'adventure',
+        'comedy',
+        'drama',
+        'fantasy',
+        'horror',
+        'romance',
+        'slice-of-life'
+      ]
     };
   },
   methods: {
@@ -114,6 +107,8 @@ export default {
   },
   components: {
     ViewHeader,
+    CheckboxGroup,
+    RadioGroup,
     ConfirmNewAccount
   }
 }

@@ -1,7 +1,7 @@
 <template>
     <div class="comment" :class="{'reply': comment.replyId > 0 }">
         <div class="columns">
-            <div class="column">
+            <div class="column is-12">
                 <div class="comment-image">
                     <img :src="require( `@/assets/accounts/${comment.account.avatar }`)" />
                 </div>
