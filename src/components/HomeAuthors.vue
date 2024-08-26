@@ -38,5 +38,11 @@ export default {
 .authors-carousel {
     padding: 30px 0;
 }
+
+@media all and (max-width: 768px) {
+    .authors {
+        padding: 20px 0;
+    }
+}
 </style>
   

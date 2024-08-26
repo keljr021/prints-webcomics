@@ -1,10 +1,10 @@
 <template>
   <div class="footer py-3">
-    <div class="columns py-5">
-      <div class="column is-half">
+    <div class="columns is-multiline py-5">
+      <div class="column is-full-mobile is-half-desktop">
         <img src="./../assets/prints_logo_white.png" alt="Prints Webcomic and Hosting logo" class="logo">
       </div>
-      <div class="column is-half footer-links">
+      <div class="column is-full-mobile is-half-desktop footer-links">
         <RouterLink class="px-4" to="/terms">Terms and Conditions</RouterLink>
         <RouterLink class="px-4" to="/privacy">Privacy Policy </RouterLink>
         <RouterLink class="px-4" to="/about">About</RouterLink>
@@ -57,5 +57,14 @@ $primary: #4E4C67;
 
 .footer-text {
   font-size: 12px;
+}
+
+@media all and (max-width: 768px) {
+  .footer .footer-links {
+    width: 100%;
+    text-align: left;
+    margin: 24px 12px;
+  }
+
 }
 </style>

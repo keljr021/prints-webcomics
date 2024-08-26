@@ -58,15 +58,16 @@ export default {
 
 .cta {
     padding-bottom: 10px; 
+    line-height: 125%;
 }
 
 .cta-text {
-    line-height: 175%;
+    line-height: 250%;
 }
 
 .cta-text p {
     padding: 20px 0;
-    text-align: 28px;
+    font-size: 20px;
 }
 
 .cta-buttons {

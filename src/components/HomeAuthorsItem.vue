@@ -9,13 +9,13 @@
                 <div class="home-authors-item-text-description">
                     {{ author.description }}
                 </div>
-                <div class="home-authors-item-text-genres py-4" style="text-transform:capitalize">
+                <div class="home-authors-item-text-genres" style="text-transform:capitalize">
                     <b>Genres: </b>
                     <template v-for="(genre, i) in author.genres">
                         {{  genre + (i < author.genres.length - 1 ? ', ' : '') }}
                     </template>
                 </div>
-                <div class="home-authors-item-text-series py-4">
+                <div class="home-authors-item-text-series">
                     <b>Comic Series: </b>
                     <template v-for="(comic, i) in author.comics">
                         {{  comic.title + (i < author.comics.length - 1 ? ', ' : '') }}
@@ -73,6 +73,31 @@ export default {
     font-size: 22px;
     font-style: italic;
     font-weight: normal;
+    padding: 16px 0;
+}
+
+@media all and (max-width: 768px) {
+    .home-authors-item-img {
+        padding-top: 80px;
+    }
+
+    .home-authors-item-img img {
+        width: 150px;
+        height: 210px;
+        object-fit: cover;
+    }
+
+    .home-authors-item-text {
+        padding: 24px;
+    }
+
+    .home-authors-item-text-description,
+    .home-authors-item-text-genres,
+    .home-authors-item-text-series {
+        font-size: 18px;
+        line-height: 175%;
+        padding: 12px 0;
+    }
 }
 </style>
   

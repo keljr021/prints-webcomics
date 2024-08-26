@@ -52,5 +52,16 @@ export default {
     font-style: italic;
     opacity: 0.7;
 }
+
+@media all and (max-width: 768px) {
+    .featured-item-text {
+        font-size: 85% !important;
+    }
+
+    .featured-item-image img {
+        width: 125px;
+        height: 180px;
+    }
+}
 </style>
   

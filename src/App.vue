@@ -71,6 +71,11 @@ $primary: #4e4c67;
   text-align: left;
 }
 
+.columns {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
 .nested-enter-active, .nested-leave-active {
 	transition: all 0.5s ease-in-out;
 }

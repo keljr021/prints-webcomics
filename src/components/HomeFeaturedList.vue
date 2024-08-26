@@ -2,8 +2,8 @@
     <section class="featured">
         <div class="headline py-3">{{ header || 'Featured List'}}</div>
         <div class="featured-lists py-6">
-            <div class="columns">
-                <div class="column is-3" v-for="comic in comicList" :key="comic.key">
+            <div class="columns is-mobile is-multiline">
+                <div class="column is-half-mobile is-3-desktop" v-for="comic in comicList" :key="comic.key">
                     <home-featured-item :comic="comic" />
                 </div>
             </div>
@@ -31,6 +31,12 @@ export default {
 
 .featured-title {
     text-align: left;
+}
+
+@media all and (max-width: 768px) {
+    .featured {
+        padding: 20px;
+    }
 }
 </style>
   
