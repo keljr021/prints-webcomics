@@ -10,7 +10,7 @@
         <RouterLink class="px-4" to="/about">About</RouterLink>
         <RouterLink class="px-4" to="/contact">Contact Us</RouterLink>
         <div class="footer-text py-5">
-          Some descriptor text at the bottom
+          This is a portfolio example. Some features may not work as expected. Site built by <a style="font-style:italic;text-decoration: underline;" href="https://kelvin-m.com/#/" target="_blank">Kelvin Morrisey Jr.</a>
         </div>
       </div>
     </div>

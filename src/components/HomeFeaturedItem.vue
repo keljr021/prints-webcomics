@@ -20,7 +20,7 @@ export default {
     },
     methods: {
         handleClickFeature() {
-            this.$router.push({ path: '/authors/' + this.author.id });
+            this.$router.push({ path: '/series/' + this.comic.id });
         }
     }
 }

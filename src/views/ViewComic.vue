@@ -26,14 +26,14 @@
                     <div class="view-description-text-date">Last Updated {{ chapter.createdDate }}</div>
                 </div>
                 <div class="column is-3 view-description-author">
-                    <div class="view-description-author-image" v-if="comic.author.avatar && comic.author.avatar != 'test.png'">
-                        <img :src="require( `@/assets/accounts/${ comic.author.avatar }`)" />
+                    <div class="view-description-author-image" v-if="comic.author.account.avatar && comic.author.account.avatar != 'test.png'">
+                        <img :src="require( `@/assets/accounts/${ comic.author.account.avatar }`)" />
                     </div>
                     <div class="view-description-author-image" v-else>
                         <img :src="require( `@/assets/accounts/user-6380868_1280.png`)" />
                     </div>
                     <div class="view-description-author-name">
-                        {{ comic.author.name }}
+                        {{ comic.author.account.name }}
                     </div>
                 </div>
             </div>
@@ -98,17 +98,18 @@ export default {
         console.log('set comment modal to: ', this.showCommentModal);
     }
   },
-  async mounted() {
+  async created() {
     let chapterId = this.$route.params.chapterId;
-    console.log('params found: ', this.$route.params);
+
+    console.log('chapter id: ', chapterId);
+
     if (chapterId !== '') {
         await chaptersStore.fetchAllChapters();
-
-        this.comic = comicsStore.getComic(chapterId);
-        this.chapter = chaptersStore.getChapter(chapterId);
-
         await commentsStore.fetchAllComments();
-        this.comments = commentsStore.getCommentsForComic(this.comic.id);
+        
+        this.chapter = await chaptersStore.getChapter(chapterId);
+        this.comic = await comicsStore.getComic(this.chapter.comicId);
+        this.comments = await commentsStore.getCommentsForComic(this.comic.id);
     }
 
   },

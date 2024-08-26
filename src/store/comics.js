@@ -31,8 +31,7 @@ const useComicsStore = defineStore('comics', {
 
             let foundComic = null;
             this.allComics.forEach(comic => {
-                let comicId = (comic.id).toString();
-                if (comicId === inputComicId) foundComic = comic;
+                if (comic.id.toString() === inputComicId.toString()) foundComic = comic;
             });
 
             console.log('Found comic: ', foundComic);

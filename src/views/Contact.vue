@@ -13,7 +13,7 @@
             <b-input v-model="fullname"></b-input>
           </b-field>
           <b-field label="Message" class="pb-3">
-            <b-input maxlength="200" type="textarea"></b-input>
+            <b-input v-model="message" maxlength="200" type="textarea"></b-input>
           </b-field>
         </div>
         <div class="column is-half">
@@ -38,6 +38,11 @@
           </div>
         </div>
       </div>
+      <div class="columns">
+        <div class="column">
+          <b-button @click="submitContactForm" type="is-primary">Submit</b-button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -46,6 +51,18 @@
 import ViewHeader from './../components/ViewHeader.vue';
 export default {
   name: 'Contact',
+  data() {
+    return {
+      fullname: '',
+      email: '',
+      message: ''
+    };
+  },
+  methods: {
+    submitContactForm() {
+      alert("Thanks for your submission! We will contact you within 24 hours.");
+    }
+  },
   components: {
     ViewHeader
   }
