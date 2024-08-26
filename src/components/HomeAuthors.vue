@@ -3,8 +3,8 @@
         <div class="headline py-3">Featured Authors</div>
         <div class="authors-carousel">
             <b-carousel>
-                <b-carousel-item v-for="(author, i) in featuredAuthorsList" :key="i">
-                    <home-authors-item :author="author" />
+                <b-carousel-item v-for="(item, i) in featuredAuthorsList" :key="i">
+                    <home-authors-item :author="item" />
                 </b-carousel-item>
             </b-carousel>
         </div>
@@ -20,18 +20,10 @@ export default {
     data(){
         return {
             featuredAuthorsList: []
-        }
+        };
     },
-    methods: {
-        async getFeaturedAuthors() {
-            let output = [];
-            output = await authorsStore.getFeaturedAuthors();
-
-            this.featuredAuthorsList = output;
-        }
-    },
-    async mounted() {
-        await this.getFeaturedAuthors();
+    async created() {
+        this.featuredAuthorsList = authorsStore.getFeaturedAuthors();
     },
     components: {
         HomeAuthorsItem

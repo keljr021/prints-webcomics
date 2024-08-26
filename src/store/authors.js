@@ -60,7 +60,8 @@ const useAuthorsStore = defineStore('authors', {
             let featuredAuthors = this.authorsList.filter(authors => authors.isFeatured);
             featuredAuthors.forEach(author => {
                 let comicsList = this.getAuthorComics(author.id);
-                output.push({ author, comics: comicsList  });
+                author.comics = comicsList;
+                output.push(author);
             });
             return output;
         }

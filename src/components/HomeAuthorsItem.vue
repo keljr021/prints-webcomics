@@ -2,12 +2,12 @@
     <div class="home-authors-item" @click="clickAuthorItem">
         <div class="columns">
             <div class="column home-authors-item-img is-quarter">
-                <img :src="require( `@/assets/accounts/${author.avatar}`)" />
+                <img :src="require( `@/assets/accounts/${author.account.avatar}`)" />
             </div>
             <div class="column home-authors-item-text is-three-quarters">
-                <div class="home-authors-item-text-title py-4">{{ author.name }}</div>
+                <div class="home-authors-item-text-title py-4">{{ author.account.name }}</div>
                 <div class="home-authors-item-text-description">
-                    {{ author.description }} 
+                    {{ author.description }}
                 </div>
                 <div class="home-authors-item-text-genres py-4" style="text-transform:capitalize">
                     <b>Genres: </b>
