@@ -7,15 +7,17 @@
       </template>
     </view-header>
 
-    <div class="columns py-4" style="text-align:right">
+    <div class="columns is-mobile is-multiline py-4" style="text-align:right">
       <div class="column">
         <sort-dropdown />
       </div>
     </div>
 
-    <div class="columns is-multiline">
-      <div v-for="item in authors" class="column is-4" :key="item.key">
-        <authors-item :author="item" />
+    <div class="columns is-mobile is-multiline">
+      <div v-for="item in authors" class="column is-half-mobile is-4-desktop" :key="item.key">
+        <template v-if="item.account.name !== 'Test Author'">
+          <authors-item :author="item" />
+        </template>
       </div>
     </div>
   </div>

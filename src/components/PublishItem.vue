@@ -36,4 +36,16 @@
   .publish-item-text-title {
     font-weight: bold;
   }
+
+  @media all and (max-width: 768px) {
+    .publish-item {
+      padding: 0 20px;
+    }
+
+    .publish-item-image img {
+      height: 200px;
+      object-fit: contain;
+      opacity: 0.8;
+    }
+  }
   </style>

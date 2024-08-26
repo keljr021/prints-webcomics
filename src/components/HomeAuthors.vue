@@ -30,7 +30,7 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
 .authors {
     padding: 50px;
 }

@@ -55,5 +55,17 @@ export default {
     font-style: italic;
     opacity: 0.75;
 }
+
+@media all and (max-width: 768px) {
+    .authors-item-image img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .authors-item-text {
+        font-size: 90% !important;
+    }
+}
 </style>
   

@@ -6,8 +6,8 @@
       <view-header>
         <template v-slot:header>Why Publish With Us?</template>
       </view-header>
-      <div class="columns">
-        <div class="column is-half">
+      <div class="columns is-mobile is-multiline">
+        <div class="column is-full-mobile is-half-desktop">
           <publish-item>
             <template v-slot:image>
               <img src="./../assets/App-Window--Streamline-Ux.png" />
@@ -18,7 +18,7 @@
             </template>
           </publish-item>
         </div>
-        <div class="column is-half">
+        <div class="column is-full-mobile is-half-desktop">
           <publish-item>
             <template v-slot:image>
               <img src="./../assets/Image-Love-Select-1--Streamline-Ux.png" />
@@ -31,7 +31,7 @@
         </div>
       </div>
       <div class="columns">
-        <div class="column is-half">
+        <div class="column is-full-mobile is-half-desktop">
           <publish-item>
             <template v-slot:image>
               <img src="./../assets/Chart-Analysis--Streamline-Ux.png" />
@@ -42,7 +42,7 @@
             </template>
           </publish-item>
         </div>
-        <div class="column is-half">
+        <div class="column is-full-mobile is-half-desktop">
           <publish-item>
             <template v-slot:image>
               <img src="./../assets/Digital-Handshake-1--Streamline-Ux.png" />
@@ -95,5 +95,11 @@ export default {
 
 .publish-item-text-title {
   font-weight: bold;
+}
+
+@media all and (max-width: 768px) {
+  .publish .columns {
+    padding: 20px 10px;
+  }
 }
 </style>
