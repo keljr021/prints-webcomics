@@ -76,7 +76,7 @@ export default {
     top: 0;
     width: 100%;
     height: 75px;
-    padding: 8px 12px;
+    padding: 8px 0 8px 12px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     background-color: #fff;
     z-index: 99;
@@ -90,6 +90,7 @@ export default {
 
 .mobile-nav-logo img {
     padding: 10px 0;
+    width: 190px;
 }
 
 .mobile-nav-menu {

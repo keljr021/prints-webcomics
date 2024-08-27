@@ -7,12 +7,12 @@
                 </div>
             </template>
         </div>
-        <div v-else>
+        <div v-else style="text-align: center;">
             <b-field size="is-medium">
-            <b-select class="sort" placeholder="Genre">
-                <option v-for="genreItem in subMenu" :value="genreItem.query" :key="genreItem.key" :selected="genre === genreItem.query">{{ genreItem.name }}</option>
-            </b-select>
-        </b-field>
+                <b-select class="sort" placeholder="Genre">
+                    <option v-for="genreItem in subMenu" :value="genreItem.query" :key="genreItem.key" :selected="genre === genreItem.query">{{ genreItem.name }}</option>
+                </b-select>
+            </b-field>
         </div>
     </div>
 </template>

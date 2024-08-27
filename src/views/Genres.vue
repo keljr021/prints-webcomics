@@ -4,7 +4,7 @@
       <template v-slot:header>Genres</template>
     </view-header>
 
-    <div class="columns py-4" style="text-align:right">
+    <div class="columns py-4 genre-sort">
       <div class="column">
         <sort-dropdown />
       </div>
@@ -74,3 +74,10 @@ export default {
   }
 }
 </script>
+<style scoped>
+@media all and (max-width: 768px) {
+  .genre-sort {
+    text-align: center;
+  }
+}
+</style>
