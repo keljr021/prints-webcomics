@@ -4,8 +4,8 @@
       <template v-slot:header>Contact Us</template>
     </view-header>
     <div>
-      <div class="columns">
-        <div class="column is-half">
+      <div class="columns is-mobile is-multiline">
+        <div class="column is-full-mobile is-half-desktop">
           <b-field label="Email" class="pb-3">
             <b-input v-model="email"></b-input>
           </b-field>
@@ -16,7 +16,7 @@
             <b-input v-model="message" maxlength="200" type="textarea"></b-input>
           </b-field>
         </div>
-        <div class="column is-half">
+        <div class="column is-full-mobile is-half-desktop">
           <img src="./../assets/prints_logo.png" alt="Prints Webcomic and Hosting logo" class="logo">
 
           <div class="py-3">

@@ -1,17 +1,17 @@
 <template>
     <div class="comic-item" @click="viewSeries">
-        <div class="featured-item-image">
+        <div class="comic-item-image">
             <img :src="require( `@/assets/comics/${comic.cover}`)" />
         </div>
-        <div class="featured-item-text">
-            <div class="featured-item-text-title">{{ comic.title }}</div>
-            <div v-if="comic.author.genres" class="featured-item-text-genre" style="text-transform:capitalize">
+        <div class="comic-item-text">
+            <div class="comic-item-text-title">{{ comic.title }}</div>
+            <div v-if="comic.author.genres" class="comic-item-text-genre" style="text-transform:capitalize">
                 <template v-for="(genre, i) in comic.genres">
                     {{  genre + (i < comic.genres.length - 1 ? ', ' : '') }}
                 </template>
             </div>
-            <div class="featured-item-text-author">{{ comic.author.account.name }}</div>
-            <div class="featured-item-text-cw" v-if="comic.triggerWarning !== ''">{{ 'TW: ' + comic.triggerWarning }}</div>
+            <div class="comic-item-text-author">{{ comic.author.account.name }}</div>
+            <div class="comic-item-text-cw" v-if="comic.triggerWarning !== ''">{{ 'TW: ' + comic.triggerWarning }}</div>
         </div>
     </div>
 </template>
@@ -39,6 +39,7 @@ export default {
 .comic-item-image img {
     height: 250px;
     border-radius: 15px;
+    object-fit: cover;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 

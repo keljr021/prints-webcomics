@@ -6,9 +6,16 @@
         <p>These series below are recommended to you based on your reading history.</p>
       </template>
     </view-header>
-    <div>
+    <div v-if="isDesktop || isTablet">
       <div v-for="(comic, i) in comics" :key="i">
-        <search-item :comic="comic"/>
+        <search-item v-if="isMobile" :comic="comic"/>
+      </div>
+    </div>
+    <div v-else>
+      <div class="columns is-mobile is-multiline">
+        <div v-for="(comic, i) in comics" :key="i" class="column is-half">
+          <comic-item :comic="comic" />
+        </div>
       </div>
     </div>
   </div>
@@ -19,6 +26,7 @@ import { comicsStore } from "@/store/comics";
 
 import ViewHeader from './../components/ViewHeader.vue';
 import SearchItem from './../components/SearchItem.vue';
+import ComicItem from './../components/ComicItem.vue';
 export default {
   name: 'History',
   data() {
@@ -31,7 +39,8 @@ export default {
   },
   components: {
     ViewHeader,
-    SearchItem
+    SearchItem,
+    ComicItem
   }
 }
 </script>

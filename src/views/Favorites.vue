@@ -14,8 +14,8 @@
     </div>
 
     <div>
-      <div class="columns is-multiline">
-        <div class="column is-3" v-for="item in favioriteComicsList" :key="item.key">
+      <div class="columns is-mobile is-multiline">
+        <div class="column is-half-mobile is-3-desktop" v-for="item in favioriteComicsList" :key="item.key">
           <comic-item :comic="item" />
         </div>
       </div>
