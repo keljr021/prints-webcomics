@@ -1,7 +1,7 @@
 <template>
     <div class="comment" :class="{'reply': comment.replyId > 0 }">
-        <div class="columns">
-            <div class="column is-12">
+        <div class="columns is-mobile is-multiline">
+            <div class="column">
                 <div class="comment-image">
                     <img :src="require( `@/assets/accounts/${comment.account.avatar }`)" />
                 </div>
@@ -41,20 +41,23 @@ export default {
 }
 
 .comment-image {
-    padding: 20px;
     float: left;
+    padding: 10px 20px;
 }
 
 .comment-image img {
+    width: 90px;
     height: 90px;
+    object-fit: cover;
+    border-radius: 15px;
 }
 
 .comment-text {
-    padding: 20px 0 10px;
+    padding: 10px 5px;
 }
 
 .comment-text-name {
-    font-weight: 500;
+    font-weight: bold;
 }
 
 .comment-footer {
@@ -70,5 +73,47 @@ export default {
 
 .comment-footer-reply {
     float: right;
+}
+
+@media all and (max-width: 768px) {
+    .comment {
+        padding: 10px 5px;
+        border-bottom: 1px solid #999;
+    }
+
+    .comment.reply {
+        padding-left: 30px;
+    }
+
+    .comment-image, .comment-text {
+        padding-left: 0;
+    }
+
+    .comment-image {
+      
+    }
+
+    .comment-image img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .comment-text {
+        padding-top: 0;
+        margin: 0 5px;
+    }
+
+    .comment-footer {
+        margin: 0;
+    }
+
+    .comment-footer-reply button {
+        padding: 0;
+        margin: 0;
+    }
+    .comment-footer-date {
+        padding: 7px 0;
+        float: left;
+    }
 }
 </style>

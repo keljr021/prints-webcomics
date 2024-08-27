@@ -65,6 +65,11 @@ export default {
     left: 50px;
     bottom: 25px;
     text-align: left;
+    z-index: 99;
+}
+
+.menu button {
+    background-color: white;
 }
 
 .menu-list {
@@ -78,5 +83,12 @@ export default {
 .menu-list-item {
     clear: both;
     margin: 10px 0;
+}
+
+@media all and (max-width: 768px) {
+    .menu {
+        left: 10px;
+    }
+    
 }
 </style>

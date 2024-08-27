@@ -45,12 +45,14 @@
                 <div class="column is-9">
                     <div class="view-comments-header-text">
                         Comments
-                        <b-button type="is-primary" class="pa-2 mx-5" @click="toggleCommentModal()" outlined>Add Comment</b-button>
+                        <b-button type="is-primary" class="pa-2" @click="toggleCommentModal()" outlined>
+                            Add <span v-if="!isMobile">Comment</span>
+                        </b-button>
                     </div>
 
                 </div>
                 <div class="column is-3">
-                    <div class="columns" style="text-align:right">
+                    <div class="columns comments-sort">
                         <div class="column">
                             <sort-dropdown />
                         </div>
@@ -74,6 +76,8 @@
 </template>
 
 <script>
+import VueBreakpointMixin from 'vue-breakpoint-mixin';
+
 import { comicsStore } from "@/store/comics";
 import { chaptersStore } from "@/store/chapters";
 import { commentsStore } from "@/store/comments";
@@ -84,6 +88,7 @@ import SortDropdown from '../components/SortDropdown.vue';
 import AddComment from './../components/modals/AddComment.vue';
 export default {
   name: 'ViewComic',
+  mixins: [ VueBreakpointMixin ],
   data() {
     return {
         showCommentModal: false,
@@ -194,6 +199,10 @@ export default {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
+.comments-sort {
+    text-align: right;
+}
+
 .view-comments {
     background: #ddd;
 }
@@ -206,5 +215,30 @@ export default {
 .view-comments-header-text {
     font-size: 32px;
     padding: 5px 0;
+}
+
+@media all and (max-width: 768px) {
+    .view-comic-header {
+        width: 100%;
+    }
+
+    .example-comic {
+        width: 100%;
+    }
+
+    .view-description {
+        padding: 30px 0;
+    }
+
+    .comments-sort {
+        text-align: center;
+    }
+
+    .view-comments-header-text button {
+        float: right;
+        text-align: right;
+        margin: 0;
+    }
+
 }
 </style>
