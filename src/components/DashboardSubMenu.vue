@@ -1,5 +1,5 @@
 <template>
-    <div class="sub">
+    <div class="sub" v-if="!isMobile">
         <div class="sub-link-group">
             <div class="sub-link active py-3">Comic Series</div>
             <div @click="handleCreateSeries()" class="sub-link py-2 px-5">Create New Series</div>
@@ -14,8 +14,11 @@
 </template>
   
 <script>
+import VueBreakpointMixin from 'vue-breakpoint-mixin';
+
 export default {
     name: 'DashboardSubMenu',
+    mixins: [ VueBreakpointMixin ],
     methods: {
         handleCreateSeries() {
             console.log('-create link clicked');
@@ -70,6 +73,13 @@ export default {
 .sub-link.active:hover {
     text-decoration: initial;
     cursor: initial;
+}
+
+@media all and (max-width: 768px) {
+    .sub-link,
+    .sub-link-no-highlight {
+        font-size: 90%;
+    }
 }
 </style>
   
