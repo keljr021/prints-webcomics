@@ -1,10 +1,10 @@
 <template>
   <div class="series">
-    <div class="series-info container">
-        <div class="columns">
-            <div class="column is-three-quarters series-info px-4">
+    <div class="container">
+        <div class="columns is-mobile is-multiline">
+            <div class="column is-full-mobile is-three-quarters-desktop series-info px-4">
                 <div class="series-info-name headline">{{ comic.title }}</div>
-                <div class="series-info-genre" style="text-transform:capitalize;">
+                <div class="series-info-genre" style="text-transform:capitalize;padding: 20px 10px 0;">
                     <template v-for="(genre, i) in comic.genres">
                         {{  genre + (i < comic.genres.length - 1 ? ', ' : '') }}
                     </template>
@@ -18,7 +18,7 @@
                     <b-button type="is-primary" class="pa-2" icon-left="fa-pen" outlined>Edit</b-button>
                 </div>
             </div>
-            <div class="column is-quarter px-4">
+            <div class="column is-full-mobile is-quarter-desktop px-4">
                 <div class="series-info-image">
                     <img :src="require( `@/assets/comics/${comic.cover}`)" />
                 </div>
@@ -26,17 +26,17 @@
         </div>
     </div>
     <div class="series-comics">
-        <div class="container">
+        <div :class="{ 'container': isDesktop || isTablet }">
             <div class="subtitle">
                 <div>
-                    <div style="float:left;padding:10px 0">Chapters</div>
+                    <div class="series-comics-header">Chapters</div>
                     
-                    <div style="float:left;padding: 15px" v-if="isAuthor">
+                    <div class="series-comics-header-buttons" v-if="isAuthor">
                         <b-button type="is-primary" class="pa-3" icon-left="fa-plus" outlined>Add New Chapter</b-button>
                     </div>
 
-                    <div style="float:right;text-align:right">
-                        <div class="column">
+                    <div class="columns is-mobile is-multiline">
+                        <div class="column series-sort">
                             <sort-dropdown chapter />
                         </div>
                     </div>
@@ -49,8 +49,8 @@
             </div>        
             <div v-else>
                 <div style="clear:both">
-                    <div class="columns">
-                        <div class="column is-full-width">
+                    <div class="columns is-mobile is-multiline">
+                        <div class="column is-full">
                             No chapters published yet.
                         </div>
                     </div>
@@ -62,6 +62,8 @@
 </template>
 
 <script>
+import VueBreakpointMixin from 'vue-breakpoint-mixin';
+
 import { comicsStore } from "@/store/comics";
 import { chaptersStore } from "@/store/chapters";
 
@@ -69,6 +71,7 @@ import ComicChapter from './../components/ComicChapter.vue';
 import SortDropdown from './../components/SortDropdown.vue';
 export default {
   name: 'Series',
+  mixins: [VueBreakpointMixin],
   data() {
     return {
         comic: {},
@@ -126,5 +129,49 @@ export default {
     height: 350px;
     object-fit: cover;
     border-radius: 15px;
+}
+
+.series-sort {
+    float: right;
+    text-align: right
+}
+
+.series-comics-header {
+    float:left;
+    padding:10px 0;
+}
+
+.series-comics-header-buttons {
+    float:left;
+    padding: 15px;
+}
+
+@media all and (max-width: 768px) {
+    .series {
+        text-align: left;
+    }
+
+    .subtitle {
+        margin-bottom: 12px;
+    }
+
+    .series-comics-header {
+        float: initial;
+        width: 100%;
+        padding: 10px 30px;
+    }
+
+    .series-comics-header-buttons {
+        float: initial;
+        width: 100%;
+    }
+
+    .series-sort {
+        float: initial;
+        text-align: center;
+        padding: 50px 0;
+        width: 100%;
+    }
+
 }
 </style>

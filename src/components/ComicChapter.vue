@@ -1,16 +1,15 @@
 <template>
     <div class="comic-chapter" :class="{ 'no-hover': isAuthor }" @click="viewChapter">
-        <div class="columns is-multiline">
-            <div class="column is-3">
+        <div class="columns is-mobile is-multiline">
+            <div class="column is-full comic-chapter-text">
                 <img class="comic-chapter-image" :src="require( `@/assets/chapters/${chapter.image}`)" />
-            </div>
-            <div class="column is-9 comic-chapter-text" style="float:left">
-                <div style="float:left">
+
+                <div class="comic-chapter-text-stats">
                     <div class="comic-chapter-text-title">{{ chapter.name }}</div>
                     <div class="comic-chapter-text-publish">Published {{ chapter.createdDate }}</div>
                     <div class="comic-chapter-text-likes">{{ chapter.likes }} likes, {{ chapter.views }} Views</div>
                 </div>
-                <div style="text-align:right;float:right" v-if="isAuthor">
+                <div v-if="isAuthor" class="comic-chapter-text-buttons">
                     <b-button size="is-small" type="is-primary" class="px-4 mr-3" icon-left="fa-magnifying-glass" outlined>View</b-button>
                     <b-button size="is-small" type="is-primary" class="px-4 mr-3" icon-left="fa-pen" outlined>Edit</b-button>
                     <b-button size="is-small" type="is-primary" class="px-4" icon-left="fa-trash" outlined>Delete</b-button>
@@ -57,19 +56,29 @@ export default {
 }
 
 .comic-chapter-image {
-    width: 80%;
+    width: 200px;
     height: 200px;
     object-fit: cover;
     border-radius: 15px;
+    margin: 20px 15px;
+    float: left;
 }
 
 .comic-chapter-text {
     margin: 25px 0;
 }
 
+.comic-chapter-text-stats {
+    padding: 50px 20px;
+}
+
 .comic-chapter-text-title {
     font-size: 26px;
     padding-bottom: 5px;
+}
+
+.comic-chapter-text-stats {
+    float: left;
 }
 
 .comic-chapter-text-publish,
@@ -82,6 +91,39 @@ export default {
 
 .comic-chapter-text-tw {
     font-style: italic;
+}
+
+.comic-chapter-text-buttons {
+    text-align:right;
+    float:right;
+}
+
+@media all and (max-width: 768px) {
+    .comic-chapter {
+        padding: 5px 0;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        text-align: left;
+    }
+
+    .comic-chapter-image {
+        width: 65px;
+        height: 65px;
+        margin: 20px 15px;
+        float: left;
+    }
+
+    .comic-chapter-text {
+        margin: 5px 0;
+    }
+
+    .comic-chapter-text-stats div {
+        font-size: 16px;
+    }
+
+    .comic-chapter-text-stats {
+        padding: 15px 0;
+    }
 }
 </style>
   

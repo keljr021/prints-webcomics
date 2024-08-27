@@ -1,11 +1,11 @@
 <template>
   <div class="view-author">
     <div class="view-author-info container">
-        <div class="columns fixed-column">
-            <div class="column is-3 px-4">
+        <div class="columns is-mobile is-multiline">
+            <div class="column is-full-mobile is-3-desktop px-4 view-author-info-image">
                 <img :src="require( `@/assets/accounts/${ author.account.avatar }`)" />
             </div>
-            <div class="column is-9 px-4">
+            <div class="column is-full-mobile is-9-desktop px-4">
                 <div class="view-author-info-name headline">{{ author.account.name }}</div>
                 <div class="view-author-info-text body py-4">
                     <p>{{ author.description }}</p>
@@ -16,8 +16,8 @@
     <div class="view-author-comics">
         <div class="container">
             <div class="subtitle py-4">Comics</div>
-            <div class="columns fixed-column" v-if="comics.length > 0">
-                <div  v-for="comic in comics" :key="comic.key" class="column is-3">
+            <div class="columns is-mobile is-multiline fixed-column" v-if="comics.length > 0">
+                <div  v-for="comic in comics" :key="comic.key" class="column is-half-mobile is-3-desktop">
                     <comic-item :comic="comic" />
                 </div>
             </div>
@@ -61,5 +61,16 @@ export default {
 .body {
     font-size: 20px;
     line-height: 150%;
+}
+
+@media all and (max-width: 768px) {
+  .view-author-info-image {
+    text-align: center;
+  }
+  .view-author-info-image img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
 }
 </style>
