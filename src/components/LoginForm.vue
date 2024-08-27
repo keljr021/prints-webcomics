@@ -100,4 +100,10 @@ export default {
 .forgot-username:hover {
     text-decoration: underline;
 }
+
+@media all and (max-width: 768px) {
+  .login { 
+    width: 100%;
+  }
+}
 </style>
