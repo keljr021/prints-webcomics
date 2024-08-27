@@ -21,13 +21,16 @@
       <div class="column is-full-mobile is-one-quarter-desktop">
         <search-sub-menu totalAuthors="6" totalComics="14" />
       </div>
-      <div v-if="isDesktop || isTablet" class="column is-full-mobile is-three-fourths-desktop fixed-box">
-        <search-item />
-        <search-item />
-        <search-item />
-        <search-item />
+
+      <div v-if="isDesktop || isTablet" class="column is-three-quarters-desktop">
+        <div class="columns is-mobile is-multiline">
+          <div class="column is-full" v-for="item in searchList" :key="item.key">
+            <search-item :comic="item" />
+          </div>
+        </div>
       </div>
-      <div v-else class="column is-full-mobile is-three-fourths-desktop">
+
+      <div v-else class="column is-full">
         <div class="columns is-mobile is-multiline">
           <div class="column is-half" v-for="item in searchList" :key="item.key">
             <comic-item :comic="item" />
@@ -72,9 +75,7 @@ export default {
 </script>
 
 <style>
-@media all and (max-width: 768px) {
-  .search-results {
-    font-size: 24px;
-  }
+.search-results {
+  font-size: 24px;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div class="search-item" @click="handleClick()">
-        <div class="columns">
-            <div class="column">
+        <div class="columns is-desktop is-multiline">
+            <div class="column is-full">
                 <div class="search-item-image">
                     <img :src="require( `@/assets/comics/${comic.cover}`)" />
                 </div>
@@ -30,6 +30,7 @@ export default {
 </script>
 <style scoped>
 .search-item {
+    width: 100%;
     transition: background ease-in-out 0.3s;
     padding: 20px 10px;
     cursor: pointer;
