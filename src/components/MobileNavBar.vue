@@ -56,6 +56,7 @@ export default {
             this.showMenuForm = !this.showMenuForm;
         },
         handleSearch() {
+            this.toggleMenu();
             return this.$router.push({ name: 'search', params: { query: this.searchQuery } });
         },
         openLink(input) {
