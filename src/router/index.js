@@ -130,6 +130,10 @@ const routes = [
 ]
 
 const router = new VueRouter({
+  mode: 'hash',
+  scrollBehavior: () => {
+    window.scrollTo(0, 0);
+  },
   routes
 });
 

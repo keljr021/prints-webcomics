@@ -45,7 +45,7 @@
                 <div class="column is-9">
                     <div class="view-comments-header-text">
                         Comments
-                        <b-button type="is-primary" class="pa-2" @click="toggleCommentModal()" outlined>
+                        <b-button type="is-primary" class="mx-2 my-1" @click="toggleCommentModal()" outlined>
                             Add <span v-if="!isMobile">Comment</span>
                         </b-button>
                     </div>

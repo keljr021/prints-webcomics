@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 
 import Buefy from 'buefy'
-import 'buefy/dist/buefy.css'
+import './assets/overrides.scss'
 import router from './router'
 
 import { library } from '@fortawesome/fontawesome-svg-core';

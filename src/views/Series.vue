@@ -4,12 +4,12 @@
         <div class="columns is-mobile is-multiline">
             <div class="column is-full-mobile is-three-quarters-desktop series-info px-4">
                 <div class="series-info-name headline">{{ comic.title }}</div>
-                <div class="series-info-genre" style="text-transform:capitalize;padding: 20px 10px 0;">
+                <div class="series-info-genre" style="text-transform:capitalize;padding: 20px 0;">
                     <template v-for="(genre, i) in comic.genres">
                         {{  genre + (i < comic.genres.length - 1 ? ', ' : '') }}
                     </template>
                 </div>
-                <div class="series-info-author">{{ comic.author.name }}</div>
+                <div class="series-info-author">{{ comic.author.account.name }}</div>
                 <div class="series-info-text">
                     <p>{{ comic.synopsis }}</p>
                 </div>

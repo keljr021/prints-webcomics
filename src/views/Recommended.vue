@@ -16,7 +16,7 @@
     </div>
 
     <div class="columns is-mobile is-multiline">
-      <div class="column is-half-mobile is-third-desktop" v-for="item in comics" :key="item.key">
+      <div class="column is-half-mobile is-3-desktop" v-for="item in comics" :key="item.key">
         <comic-item :comic="item" />
       </div>
     </div>

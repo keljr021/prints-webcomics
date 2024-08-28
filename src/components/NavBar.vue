@@ -68,7 +68,6 @@ export default {
       user: {}
     };
   },
-  props: {},
   methods: {
     handleSearch() {
       return this.$router.push({ name: 'search', params: { query: this.searchQuery } });
@@ -76,10 +75,10 @@ export default {
     async handleSelectClick() {
       if (this.accountValue === '/') {
         await this.userLoggedOut();
-        return this.$router.push({ path: '/' });
+        return await this.$router.push({ path: '/' });
       }
       
-        return this.$router.push({ name: this.accountValue });
+        return await this.$router.push({ name: this.accountValue });
     },
     toggleLogin() {
       this.showLoginForm = !this.showLoginForm
@@ -99,6 +98,8 @@ export default {
       this.userIsLoggedIn = true;
       this.user = accountsStore.user;
     }
+
+    this.setFixedStyle()
   },
   components: {
     LoginForm,
@@ -113,6 +114,10 @@ export default {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   position: fixed;
   width: 100%;
+}
+
+.navbar.no-fixed {
+  position: relative;
 }
 
 .navbar a {

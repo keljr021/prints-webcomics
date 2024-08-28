@@ -6,9 +6,9 @@
         <p>These series below are recommended to you based on your reading history.</p>
       </template>
     </view-header>
-    <div v-if="isDesktop || isTablet">
+    <div v-if="isDesktop">
       <div v-for="(comic, i) in comics" :key="i">
-        <search-item v-if="isMobile" :comic="comic"/>
+        <search-item :comic="comic"/>
       </div>
     </div>
     <div v-else>

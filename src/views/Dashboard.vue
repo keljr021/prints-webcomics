@@ -9,7 +9,7 @@
     </div>
 
     <div class="dashboard-quick" v-if="isDesktop || isTablet">
-      <div class="columns is-multiline">
+      <div class="columns is-mobile is-multiline">
         <div class="column is-4">
           <div class="dashboard-quick-item">
             <div class="dashboard-quick-item-icon"><b-icon size="is-large" icon="fa-eye"></b-icon></div>
@@ -99,16 +99,14 @@ export default {
 
 <style>
 .dashboard-quick {
+  width: 100%;
   padding-bottom: 25px;
-  display: flex;
-  justify-content: center;
 }
 
 .dashboard-quick-item {
-  flex: 1;
   align-items: center;
   height: 180px;
-  padding: 50px 0;
+  padding: 50px;
   margin: 0 10px;
   background: #eee;
   text-align: center;

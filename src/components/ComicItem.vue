@@ -37,6 +37,7 @@ export default {
 }
 
 .comic-item-image img {
+    width: 200px;
     height: 250px;
     border-radius: 15px;
     object-fit: cover;
