@@ -117,7 +117,6 @@ export default {
         for (let key in this.account) {
           if (Object.hasOwn(this.account, key)) {
             this[key] = this.account[key];
-            console.log(key, ' is set to: ', this.account[key]);
           }
         }
       }

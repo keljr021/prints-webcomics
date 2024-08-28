@@ -40,8 +40,6 @@ export default {
   },
   async created() {
     this.favioriteComicsList = comicsStore.getRecommendedComics();
-
-    console.log('comics list: ', this.favioriteComicsList);
   },
   components: {
     ViewHeader,

@@ -27,7 +27,6 @@ export default {
     },
     methods: {
         toggleModal() {
-            console.log('toggled triggered from AddComment...');
             this.$emit('toggle');
         }
     },

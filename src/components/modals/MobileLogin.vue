@@ -15,7 +15,7 @@
                     </b-field>
 
                     <div class="buttons">
-                        <b-button @click="toggleForgotModal()" type="is-text" class="forgot-username">Forgot Username/Password</b-button>
+                        <b-button @click="$emit('forgot')" type="is-text" class="forgot-username">Forgot Username/Password</b-button>
                     </div>
                 </div>
             </div>
@@ -25,35 +25,40 @@
             <b-button @click="handleSubmit()" type="is-primary" outlined>Submit</b-button>
         </template>
 
-        <forgot-username :showModal="showForgotModal" @toggle="toggleForgotModal()" @submit="submitForgotModal()"/>
-        <confirm-forgot-username :showModal="showConfirmForgotModal" @toggle="toggleConfirmForgotModal()" @submit="submitConfirmForgotModal()" />
     </overlay-modal>
 
 </template>
   
 <script>
+import { accountsStore } from '@/store/accounts';
 import OverlayModal from '@/components/OverlayModal.vue';
-import ForgotUsername from './ForgotUsername.vue'
-import ConfirmForgotUsername from './ConfirmForgotUsername.vue'
 export default {
     name: 'MobileLogin',
+    data() {
+        return {
+            username: '',
+            password: '',
+        };
+    },
     props: {
-        showModal: Boolean
+        showModal: Boolean,
     },
     methods: {
-        async submitForgotModal() {
-            await this.toggleForgotModal();
-            await this.toggleConfirmForgotModal();
+        async handleSubmit() {
+            let isLoggedIn = await accountsStore.login(this.username, this.password);
+            if (isLoggedIn) {
+            if (this.$route.name !== 'dashboard')
+                this.$router.push({ name: 'dashboard' });
+            }
+
+            this.$emit('login');
         },
-        async submitConfirmForgotModal() {
-            await this.toggleConfirmForgotModal();
-            await this.handleCancel();
+        toggleModal() {
+            this.$emit('toggle');
         }
     },
     components: { 
-        OverlayModal,
-        ForgotUsername,
-        ConfirmForgotUsername
+        OverlayModal
     }
 }
 </script>

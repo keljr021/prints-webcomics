@@ -23,18 +23,13 @@ const useComicsStore = defineStore('comics', {
                 let comicItem = Object.assign(comic, { author: author, chapters: chapters });
                 comicArray.push(comicItem);    
             });
-            console.log('fetchAllComics: ', comicArray);
             this.comicsList = comicArray;
         },
         getComic(inputComicId) {
-            console.log('attempting to find id: ', inputComicId);
-
             let foundComic = null;
             this.allComics.forEach(comic => {
                 if (comic.id.toString() === inputComicId.toString()) foundComic = comic;
             });
-
-            console.log('Found comic: ', foundComic);
 
             return foundComic;
         },

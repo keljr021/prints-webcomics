@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import VueBreakpointMixin from 'vue-breakpoint-mixin';
+
 import { comicsStore } from "@/store/comics";
 
 import ViewHeader from './../components/ViewHeader.vue';
@@ -29,6 +31,7 @@ import SearchItem from './../components/SearchItem.vue';
 import ComicItem from './../components/ComicItem.vue';
 export default {
   name: 'History',
+  mixins: [ VueBreakpointMixin ],
   data() {
     return {
       comics: []

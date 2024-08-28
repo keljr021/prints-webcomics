@@ -85,7 +85,6 @@ export default {
     }
   },
   async mounted() {
-    console.log('found id: ', this.$route.params.seriesId );
     this.comic = await comicsStore.getComic(this.$route.params.seriesId);
 
     await chaptersStore.fetchAllChapters();

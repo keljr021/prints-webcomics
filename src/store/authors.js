@@ -23,8 +23,6 @@ const useAuthorsStore = defineStore('authors', {
             for (let i = 0; i < list.length; i++) {
                 list[i].account = this.getAuthorAccountData(list[i].accountId);
             }
-            
-            console.log('authors list: ', list);
             this.authorsList = list;
         },
         getAuthor(id) {

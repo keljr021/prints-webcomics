@@ -110,6 +110,7 @@ export default {
 }
 
 .overlay-modal-card-content {
+  position: relative;
   padding: 25px;
   max-height: 90%;
   overflow: hidden auto;
@@ -118,5 +119,25 @@ export default {
 .overlay-modal-card-footer{
   padding: 20px 0;
   text-align: center;
+}
+
+@media all and (max-width: 768px) {
+  .overlay-modal-card-header-text {
+    width: calc(75% - 10px);
+    padding: 5px;
+  }
+
+  .button.close {
+    padding: 5px;
+  }
+  
+  .overlay-modal-card {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .overlay-modal-card-footer {
+    width: 100%;
+  }
 }
 </style>

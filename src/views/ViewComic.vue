@@ -100,13 +100,10 @@ export default {
   methods: {
     toggleCommentModal() {
         this.showCommentModal = !this.showCommentModal;
-        console.log('set comment modal to: ', this.showCommentModal);
     }
   },
   async created() {
     let chapterId = this.$route.params.chapterId;
-
-    console.log('chapter id: ', chapterId);
 
     if (chapterId !== '') {
         await chaptersStore.fetchAllChapters();

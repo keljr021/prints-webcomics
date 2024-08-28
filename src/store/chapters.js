@@ -12,11 +12,9 @@ const useChaptersStore = defineStore('chapters', {
     },
     actions: {
         fetchAllChapters() {            
-            console.log('chapters data: ', chaptersData);
             this.chapters = chaptersData.data.chapters;
         },
         fetchChaptersByComic(id) {
-            console.log('attempting to find chapter for comic id: ', id);
             let foundChapters = [];
 
             this.chaptersList.forEach(chapter => {
@@ -31,11 +29,9 @@ const useChaptersStore = defineStore('chapters', {
             let targetId = id.toString();
             let foundChapter = null;
 
-            console.log('attempting to get chapter using id of: ', id);
             this.chaptersList.forEach(chapter => {
                 let chapterId = (chapter.id).toString();
                 if (chapterId === targetId) {
-                    console.log(' --target found: ', chapter);
                     foundChapter = chapter;
                 }
             });

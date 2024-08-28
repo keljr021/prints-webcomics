@@ -14,11 +14,9 @@ const useCommentsStore = defineStore('comments', {
     },
     actions: {
         fetchAllComments() {            
-            console.log('comments data: ', commentsData);
             this.allComments = commentsData.data.comments;
         },
         getCommentsForComic(id) {
-            console.log('attempting to find comments for comic id: ', id);
             let foundComments = [];
 
             this.allComments.forEach(comment => {
@@ -28,8 +26,6 @@ const useCommentsStore = defineStore('comments', {
                     foundComments.push(foundCommentItem);
                 }
             });
-
-            console.log('found comments: ', foundComments)
 
             return foundComments;
         }

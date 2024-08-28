@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="isDesktop || isTablet">
+    <div v-if="isDesktop">
       <b-navbar class="navbar">
           <template #brand>
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
@@ -17,7 +17,7 @@
 
           <template #end>
               <b-navbar-item tag="div">
-                <b-input class="py-2-mobile px-4-desktop float-left" placeholder="Search" v-model="searchQuery" @keyup.native.enter="handleSearch" />
+                <b-input class="py-2 px-4 float-left" placeholder="Search" v-model="searchQuery" @keyup.native.enter="handleSearch" />
                 <b-field>
                   <!-- Logged out user-->
                   <div>
