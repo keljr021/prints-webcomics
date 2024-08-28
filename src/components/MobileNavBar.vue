@@ -21,7 +21,7 @@
         </div>
 
         <div v-if="showLoggedInForm" class="mobile-nav-display-menu">
-            <div class="mobile-nav-display-menu-item" @click="openLink('/dashboard')" to="/">Dashboard</div>
+            <div class="mobile-nav-display-menu-item" @click="openLink('/create/dashboard')">Dashboard</div>
             <div class="mobile-nav-display-menu-item" @click="openLink('/favorites')">Favorites</div>
             <div class="mobile-nav-display-menu-item" @click="openLink('/history')">History</div>
             <div class="mobile-nav-display-menu-item" @click="openLink('/account')">Account</div>

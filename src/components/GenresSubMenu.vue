@@ -9,7 +9,7 @@
         </div>
         <div v-else style="text-align: center;">
             <b-field size="is-medium">
-                <b-select class="sort" placeholder="Genre">
+                <b-select class="sort" placeholder="Genre" @input="$router.push({ path: '/genres/' + item.query })">
                     <option v-for="genreItem in subMenu" :value="genreItem.query" :key="genreItem.key" :selected="genre === genreItem.query">{{ genreItem.name }}</option>
                 </b-select>
             </b-field>
